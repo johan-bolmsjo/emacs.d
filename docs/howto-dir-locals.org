@@ -1,0 +1,19 @@
+#+title: HOWTO: Directory Local Variables
+#+html_head: <link rel="stylesheet" type="text/css" href="https://bitmaster.se/css/org-mini.css" />
+#+options: toc:2 num:2 H:4 author:nil timestamp:t ^:nil
+
+* Example .dir-locals.el file
+
+Example ~.dir-locals.el~ file that overrides the C mode settings for a directory
+and its child directories.
+
+#+begin_src elisp
+  ((c-mode . ((c-file-style . "linux")
+              (indent-tabs-mode . t)
+              (show-trailing-whitespace . t)
+              (c-basic-offset . 8)
+              (tab-width . 8)
+              )))
+#+end_src
+
+-----

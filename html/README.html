@@ -1,0 +1,974 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-10-07 00:09 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Johan Bolmsjö's GNU Emacs Configuration</title>
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="https://bitmaster.se/css/org-mini.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Johan Bolmsjö's GNU Emacs Configuration</h1>
+<p>
+Installation instruction:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">git clone github.com/johan-bolmsjo/emacs.d ~/.emacs.d
+</pre>
+</div>
+
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#init-file">1. The Init File</a>
+<ul>
+<li><a href="#orgcf4bcf7">1.1. Overview</a></li>
+<li><a href="#org06571a1">1.2. Keybindings</a></li>
+<li><a href="#org19e8de7">1.3. User Facing Functions</a></li>
+<li><a href="#orga309fcc">1.4. Configuration Adaptations</a></li>
+<li><a href="#org9c20098">1.5. Quick Guides</a></li>
+</ul>
+</li>
+<li><a href="#org0bb867c">2. External Tools</a>
+<ul>
+<li><a href="#ext-indexed-grep">2.1. Indexed Grep</a></li>
+<li><a href="#org7130924">2.2. Shell Script Mode</a></li>
+<li><a href="#org0a01e22">2.3. Go Programming Language Mode</a></li>
+<li><a href="#orge49e14e">2.4. OCaml Programming Language Mode</a></li>
+<li><a href="#orge9313ee">2.5. Python Programming Language Mode</a></li>
+<li><a href="#orgb73e97b">2.6. Zig Programming Language Mode</a></li>
+</ul>
+</li>
+<li><a href="#orgb7c9c5d">3. Compiling GNU Emacs</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-init-file" class="outline-2">
+<h2 id="init-file"><span class="section-number-2">1.</span> The Init File</h2>
+<div class="outline-text-2" id="text-init-file">
+<p>
+Requires GNU Emacs version 28.1 or greater.
+</p>
+
+<p>
+The main init file is <code>init.el</code>.
+This file loads packages that require external programs to function properly.
+See chapter <a href="#org0bb867c">2</a> for how to install required programs for specific packages.
+</p>
+</div>
+
+<div id="outline-container-orgcf4bcf7" class="outline-3">
+<h3 id="orgcf4bcf7"><span class="section-number-3">1.1.</span> Overview</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Overview of enabled packages.
+</p>
+</div>
+
+<div id="outline-container-org22ed97e" class="outline-4">
+<h4 id="org22ed97e">Package Management</h4>
+<div class="outline-text-4" id="text-org22ed97e">
+<p>
+Emacs packages are installed using the <a href="https://github.com/radian-software/straight.el">straight</a> package manager.
+The advantage with this package manager is that it keeps the complete upstream Git repositories available together with lock files to pin down exact versions.
+This means that the Emacs configuration is reproducible.
+It's also possible to easily change package versions to resolve incompatibilities when the configuration is
+copied between hosts with different Emacs versions.
+</p>
+
+<p>
+The version lock file <code>~/.emacs.d/straight/versions/default.el</code> is versioned by this Git repository.
+</p>
+
+<p>
+The actual upstream package source code is not managed by this Git repository.
+They are downloaded by Emacs when started.
+For local backup purposes it's possible to just archive the whole <code>~/.emacs.d</code> directory.
+It's transferable between machines.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf3724b1" class="outline-4">
+<h4 id="orgf3724b1">Documentation Modes</h4>
+<div class="outline-text-4" id="text-orgf3724b1">
+<ul class="org-ul">
+<li><a href="https://orgmode.org/">Org Mode</a></li>
+<li><a href="https://daringfireball.net/projects/markdown/">Markdown</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org22a6e31" class="outline-4">
+<h4 id="org22a6e31">Programming Languages Modes</h4>
+<div class="outline-text-4" id="text-org22a6e31">
+<p>
+All programming language modes except elisp use eglot to provide code navigation and completion support.
+</p>
+
+<ul class="org-ul">
+<li>C/C++ (builtin)</li>
+<li><a href="https://www.gnu.org/software/emacs/manual/html_node/elisp/index.html">elisp</a> (builtin)</li>
+<li><a href="https://go.dev/">Go</a></li>
+<li><a href="https://ocaml.org/">OCaml</a> (externally managed)</li>
+<li><a href="https://www.python.org/">Python</a> (builtin)</li>
+<li><a href="https://ziglang.org/">Zig</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf74a039" class="outline-4">
+<h4 id="orgf74a039">Miscellaneous Support Functions</h4>
+<div class="outline-text-4" id="text-orgf74a039">
+<ul class="org-ul">
+<li>Auto complete through auto-complete or company modes.</li>
+<li>Compiler diagnostics through flycheck or flymake modes.</li>
+<li>Extraneous whitespace indications.</li>
+<li>GDB support through gud mode.</li>
+<li>Git interface through magit.</li>
+<li>Improved "find file" completions through ido mode.</li>
+<li>Project like IDE support using treemacs, project.el and eglot modes.</li>
+<li>Templated auto complete assisted snippets through yasnippet mode.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org06571a1" class="outline-3">
+<h3 id="org06571a1"><span class="section-number-3">1.2.</span> Keybindings</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Keybindings that are specific to this configuration file.
+</p>
+</div>
+
+<div id="outline-container-org216ff94" class="outline-4">
+<h4 id="org216ff94">User Keybindings</h4>
+<div class="outline-text-4" id="text-org216ff94">
+<p>
+See <a href="https://www.gnu.org/software/emacs/manual/html_node/elisp/Key-Binding-Conventions.html">https://www.gnu.org/software/emacs/manual/html_node/elisp/Key-Binding-Conventions.html</a> for user keybinding conventions.
+Also <a href="http://xahlee.info/emacs/emacs/keyboard_shortcuts.html">http://xahlee.info/emacs/emacs/keyboard_shortcuts.html</a> for practical overrides.
+</p>
+
+<dl class="org-dl">
+<dt><code>C-c a</code></dt><dd><code>align-current</code></dd>
+<dt><code>C-c c</code></dt><dd><code>compile</code></dd>
+<dt><code>C-c g</code></dt><dd><code>find-grep</code></dd>
+<dt><code>C-c i</code></dt><dd><code>ispell-region</code></dd>
+<dt><code>C-c j</code></dt><dd><code>goto-line</code> (kept for muscle memory, there is <code>M-g g</code> for goto-line)</dd>
+<dt><code>C-c k</code></dt><dd>auto complete (in progamming modes)</dd>
+<dt><code>C-c o</code></dt><dd><code>ff-find-other-file</code> (in c-mode-common)</dd>
+<dt><code>C-c s</code></dt><dd><code>sort-lines</code></dd>
+<dt><code>C-c t</code></dt><dd>toggle treemacs pane</dd>
+</dl>
+</div>
+
+<div id="outline-container-orgf391360" class="outline-5">
+<h5 id="orgf391360">Incremental Search</h5>
+<div class="outline-text-5" id="text-orgf391360">
+<dl class="org-dl">
+<dt><code>C-c k</code></dt><dd>isearch mark and exit</dd>
+<dt><code>C-c o</code></dt><dd><code>isearch-occur</code></dd>
+<dt><code>C-c SPC</code></dt><dd><code>isearch-toggle-lax-whitespace</code></dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-orge8deea8" class="outline-5">
+<h5 id="orge8deea8">Navigation</h5>
+<div class="outline-text-5" id="text-orge8deea8">
+<p>
+Even though these functions are called <code>error</code>, they work in many contexts. E.g. moving through compilation errors, grep results, xref references.
+</p>
+
+<dl class="org-dl">
+<dt><code>F9</code></dt><dd><code>next-error</code></dd>
+<dt><code>F10</code></dt><dd><code>prev-error</code> (overrides global menu popup)</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-orgfb097af" class="outline-5">
+<h5 id="orgfb097af">Window Management</h5>
+<div class="outline-text-5" id="text-orgfb097af">
+<p>
+Commands useful to prevent Emacs from splitting frames and replacing buffers in windows when doing certain tasks.
+</p>
+
+<dl class="org-dl">
+<dt><code>C-c F</code></dt><dd>Lock current frame for automatic splitting.</dd>
+<dt><code>C-c f</code></dt><dd>Unlock current frame for automatic splitting.</dd>
+<dt><code>C-c W</code></dt><dd>Lock current window to its current buffer.</dd>
+<dt><code>C-c w</code></dt><dd>Unlock current window from its current buffer.</dd>
+</dl>
+
+<p>
+See <a href="https://smythp.com/emacs_buffers/">https://smythp.com/emacs_buffers/</a> for an explanation of the frames, windows and buffers terminology.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org947b39b" class="outline-5">
+<h5 id="org947b39b">Org Mode</h5>
+<div class="outline-text-5" id="text-org947b39b">
+<dl class="org-dl">
+<dt><code>C-c n</code></dt><dd><code>org-capture</code> (take quick note)</dd>
+<dt><code>C-c p</code></dt><dd><code>org-agenda</code> (planning)</dd>
+<dt><code>C-c L</code></dt><dd><code>org-store-link</code> (works in other modes to store links)</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-orga5b8ea4" class="outline-5">
+<h5 id="orga5b8ea4">Eglot Mode</h5>
+<div class="outline-text-5" id="text-orga5b8ea4">
+<p>
+Note that eglot relies on the keybindings of other packages for most functions.
+E.g. xref for navigation and eldoc for documentation.
+</p>
+
+<dl class="org-dl">
+<dt><code>C-c e a</code></dt><dd><code>eglot-code-actions</code></dd>
+<dt><code>C-c e r</code></dt><dd><code>eglot-rename</code></dd>
+<dt><code>C-c e i</code></dt><dd><code>eglot-find-implementation</code></dd>
+<dt><code>C-c e t</code></dt><dd><code>eglot-find-typeDefinition</code></dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-org66ad9a3" class="outline-5">
+<h5 id="org66ad9a3">Flymake Mode</h5>
+<div class="outline-text-5" id="text-org66ad9a3">
+<p>
+Aligned with flycheck counterparts.
+</p>
+
+<dl class="org-dl">
+<dt><code>C-c ! l</code></dt><dd><code>flymake-show-buffer-diagnostics</code></dd>
+<dt><code>C-c ! n</code></dt><dd><code>flymake-goto-next-error</code></dd>
+<dt><code>C-c ! p</code></dt><dd><code>flymake-goto-prev-error</code></dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-org36ab8cd" class="outline-5">
+<h5 id="org36ab8cd">GDB (debugger)</h5>
+<div class="outline-text-5" id="text-org36ab8cd">
+<dl class="org-dl">
+<dt><code>F5</code></dt><dd>Stop</dd>
+<dt><code>F6</code></dt><dd>Continue</dd>
+<dt><code>F7</code></dt><dd>Step</dd>
+<dt><code>S-F7</code></dt><dd>Next (does not work in PuTTY)</dd>
+<dt><code>F8</code></dt><dd>Finish (return to caller)</dd>
+</dl>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1fe9072" class="outline-4">
+<h4 id="org1fe9072">Overridden Keybindings</h4>
+<div class="outline-text-4" id="text-org1fe9072">
+<p>
+Modifies standard Emacs behavior or use non-user prefix.
+</p>
+
+<dl class="org-dl">
+<dt><code>F10</code></dt><dd><code>prev-error</code> (overrides global menu popup)</dd>
+<dt><code>M-n</code></dt><dd><code>scroll-up-command</code></dd>
+<dt><code>M-p</code></dt><dd><code>scroll-down-command</code></dd>
+<dt><code>M-f</code></dt><dd><code>forward-symbol</code> (replaces forward-word)</dd>
+<dt><code>M-b</code></dt><dd><code>my/backward-symbol</code> (replaces backward-word)</dd>
+<dt><code>M-C-f</code></dt><dd><code>forward-paragraph</code> (replaces forward-sexp)</dd>
+<dt><code>M-C-b</code></dt><dd><code>backward-paragraph</code> (replaces backward-sexp)</dd>
+<dt><code>C-x k</code></dt><dd><code>my/fast-kill-buffer</code> (replaces kill-buffer)</dd>
+<dt><code>C-x C-b</code></dt><dd><code>bs-show</code> (replaces list-buffers)</dd>
+</dl>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org19e8de7" class="outline-3">
+<h3 id="org19e8de7"><span class="section-number-3">1.3.</span> User Facing Functions</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+Convenience functions defined by the configuration.
+</p>
+
+<dl class="org-dl">
+<dt><code>reload-file</code></dt><dd><code>revert-buffer</code> without confirmation (no keybinding)</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-orga309fcc" class="outline-3">
+<h3 id="orga309fcc"><span class="section-number-3">1.4.</span> Configuration Adaptations</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+Configuration adaptations that may be desired when applying this Emacs configuration in a new environment.
+</p>
+</div>
+
+<div id="outline-container-org6e1cfd9" class="outline-4">
+<h4 id="org6e1cfd9">Shell Environment&#xa0;&#xa0;&#xa0;<span class="tag"><span class="optional">optional</span></span></h4>
+<div class="outline-text-4" id="text-org6e1cfd9">
+<p>
+You may want to source <code>~/.emacs.d/etc/bashrc</code> from your <code>~/.bashrc</code> file.
+Read the small script to find its purpose.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">if [ -f ~/.emacs.d/etc/bashrc ]; then
+    . ~/.emacs.d/etc/bashrc
+fi
+</pre>
+</div>
+
+<p>
+You may also want to source <code>~/.emacs.d/etc/profile</code> from your <code>~/.profile</code> or <code>~/.bash_profile</code> to add <code>~/.emacs.d/bin</code> to the program search path.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">if [ -f ~/.emacs.d/etc/profile ]; then
+    . ~/.emacs.d/etc/profile
+fi
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb0a4a0f" class="outline-4">
+<h4 id="orgb0a4a0f">Fonts&#xa0;&#xa0;&#xa0;<span class="tag"><span class="optional">optional</span></span></h4>
+<div class="outline-text-4" id="text-orgb0a4a0f">
+<p>
+A personal choice, my current favorite monospaced fonts can be found in the <code>~/.emacs.d/fonts/gofont</code> directory.
+</p>
+
+<p>
+Installation (Linux):
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">mkdir -p ~/.fonts
+cp ~/.emacs.d/fonts/gofont/*.ttf ~/.fonts
+</pre>
+</div>
+
+<p>
+Update the <i>Fonts</i> section in <code>~/.emacs.d/init.el</code> with your preferred fonts.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbd31149" class="outline-4">
+<h4 id="orgbd31149">Indexed Grep</h4>
+<div class="outline-text-4" id="text-orgbd31149">
+<p>
+I've opted to replace the <code>grep-find</code> command with a wrapper script that invokes a grep program based on an index.
+This speeds up grep operations in large code bases massively but it may not be to your liking.
+Just delete the entire section "Indexed grep search tool" from <code>~/.emacs.d/init.el</code> to restore the original behavior.
+</p>
+
+<p>
+See section <a href="#ext-indexed-grep">2.1</a> for details.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org98c82c3" class="outline-4">
+<h4 id="org98c82c3">Custom Variables</h4>
+<div class="outline-text-4" id="text-org98c82c3">
+<p>
+Variables that may need customization (such as file paths) are at the end of <code>~/.emacs.d/init.el</code>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9c20098" class="outline-3">
+<h3 id="org9c20098"><span class="section-number-3">1.5.</span> Quick Guides</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+Scattered quick guides for my own memory.
+It could do with more information for Emacs neophytes.
+</p>
+</div>
+
+<div id="outline-container-org045219c" class="outline-4">
+<h4 id="org045219c">Navigation</h4>
+<div class="outline-text-4" id="text-org045219c">
+<p>
+Xref is used by many Emacs modes for navigation, including Eglot for navigating source code.
+</p>
+
+<dl class="org-dl">
+<dt><code>M-,</code></dt><dd>Go back</dd>
+<dt><code>M-.</code></dt><dd>Find thing</dd>
+<dt><code>M-?</code></dt><dd>Find references</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-org6f572b8" class="outline-4">
+<h4 id="org6f572b8">Buffer and Filename Completion</h4>
+<div class="outline-text-4" id="text-org6f572b8">
+<p>
+<a href="https://www.masteringemacs.org/article/introduction-to-ido-mode">Ido mode</a> is used for buffer and file name completions.
+There are some keybindings that are particularly useful and easily forgotten.
+</p>
+
+<dl class="org-dl">
+<dt><code>C-p</code></dt><dd>Toggles prefix matching; when it’s on the input will only match the
+beginning of a filename.</dd>
+<dt><code>C-SPC</code></dt><dd>Restricts the completion list to anything that matches the current
+input. This enables iterative reduction of matches.</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-org8345f85" class="outline-4">
+<h4 id="org8345f85">Incremental Search</h4>
+<div class="outline-text-4" id="text-org8345f85">
+<p>
+Don't forget about the occur mode when doing incremental search.
+Invoke <code>C-c o</code> to get an overview of all matches in the current document.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0b62f28" class="outline-4">
+<h4 id="org0b62f28">Magit</h4>
+<div class="outline-text-4" id="text-org0b62f28">
+<p>
+<a href="https://magit.vc">Magit</a> is a complete text-based user interface to Git.
+The magit status command is bound to <code>M-x g</code>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org53b8a6b" class="outline-4">
+<h4 id="org53b8a6b">Org Mode</h4>
+<div class="outline-text-4" id="text-org53b8a6b">
+<p>
+<a href="http://orgmode.org">Org mode</a> is a documentation and planning major mode.
+Some HOWTO notes are kept in <a href="docs/howto-org-mode.html">docs/howto-org-mode.html</a>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge96f3ee" class="outline-4">
+<h4 id="orge96f3ee">Text Templates</h4>
+<div class="outline-text-4" id="text-orge96f3ee">
+<p>
+Text template support is provided by the <a href="https://github.com/joaotavora/yasnippet">yasnippet</a> package.
+Sippets are kept under <code>~/.emacs.d/snippets/MODE/FILE</code>.
+</p>
+
+<p>
+Example org mode snippet with with one completion argument stored in file <code>~/.emacs.d/snippets/org-mode/src</code>:
+</p>
+<pre class="example">
+# -*- mode: snippet -*-
+# name: org/src
+# key: .src
+# --
+#+begin_src $1
+$0
+#+end_src
+</pre>
+
+<p>
+Templates are expanded by typing their name (<code>.src</code> in the example above) and pressing space bar.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc4797df" class="outline-4">
+<h4 id="orgc4797df">Code Completion</h4>
+<div class="outline-text-4" id="text-orgc4797df">
+<p>
+Code completion is provided by either the <a href="https://github.com/auto-complete/auto-complete">auto-complete</a> or <a href="http://company-mode.github.io">company</a> package.
+The code complete action is triggered by <code>C-c k</code>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfb5b5dc" class="outline-4">
+<h4 id="orgfb5b5dc">Diagnostics</h4>
+<div class="outline-text-4" id="text-orgfb5b5dc">
+<p>
+Diagnostics such as compiler errors are provied by either the flycheck or flymake package.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4689822" class="outline-4">
+<h4 id="org4689822">Language Server Protocol Support</h4>
+<div class="outline-text-4" id="text-org4689822">
+<p>
+<a href="https://github.com/joaotavora/eglot/blob/master/MANUAL.md">Eglot</a> works in concert with project.el to identify <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Projects.html">projects</a>.
+Only version controlled directories can become projects.
+Eglot can only analyze files that belongs to a project.
+</p>
+
+<p>
+Invoke <code>M-x p p</code> to add a project, select the <i>&#x2026; (choose a dir)</i> option.
+Tracked projects are stored in <code>~/.emacs.d/projects</code>.
+</p>
+
+<p>
+Eglot must be started manually from an opened file that belongs to a project.
+This is done by invoking <code>M-x eglot</code>.
+Eglot may ask for the language server to use if it can't find one or there are multiple choices.
+After having done this once, eglot does not prompt for other files in the same project.
+</p>
+
+<p>
+Eglot is well integrated with core Emacs packages.
+Apart from the mentioned xref it use the eldoc package to display documentation and type information.
+Invoke <code>C-h .</code> to show documentation at point.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org0bb867c" class="outline-2">
+<h2 id="org0bb867c"><span class="section-number-2">2.</span> External Tools</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Unfortunately the <a href="#init-file">Emacs init file</a> is not self contained.
+External tools are required to support many packages.
+</p>
+</div>
+
+<div id="outline-container-ext-indexed-grep" class="outline-3">
+<h3 id="ext-indexed-grep"><span class="section-number-3">2.1.</span> Indexed Grep</h3>
+<div class="outline-text-3" id="text-ext-indexed-grep">
+<p>
+The tool <a href="https://github.com/johan-bolmsjo/codesearch">codesearch</a> provides fast, indexed regexp search over large file trees.
+</p>
+
+<p>
+Install the following commands (requires Go toolchain).
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">go install github.com/johan-bolmsjo/codesearch/cmd/{cindex,csearch}@latest
+</pre>
+</div>
+
+<p>
+Note that the only integration is that the <code>grep-find</code> command has been changed to invoke <code>~/.emacs.d/bin/csearch-color</code> instead.
+</p>
+
+<p>
+The convenience scripts in <code>~/.emacs.d/bin/</code> has the following purpose:
+</p>
+
+<dl class="org-dl">
+<dt><code>cindex-append</code></dt><dd>Scan directories for source files to add to code index.</dd>
+<dt><code>cindex-reset</code></dt><dd>Clear code index.</dd>
+<dt><code>csearch-color</code></dt><dd>Colorize grep matches for Emacs.</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-org7130924" class="outline-3">
+<h3 id="org7130924"><span class="section-number-3">2.2.</span> Shell Script Mode</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Install the shellcheck linter to get good advice on shell script constructs.
+</p>
+
+<p>
+Ubuntu/Debian specific instruction:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">apt install shellcheck
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0a01e22" class="outline-3">
+<h3 id="org0a01e22"><span class="section-number-3">2.3.</span> Go Programming Language Mode</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li>Install the Go programming language toolchain as instructed on <a href="https://go.dev/dl/">https://go.dev/dl/</a></li>
+<li><p>
+Install required tools:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">go install golang.org/x/tools/gopls@latest
+go install golang.org/x/tools/cmd/goimports@latest
+go install golang.org/x/tools/cmd/gorename@latest
+go install github.com/rogpeppe/godef@latest
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge49e14e" class="outline-3">
+<h3 id="orge49e14e"><span class="section-number-3">2.4.</span> OCaml Programming Language Mode</h3>
+<div class="outline-text-3" id="text-2-4">
+<ul class="org-ul">
+<li>Install the OCaml language toolchain from <a href="https://ocaml.org/releases/">https://ocaml.org/releases/</a></li>
+<li><p>
+Install required tools:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">opam update
+opam switch create 4.13.1
+opam install dune utop ocaml-lsp-server merlin tuareg ocp-indent odig
+</pre>
+</div></li>
+</ul>
+
+<p>
+The OCaml setup is a bit special in that the Emacs packages are installed by the steps above.
+Not by the Emacs package manager.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge9313ee" class="outline-3">
+<h3 id="orge9313ee"><span class="section-number-3">2.5.</span> Python Programming Language Mode</h3>
+<div class="outline-text-3" id="text-2-5">
+</div>
+<div id="outline-container-org1caab0e" class="outline-4">
+<h4 id="org1caab0e">Python Virtual Environments</h4>
+<div class="outline-text-4" id="text-org1caab0e">
+<p>
+Pyenv is used to compartmentalize python installations and make it possible to switch between them for different projects.
+</p>
+
+<p>
+Install pyenv from <a href="https://github.com/pyenv/pyenv">https://github.com/pyenv/pyenv</a>:
+</p>
+
+<p>
+Clone the pyenv repo:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+cd ~/.pyenv &amp;&amp; src/configure &amp;&amp; make -C src
+</pre>
+</div>
+
+<p>
+Put the following in <code>~/.bashrc</code>:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">export PYENV_ROOT="$HOME/.pyenv"
+if [ -d "$PYENV_ROOT" ]; then
+    command -v pyenv &gt;/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+fi
+</pre>
+</div>
+
+<p>
+Apply the changes in the current shell (or login again):
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">exec "$SHELL"
+</pre>
+</div>
+
+<p>
+Install Python build dependencies (Ubuntu specific, refer to <a href="https://github.com/pyenv/pyenv/wiki#suggested-build-environment">https://github.com/pyenv/pyenv/wiki#suggested-build-environment</a> for other OSes):
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">sudo apt-get update
+sudo apt-get install make build-essential libssl-dev zlib1g-dev libbz2-dev \
+     libreadline-dev libsqlite3-dev wget curl llvm libncursesw5-dev xz-utils \
+     tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+</pre>
+</div>
+
+<p>
+Install a Python version using pyenv:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">pyenv install 3.10.7
+</pre>
+</div>
+
+<p>
+Switching between Python versions:
+</p>
+
+<dl class="org-dl">
+<dt><code>pyenv shell VERSION</code></dt><dd>Select just for current shell session.</dd>
+<dt><code>pyenv local VERSION</code></dt><dd>Automatically select whenever you are in the
+current directory (or its subdirectories).</dd>
+<dt><code>pyenv global VERSION</code></dt><dd>Select globally for your user account.</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-orgee9fccc" class="outline-4">
+<h4 id="orgee9fccc">Language Server</h4>
+<div class="outline-text-4" id="text-orgee9fccc">
+<p>
+Install the language server:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">pip install 'python-language-server[all]' scrapy
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb73e97b" class="outline-3">
+<h3 id="orgb73e97b"><span class="section-number-3">2.6.</span> Zig Programming Language Mode</h3>
+<div class="outline-text-3" id="text-2-6">
+<ul class="org-ul">
+<li>Install the language toolchain from <a href="https://ziglang.org/download/">https://ziglang.org/download/</a></li>
+<li>Install the language server from <a href="https://github.com/zigtools/zls/">https://github.com/zigtools/zls/</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgb7c9c5d" class="outline-2">
+<h2 id="orgb7c9c5d"><span class="section-number-2">3.</span> Compiling GNU Emacs</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Compiling <a href="https://www.gnu.org/software/emacs/">GNU Emacs</a> from source is quite easy.
+Many packages see heavy development and may require a recent version.
+</p>
+
+<p>
+Install dependencies (Ubuntu 22.04 specific):
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">sudo apt install libjansson-dev libxpm-dev libgif-dev libgnutls28-dev \
+     libxaw7-dev libncurses-dev libgccjit-11-dev
+</pre>
+</div>
+
+<p>
+Download, configure, build and install GNU Emacs on Linux:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">wget https://ftp.acc.umu.se/mirror/gnu.org/gnu/emacs/emacs-28.2.tar.xz
+tar xf emacs-28.2.tar.xz
+cd emacs-28.2
+./configure \
+    --with-native-compilation \
+    --with-mailutils \
+    --with-x-toolkit=lucid \
+    --prefix=$HOME/.local
+make -j16
+make install
+</pre>
+</div>
+
+<p>
+Make sure that Cairo is used for the GUI in the configure stage or some library dependency is missing.
+</p>
+
+<hr />
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2022-10-07 00:09</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,5 @@
+# Source this file from ~/.profile or ~/.bash_profile
+
+if [ -d ~/.emacs.d/bin ]; then
+   export PATH="~/.emacs.d/bin:$PATH"
+fi

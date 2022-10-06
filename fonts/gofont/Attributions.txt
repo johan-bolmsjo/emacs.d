@@ -1,0 +1,5 @@
+Font Announcement:
+- https://blog.golang.org/go-fonts
+
+Font Source:
+- https://go.googlesource.com/image/+/refs/heads/master/font/gofont/ttfs/

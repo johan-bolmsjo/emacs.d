@@ -1,0 +1,2 @@
+alias ll ls -l 
+alias edit for i in ${eshell-flatten-list $*} {find-file $i}

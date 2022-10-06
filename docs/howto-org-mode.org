@@ -1,0 +1,79 @@
+#+title: HOWTO: Org Mode
+#+html_head: <link rel="stylesheet" type="text/css" href="https://bitmaster.se/css/org-mini.css" />
+#+options: toc:2 num:2 H:4 author:nil timestamp:t ^:nil
+
+* Per document TODO states
+
+Execute =C-c C-c= on a changed =#+todo= line to re-evaluate it.
+
+Adds BLOCKED as a TODO state and CANCELED as a DONE state:
+#+begin_src org
+  ,#+todo: TODO BLOCKED | DONE CANCELED
+#+end_src
+
+Defines keybindings for each state that are prompted for when =C-c C-t= is
+invoked:
+#+begin_src org
+  ,#+todo: TODO(t) BLOCKED(b) | DONE(d) CANCELED(c)
+#+end_src
+
+Asks for a logbook entry when entering the BLOCKED, DONE and CANCELED states.
+#+begin_src org
+  ,#+todo: TODO(t) BLOCKED(b@) | DONE(d@) CANCELED(c@)
+#+end_src
+
+See https://orgmode.org/manual/Tracking-TODO-state-changes.html for more
+information about TODO state changes.
+
+
+* Exporting to Other Formats
+
+** Document Options
+
+The following line:
+#+begin_src org
+  ,#+options: toc:nil num:0 H:4 author:nil timestamp:nil ^:nil
+#+end_src
+
+Breaks down to:
+- Disables TOC
+- Disables section numbering
+- Generates 4 headline levels
+- Disables author information
+- Disables document creation timestamp
+- Disables the super-script markup tag (underscore character)
+
+** Explicit TOC
+
+Disable the TOC using the =toc:nil= option and include an explicit TOC tag.
+
+Example:
+#+begin_src org
+  ,#+toc: headlines 2
+#+end_src
+
+This makes it possible to include an introduction before the TOC.
+Otherwise the TOC is always generated first in the exported document.
+
+** HTML custom CSS file
+
+Specify a CSS file to embed for HTML exports:
+#+begin_src org
+  ,#+setupfile: style.css.org
+#+end_src
+
+Contents of file =style.css.org=:
+#+begin_src org
+  ,#+OPTIONS: org-html-head-include-default-style:nil
+  ,#+HTML_HEAD: <style type="text/css">
+  ,#+HTML_HEAD: EMBEDDED_CSS_GOES_HERE
+  ,#+HTML_HEAD: </style>
+#+end_src
+
+=EMBEDDED_CSS_GOES_HERE= is regular CSS with each line prefixed with =#+HTML_HEAD:=.
+
+See https://orgmode.org/manual/CSS-support.html for more information.
+
+My CSS file is kept at https://github.com/johan-bolmsjo/org_css for reference.
+
+-----
