@@ -52,6 +52,7 @@
 (straight-use-package 'markdown-mode)
 (straight-use-package 'org)
 (straight-use-package 'ox-jira) ; Org Jira export plugin
+(straight-use-package 'plantuml-mode)
 
 ;; Programming language support
 (straight-use-package 'eglot)
@@ -419,6 +420,12 @@ With argument, do this that many times."
 	    ))
 
 ;; ----------------------------------------------------------------------------
+;; PlantUML (https://plantuml.com/)
+;; ----------------------------------------------------------------------------
+
+(add-to-list 'auto-mode-alist '("\\.puml\\'" . plantuml-mode))
+
+;; ----------------------------------------------------------------------------
 ;; Code completion
 ;; ----------------------------------------------------------------------------
 
@@ -615,7 +622,10 @@ With argument, do this that many times."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(org-agenda-files '("~/org/plan.org" "~/org/economy/subscriptions.org"))
- '(org-default-notes-file "~/org/notes.org"))
+ '(org-default-notes-file "~/org/notes.org")
+ '(plantuml-default-exec-mode 'jar)
+ '(plantuml-jar-path "/usr/share/plantuml/plantuml.jar")
+ '(plantuml-server-url ""))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

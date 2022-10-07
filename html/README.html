@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-10-07 22:24 -->
+<!-- 2022-10-07 22:37 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Johan Bolmsjö's GNU Emacs Configuration</title>
@@ -222,10 +222,11 @@ Installation instruction:
 <ul>
 <li><a href="#ext-indexed-grep">2.1. Indexed Grep</a></li>
 <li><a href="#org7130924">2.2. Shell Script Mode</a></li>
-<li><a href="#org0a01e22">2.3. Go Programming Language Mode</a></li>
-<li><a href="#orge49e14e">2.4. OCaml Programming Language Mode</a></li>
-<li><a href="#orge9313ee">2.5. Python Programming Language Mode</a></li>
-<li><a href="#orgb73e97b">2.6. Zig Programming Language Mode</a></li>
+<li><a href="#org8014202">2.3. PlantUML Documentation</a></li>
+<li><a href="#org0a01e22">2.4. Go Programming Language Mode</a></li>
+<li><a href="#orge49e14e">2.5. OCaml Programming Language Mode</a></li>
+<li><a href="#orge9313ee">2.6. Python Programming Language Mode</a></li>
+<li><a href="#orgb73e97b">2.7. Zig Programming Language Mode</a></li>
 </ul>
 </li>
 <li><a href="#orgb7c9c5d">3. Compiling GNU Emacs</a></li>
@@ -285,6 +286,7 @@ It's transferable between machines.
 <ul class="org-ul">
 <li><a href="https://orgmode.org/">Org Mode</a></li>
 <li><a href="https://daringfireball.net/projects/markdown/">Markdown</a></li>
+<li><a href="https://plantuml.com/">PlantUML</a></li>
 </ul>
 </div>
 </div>
@@ -353,9 +355,9 @@ Also <a href="http://xahlee.info/emacs/emacs/keyboard_shortcuts.html">http://xah
 </dl>
 </div>
 
-<div id="outline-container-org8345f85" class="outline-5">
-<h5 id="org8345f85">Incremental Search</h5>
-<div class="outline-text-5" id="text-org8345f85">
+<div id="outline-container-orgff1f355" class="outline-5">
+<h5 id="orgff1f355">Incremental Search</h5>
+<div class="outline-text-5" id="text-orgff1f355">
 <dl class="org-dl">
 <dt><code>C-c k</code></dt><dd>isearch mark and exit</dd>
 <dt><code>C-c o</code></dt><dd><code>isearch-occur</code></dd>
@@ -364,9 +366,9 @@ Also <a href="http://xahlee.info/emacs/emacs/keyboard_shortcuts.html">http://xah
 </div>
 </div>
 
-<div id="outline-container-org045219c" class="outline-5">
-<h5 id="org045219c">Navigation</h5>
-<div class="outline-text-5" id="text-org045219c">
+<div id="outline-container-org4830110" class="outline-5">
+<h5 id="org4830110">Navigation</h5>
+<div class="outline-text-5" id="text-org4830110">
 <p>
 Even though these functions are called <code>error</code>, they work in many contexts. E.g. moving through compilation errors, grep results, xref references.
 </p>
@@ -398,9 +400,9 @@ See <a href="https://smythp.com/emacs_buffers/">https://smythp.com/emacs_buffers
 </div>
 </div>
 
-<div id="outline-container-org53b8a6b" class="outline-5">
-<h5 id="org53b8a6b">Org Mode</h5>
-<div class="outline-text-5" id="text-org53b8a6b">
+<div id="outline-container-orga882394" class="outline-5">
+<h5 id="orga882394">Org Mode</h5>
+<div class="outline-text-5" id="text-orga882394">
 <dl class="org-dl">
 <dt><code>C-c n</code></dt><dd><code>org-capture</code> (take quick note)</dd>
 <dt><code>C-c p</code></dt><dd><code>org-agenda</code> (planning)</dd>
@@ -582,9 +584,9 @@ It could do with more information for Emacs neophytes.
 </p>
 </div>
 
-<div id="outline-container-orgefe435a" class="outline-4">
-<h4 id="orgefe435a">Navigation</h4>
-<div class="outline-text-4" id="text-orgefe435a">
+<div id="outline-container-org566fa1a" class="outline-4">
+<h4 id="org566fa1a">Navigation</h4>
+<div class="outline-text-4" id="text-org566fa1a">
 <p>
 Xref is used by many Emacs modes for navigation, including Eglot for navigating source code.
 </p>
@@ -614,9 +616,9 @@ input. This enables iterative reduction of matches.</dd>
 </div>
 </div>
 
-<div id="outline-container-org2f3d86f" class="outline-4">
-<h4 id="org2f3d86f">Incremental Search</h4>
-<div class="outline-text-4" id="text-org2f3d86f">
+<div id="outline-container-org4e8cf5a" class="outline-4">
+<h4 id="org4e8cf5a">Incremental Search</h4>
+<div class="outline-text-4" id="text-org4e8cf5a">
 <p>
 Don't forget about the occur mode when doing incremental search.
 Invoke <code>C-c o</code> to get an overview of all matches in the current document.
@@ -634,9 +636,9 @@ The magit status command is bound to <code>M-x g</code>.
 </div>
 </div>
 
-<div id="outline-container-orgea70594" class="outline-4">
-<h4 id="orgea70594">Org Mode</h4>
-<div class="outline-text-4" id="text-orgea70594">
+<div id="outline-container-orgd878796" class="outline-4">
+<h4 id="orgd878796">Org Mode</h4>
+<div class="outline-text-4" id="text-orgd878796">
 <p>
 <a href="http://orgmode.org">Org mode</a> is a documentation and planning major mode.
 Some HOWTO notes are kept in <a href="docs/howto-org-mode.html">docs/howto-org-mode.html</a>.
@@ -779,9 +781,26 @@ Ubuntu/Debian specific instruction:
 </div>
 </div>
 
-<div id="outline-container-org0a01e22" class="outline-3">
-<h3 id="org0a01e22"><span class="section-number-3">2.3.</span> Go Programming Language Mode</h3>
+<div id="outline-container-org8014202" class="outline-3">
+<h3 id="org8014202"><span class="section-number-3">2.3.</span> PlantUML Documentation</h3>
 <div class="outline-text-3" id="text-2-3">
+<p>
+Install <a href="https://plantuml.com/">PlantUML</a>.
+</p>
+
+<p>
+Ubuntu/Debian specific instruction:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">apt install plantuml
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0a01e22" class="outline-3">
+<h3 id="org0a01e22"><span class="section-number-3">2.4.</span> Go Programming Language Mode</h3>
+<div class="outline-text-3" id="text-2-4">
 <ul class="org-ul">
 <li>Install the Go programming language toolchain as instructed on <a href="https://go.dev/dl/">https://go.dev/dl/</a></li>
 <li><p>
@@ -799,8 +818,8 @@ go install github.com/rogpeppe/godef@latest
 </div>
 
 <div id="outline-container-orge49e14e" class="outline-3">
-<h3 id="orge49e14e"><span class="section-number-3">2.4.</span> OCaml Programming Language Mode</h3>
-<div class="outline-text-3" id="text-2-4">
+<h3 id="orge49e14e"><span class="section-number-3">2.5.</span> OCaml Programming Language Mode</h3>
+<div class="outline-text-3" id="text-2-5">
 <ul class="org-ul">
 <li>Install the OCaml language toolchain from <a href="https://ocaml.org/releases/">https://ocaml.org/releases/</a></li>
 <li><p>
@@ -822,8 +841,8 @@ Not by the Emacs package manager.
 </div>
 
 <div id="outline-container-orge9313ee" class="outline-3">
-<h3 id="orge9313ee"><span class="section-number-3">2.5.</span> Python Programming Language Mode</h3>
-<div class="outline-text-3" id="text-2-5">
+<h3 id="orge9313ee"><span class="section-number-3">2.6.</span> Python Programming Language Mode</h3>
+<div class="outline-text-3" id="text-2-6">
 </div>
 <div id="outline-container-org1caab0e" class="outline-4">
 <h4 id="org1caab0e">Python Virtual Environments</h4>
@@ -912,8 +931,8 @@ Install the language server:
 </div>
 
 <div id="outline-container-orgb73e97b" class="outline-3">
-<h3 id="orgb73e97b"><span class="section-number-3">2.6.</span> Zig Programming Language Mode</h3>
-<div class="outline-text-3" id="text-2-6">
+<h3 id="orgb73e97b"><span class="section-number-3">2.7.</span> Zig Programming Language Mode</h3>
+<div class="outline-text-3" id="text-2-7">
 <ul class="org-ul">
 <li>Install the language toolchain from <a href="https://ziglang.org/download/">https://ziglang.org/download/</a></li>
 <li>Install the language server from <a href="https://github.com/zigtools/zls/">https://github.com/zigtools/zls/</a></li>
@@ -968,7 +987,7 @@ Make sure that Cairo is used for the GUI in the configure stage or some library 
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2022-10-07 22:24</p>
+<p class="date">Created: 2022-10-07 22:37</p>
 </div>
 </body>
 </html>

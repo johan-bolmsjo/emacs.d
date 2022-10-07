@@ -43,6 +43,7 @@ It's transferable between machines.
 
 - [[https://orgmode.org/][Org Mode]]
 - [[https://daringfireball.net/projects/markdown/][Markdown]]
+- [[https://plantuml.com/][PlantUML]]
   
 *** Programming Languages Modes
 
@@ -324,6 +325,15 @@ Install the shellcheck linter to get good advice on shell script constructs.
 Ubuntu/Debian specific instruction:
 #+begin_src sh
   apt install shellcheck
+#+end_src
+
+** PlantUML Documentation
+
+Install [[https://plantuml.com/][PlantUML]].
+
+Ubuntu/Debian specific instruction:
+#+begin_src sh
+  apt install plantuml
 #+end_src
 
 ** Go Programming Language Mode
