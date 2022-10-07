@@ -135,11 +135,11 @@ Aligned with flycheck counterparts.
 
 **** GDB (debugger)
 
-- =F5= :: Stop
-- =F6= :: Continue
-- =F7= :: Step
-- =S-F7= :: Next (does not work in PuTTY)
-- =F8= :: Finish (return to caller)
+- =F5= :: Continue program being debugged.
+- =F6= :: Step till next source line, do not enter subroutine (next).
+- =F7= :: Step till next source line, enter subroutine (step).
+- =F8= :: Execute until current stack frame returns.
+- =S-F8= :: Stop debugging
 
 *** Overridden Keybindings
 

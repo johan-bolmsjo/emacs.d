@@ -584,23 +584,23 @@ With argument, do this that many times."
 ;; NOTE: The toolbar contain debugger navigation icons so you may want to enable
 ;;       that while debugging using "M-x tool-bar-mode".
 
-;; Stop
-(global-set-key (kbd "<f5>") (lambda ()
+;; Continue program being debugged.
+(global-set-key (kbd "<f5>") 'gud-cont)
+
+;; Step till next source line, do not enter subroutine (next).
+(global-set-key (kbd "<f6>") 'gud-next)
+
+;; Step till next source line, enter subroutine (step).
+(global-set-key (kbd "<f7>") 'gud-step)
+
+;; Execute until current stack frame returns.
+(global-set-key (kbd "<f8>") 'gud-finish)
+
+;; Stop debugging
+(global-set-key (kbd "<S-f8>") (lambda ()
                                (interactive)
                                (gud-stop-subjob)
                                (comint-interrupt-subjob)))
-
-;; Continue
-(global-set-key (kbd "<f6>") 'gud-cont)
-
-;; Step
-(global-set-key (kbd "<f7>") 'gud-step)
-
-;; Next
-(global-set-key (kbd "<S-f7>") 'gud-next)
-
-;; Finish
-(global-set-key (kbd "<f8>") 'gud-finish)
 
 ;; ----------------------------------------------------------------------------
 ;; Customized Variables
