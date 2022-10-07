@@ -509,6 +509,9 @@ With argument, do this that many times."
 
 (add-hook 'c-mode-common-hook 'my/c-mode-common-hook)
 
+(setq c-doc-comment-style '((c-mode . doxygen)
+                            (c++-mode . doxygen)))
+
 ;; ----------------------------------------------------------------------------
 ;; C++ programming language
 ;; ----------------------------------------------------------------------------
