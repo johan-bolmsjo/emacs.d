@@ -122,7 +122,8 @@ Note that eglot relies on the keybindings of other packages for most functions.
 E.g. xref for navigation and eldoc for documentation.
 
 - =C-c e a= :: =eglot-code-actions=
-- =C-c e r= :: =eglot-rename=
+- =C-c e f= :: =eglot-format= (ask server to format buffer or the active region)
+- =C-c e r= :: =eglot-rename= (rename symbol at point)
 - =C-c e i= :: =eglot-find-implementation=
 - =C-c e t= :: =eglot-find-typeDefinition=
 

@@ -489,6 +489,7 @@ With argument, do this that many times."
   ;; format on save
   (add-hook 'go-mode-hook '(lambda() (add-hook 'before-save-hook 'eglot-format-buffer nil t)))
   (define-key eglot-mode-map (kbd "C-c e a") 'eglot-code-actions)
+  (define-key eglot-mode-map (kbd "C-c e f") 'eglot-format)
   (define-key eglot-mode-map (kbd "C-c e r") 'eglot-rename)
   (define-key eglot-mode-map (kbd "C-c e i") 'eglot-find-implementation)
   (define-key eglot-mode-map (kbd "C-c e t") 'eglot-find-typeDefinition)
