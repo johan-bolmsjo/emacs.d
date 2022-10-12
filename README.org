@@ -208,7 +208,7 @@ See section [[#ext-indexed-grep]] for details.
 
 *** Custom Variables
 
-Variables that may need customization (such as file paths) are at the end of =~/.emacs.d/init.el=.
+Variables that may need customization (such as file paths) are stored in =~/.emacs.d/custom.el=.
 
 ** Quick Guides
 
