@@ -248,6 +248,10 @@ The magit status command is bound to =M-x g=.
 [[http://orgmode.org][Org mode]] is a documentation and planning major mode.
 Some HOWTO notes are kept in file:docs/howto-org-mode.org.
 
+The =org-tempo= package is enabled which provides some template instantiation shortcuts.
+Invoke =M-x describe-variable= and enter =org-tempo-tags= to see all shortcuts.
+Useful shortcuts include =<s= /TAB/ for source blocks and =<q= /TAB/ for quote blocks.
+
 *** Text Templates
 
 Text template support is provided by the [[https://github.com/joaotavora/yasnippet][yasnippet]] package.
@@ -264,7 +268,7 @@ Example org mode snippet with with one completion argument stored in file =~/.em
   ,#+end_src
 #+end_src
 
-Templates are expanded by typing their name (=.src= in the example above) and pressing space bar.
+Templates are expanded by typing their name (=.src= in the example above) and pressing /TAB/.
 
 *** Code Completion
 

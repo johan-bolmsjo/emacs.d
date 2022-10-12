@@ -419,6 +419,8 @@ With argument, do this that many times."
 	    (local-set-key (kbd "M-.") 'org-open-at-point)  ;; xref-find-definitions
 	    ))
 
+(require 'org-tempo)
+
 ;; ----------------------------------------------------------------------------
 ;; PlantUML (https://plantuml.com/)
 ;; ----------------------------------------------------------------------------

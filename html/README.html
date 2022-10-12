@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-10-12 20:34 -->
+<!-- 2022-10-12 20:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Johan Bolmsjö's GNU Emacs Configuration</title>
@@ -355,9 +355,9 @@ Also <a href="http://xahlee.info/emacs/emacs/keyboard_shortcuts.html">http://xah
 </dl>
 </div>
 
-<div id="outline-container-orgc8dd901" class="outline-5">
-<h5 id="orgc8dd901">Incremental Search</h5>
-<div class="outline-text-5" id="text-orgc8dd901">
+<div id="outline-container-org70104e8" class="outline-5">
+<h5 id="org70104e8">Incremental Search</h5>
+<div class="outline-text-5" id="text-org70104e8">
 <dl class="org-dl">
 <dt><code>C-c k</code></dt><dd>isearch mark and exit</dd>
 <dt><code>C-c o</code></dt><dd><code>isearch-occur</code></dd>
@@ -366,9 +366,9 @@ Also <a href="http://xahlee.info/emacs/emacs/keyboard_shortcuts.html">http://xah
 </div>
 </div>
 
-<div id="outline-container-orga462019" class="outline-5">
-<h5 id="orga462019">Navigation</h5>
-<div class="outline-text-5" id="text-orga462019">
+<div id="outline-container-org8d63560" class="outline-5">
+<h5 id="org8d63560">Navigation</h5>
+<div class="outline-text-5" id="text-org8d63560">
 <p>
 Even though these functions are called <code>error</code>, they work in many contexts. E.g. moving through compilation errors, grep results, xref references.
 </p>
@@ -400,9 +400,9 @@ See <a href="https://smythp.com/emacs_buffers/">https://smythp.com/emacs_buffers
 </div>
 </div>
 
-<div id="outline-container-org7f43095" class="outline-5">
-<h5 id="org7f43095">Org Mode</h5>
-<div class="outline-text-5" id="text-org7f43095">
+<div id="outline-container-org9fdadde" class="outline-5">
+<h5 id="org9fdadde">Org Mode</h5>
+<div class="outline-text-5" id="text-org9fdadde">
 <dl class="org-dl">
 <dt><code>C-c n</code></dt><dd><code>org-capture</code> (take quick note)</dd>
 <dt><code>C-c p</code></dt><dd><code>org-agenda</code> (planning)</dd>
@@ -585,9 +585,9 @@ It could do with more information for Emacs neophytes.
 </p>
 </div>
 
-<div id="outline-container-org63b7baa" class="outline-4">
-<h4 id="org63b7baa">Navigation</h4>
-<div class="outline-text-4" id="text-org63b7baa">
+<div id="outline-container-org71491a0" class="outline-4">
+<h4 id="org71491a0">Navigation</h4>
+<div class="outline-text-4" id="text-org71491a0">
 <p>
 Xref is used by many Emacs modes for navigation, including Eglot for navigating source code.
 </p>
@@ -617,9 +617,9 @@ input. This enables iterative reduction of matches.</dd>
 </div>
 </div>
 
-<div id="outline-container-orge0b8c32" class="outline-4">
-<h4 id="orge0b8c32">Incremental Search</h4>
-<div class="outline-text-4" id="text-orge0b8c32">
+<div id="outline-container-orga4e1e67" class="outline-4">
+<h4 id="orga4e1e67">Incremental Search</h4>
+<div class="outline-text-4" id="text-orga4e1e67">
 <p>
 Don't forget about the occur mode when doing incremental search.
 Invoke <code>C-c o</code> to get an overview of all matches in the current document.
@@ -637,12 +637,18 @@ The magit status command is bound to <code>M-x g</code>.
 </div>
 </div>
 
-<div id="outline-container-org226dda5" class="outline-4">
-<h4 id="org226dda5">Org Mode</h4>
-<div class="outline-text-4" id="text-org226dda5">
+<div id="outline-container-org8ef5b85" class="outline-4">
+<h4 id="org8ef5b85">Org Mode</h4>
+<div class="outline-text-4" id="text-org8ef5b85">
 <p>
 <a href="http://orgmode.org">Org mode</a> is a documentation and planning major mode.
 Some HOWTO notes are kept in <a href="docs/howto-org-mode.html">docs/howto-org-mode.html</a>.
+</p>
+
+<p>
+The <code>org-tempo</code> package is enabled which provides some template instantiation shortcuts.
+Invoke <code>M-x describe-variable</code> and enter <code>org-tempo-tags</code> to see all shortcuts.
+Useful shortcuts include <code>&lt;s</code> <i>TAB</i> for source blocks and <code>&lt;q</code> <i>TAB</i> for quote blocks.
 </p>
 </div>
 </div>
@@ -669,7 +675,7 @@ $0
 </pre>
 
 <p>
-Templates are expanded by typing their name (<code>.src</code> in the example above) and pressing space bar.
+Templates are expanded by typing their name (<code>.src</code> in the example above) and pressing <i>TAB</i>.
 </p>
 </div>
 </div>
@@ -988,7 +994,7 @@ Make sure that Cairo is used for the GUI in the configure stage or some library 
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2022-10-12 20:34</p>
+<p class="date">Created: 2022-10-12 20:46</p>
 </div>
 </body>
 </html>
