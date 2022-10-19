@@ -162,7 +162,6 @@
 (global-set-key (kbd "C-c c") 'compile)
 (global-set-key (kbd "C-c g") 'find-grep)
 (global-set-key (kbd "C-c i") 'ispell-region)
-(global-set-key (kbd "C-c j") 'goto-line)
 (global-set-key (kbd "C-c s") 'sort-lines)
 (global-set-key (kbd "C-c t") 'treemacs)
 

@@ -80,7 +80,6 @@ Also http://xahlee.info/emacs/emacs/keyboard_shortcuts.html for practical overri
 - =C-c c= :: =compile=
 - =C-c g= :: =find-grep=
 - =C-c i= :: =ispell-region=
-- =C-c j= :: =goto-line= (kept for muscle memory, there is =M-g g= for goto-line)
 - =C-c o= :: =ff-find-other-file= (in c-mode-common)
 - =C-c s= :: =sort-lines=
 - =C-c t= :: toggle treemacs pane
@@ -221,6 +220,10 @@ Xref is used by many Emacs modes for navigation, including Eglot for navigating 
 - =M-,= :: Go back
 - =M-.= :: Find thing
 - =M-?= :: Find references
+
+Jump to specific line.
+
+- =M-g g= goto-line
 
 *** Completion
 

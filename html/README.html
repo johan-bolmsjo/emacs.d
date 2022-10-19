@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-10-19 23:35 -->
+<!-- 2022-10-20 00:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Johan Bolmsjö's GNU Emacs Configuration</title>
@@ -347,16 +347,15 @@ Also <a href="http://xahlee.info/emacs/emacs/keyboard_shortcuts.html">http://xah
 <dt><code>C-c c</code></dt><dd><code>compile</code></dd>
 <dt><code>C-c g</code></dt><dd><code>find-grep</code></dd>
 <dt><code>C-c i</code></dt><dd><code>ispell-region</code></dd>
-<dt><code>C-c j</code></dt><dd><code>goto-line</code> (kept for muscle memory, there is <code>M-g g</code> for goto-line)</dd>
 <dt><code>C-c o</code></dt><dd><code>ff-find-other-file</code> (in c-mode-common)</dd>
 <dt><code>C-c s</code></dt><dd><code>sort-lines</code></dd>
 <dt><code>C-c t</code></dt><dd>toggle treemacs pane</dd>
 </dl>
 </div>
 
-<div id="outline-container-org3820df0" class="outline-5">
-<h5 id="org3820df0">Incremental Search</h5>
-<div class="outline-text-5" id="text-org3820df0">
+<div id="outline-container-org3651939" class="outline-5">
+<h5 id="org3651939">Incremental Search</h5>
+<div class="outline-text-5" id="text-org3651939">
 <dl class="org-dl">
 <dt><code>C-c k</code></dt><dd>isearch mark and exit</dd>
 <dt><code>C-c o</code></dt><dd><code>isearch-occur</code></dd>
@@ -365,9 +364,9 @@ Also <a href="http://xahlee.info/emacs/emacs/keyboard_shortcuts.html">http://xah
 </div>
 </div>
 
-<div id="outline-container-org4d8b3f6" class="outline-5">
-<h5 id="org4d8b3f6">Navigation</h5>
-<div class="outline-text-5" id="text-org4d8b3f6">
+<div id="outline-container-org0e5ac32" class="outline-5">
+<h5 id="org0e5ac32">Navigation</h5>
+<div class="outline-text-5" id="text-org0e5ac32">
 <p>
 Even though these functions are called <code>error</code>, they work in many contexts. E.g. moving through compilation errors, grep results, xref references.
 </p>
@@ -399,9 +398,9 @@ See <a href="https://smythp.com/emacs_buffers/">https://smythp.com/emacs_buffers
 </div>
 </div>
 
-<div id="outline-container-org7f51a0d" class="outline-5">
-<h5 id="org7f51a0d">Org Mode</h5>
-<div class="outline-text-5" id="text-org7f51a0d">
+<div id="outline-container-org8f7a1db" class="outline-5">
+<h5 id="org8f7a1db">Org Mode</h5>
+<div class="outline-text-5" id="text-org8f7a1db">
 <dl class="org-dl">
 <dt><code>C-c n</code></dt><dd><code>org-capture</code> (take quick note)</dd>
 <dt><code>C-c p</code></dt><dd><code>org-agenda</code> (planning)</dd>
@@ -584,9 +583,9 @@ It could do with more information for Emacs neophytes.
 </p>
 </div>
 
-<div id="outline-container-org0e5ac32" class="outline-4">
-<h4 id="org0e5ac32">Navigation</h4>
-<div class="outline-text-4" id="text-org0e5ac32">
+<div id="outline-container-org91cba4b" class="outline-4">
+<h4 id="org91cba4b">Navigation</h4>
+<div class="outline-text-4" id="text-org91cba4b">
 <p>
 Xref is used by many Emacs modes for navigation, including Eglot for navigating source code.
 </p>
@@ -596,6 +595,14 @@ Xref is used by many Emacs modes for navigation, including Eglot for navigating 
 <dt><code>M-.</code></dt><dd>Find thing</dd>
 <dt><code>M-?</code></dt><dd>Find references</dd>
 </dl>
+
+<p>
+Jump to specific line.
+</p>
+
+<ul class="org-ul">
+<li><code>M-g g</code> goto-line</li>
+</ul>
 </div>
 </div>
 
@@ -644,9 +651,9 @@ input. This enables iterative reduction of matches.</dd>
 </div>
 </div>
 
-<div id="outline-container-org3651939" class="outline-4">
-<h4 id="org3651939">Incremental Search</h4>
-<div class="outline-text-4" id="text-org3651939">
+<div id="outline-container-org9f61d0f" class="outline-4">
+<h4 id="org9f61d0f">Incremental Search</h4>
+<div class="outline-text-4" id="text-org9f61d0f">
 <p>
 Don't forget about the occur mode when doing incremental search.
 Invoke <code>C-c o</code> to get an overview of all matches in the current document.
@@ -664,9 +671,9 @@ The magit status command is bound to <code>M-x g</code>.
 </div>
 </div>
 
-<div id="outline-container-org8f7a1db" class="outline-4">
-<h4 id="org8f7a1db">Org Mode</h4>
-<div class="outline-text-4" id="text-org8f7a1db">
+<div id="outline-container-org4654d59" class="outline-4">
+<h4 id="org4654d59">Org Mode</h4>
+<div class="outline-text-4" id="text-org4654d59">
 <p>
 <a href="http://orgmode.org">Org mode</a> is a documentation and planning major mode.
 Some HOWTO notes are kept in <a href="docs/howto-org-mode.html">docs/howto-org-mode.html</a>.
@@ -1011,7 +1018,7 @@ Make sure that Cairo is used for the GUI in the configure stage or some library 
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2022-10-19 23:35</p>
+<p class="date">Created: 2022-10-20 00:12</p>
 </div>
 </body>
 </html>
