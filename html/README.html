@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-10-12 20:46 -->
+<!-- 2022-10-19 23:35 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Johan Bolmsjö's GNU Emacs Configuration</title>
@@ -313,14 +313,14 @@ All programming language modes except elisp use eglot to provide code navigation
 <h4 id="orgf74a039">Miscellaneous Support Functions</h4>
 <div class="outline-text-4" id="text-orgf74a039">
 <ul class="org-ul">
-<li>Auto complete through auto-complete or company modes.</li>
+<li>Code completion through corfu and orderless packages.</li>
+<li>Templated auto complete assisted snippets through yasnippet mode.</li>
+<li>Project like IDE support using treemacs, project.el and eglot modes.</li>
 <li>Compiler diagnostics through flycheck or flymake modes.</li>
-<li>Extraneous whitespace indications.</li>
-<li>GDB support through gud mode.</li>
 <li>Git interface through magit.</li>
 <li>Improved "find file" completions through ido mode.</li>
-<li>Project like IDE support using treemacs, project.el and eglot modes.</li>
-<li>Templated auto complete assisted snippets through yasnippet mode.</li>
+<li>GDB support through gud mode.</li>
+<li>Extraneous whitespace indications.</li>
 </ul>
 </div>
 </div>
@@ -348,16 +348,15 @@ Also <a href="http://xahlee.info/emacs/emacs/keyboard_shortcuts.html">http://xah
 <dt><code>C-c g</code></dt><dd><code>find-grep</code></dd>
 <dt><code>C-c i</code></dt><dd><code>ispell-region</code></dd>
 <dt><code>C-c j</code></dt><dd><code>goto-line</code> (kept for muscle memory, there is <code>M-g g</code> for goto-line)</dd>
-<dt><code>C-c k</code></dt><dd>auto complete (in progamming modes)</dd>
 <dt><code>C-c o</code></dt><dd><code>ff-find-other-file</code> (in c-mode-common)</dd>
 <dt><code>C-c s</code></dt><dd><code>sort-lines</code></dd>
 <dt><code>C-c t</code></dt><dd>toggle treemacs pane</dd>
 </dl>
 </div>
 
-<div id="outline-container-org70104e8" class="outline-5">
-<h5 id="org70104e8">Incremental Search</h5>
-<div class="outline-text-5" id="text-org70104e8">
+<div id="outline-container-org3820df0" class="outline-5">
+<h5 id="org3820df0">Incremental Search</h5>
+<div class="outline-text-5" id="text-org3820df0">
 <dl class="org-dl">
 <dt><code>C-c k</code></dt><dd>isearch mark and exit</dd>
 <dt><code>C-c o</code></dt><dd><code>isearch-occur</code></dd>
@@ -366,9 +365,9 @@ Also <a href="http://xahlee.info/emacs/emacs/keyboard_shortcuts.html">http://xah
 </div>
 </div>
 
-<div id="outline-container-org8d63560" class="outline-5">
-<h5 id="org8d63560">Navigation</h5>
-<div class="outline-text-5" id="text-org8d63560">
+<div id="outline-container-org4d8b3f6" class="outline-5">
+<h5 id="org4d8b3f6">Navigation</h5>
+<div class="outline-text-5" id="text-org4d8b3f6">
 <p>
 Even though these functions are called <code>error</code>, they work in many contexts. E.g. moving through compilation errors, grep results, xref references.
 </p>
@@ -400,9 +399,9 @@ See <a href="https://smythp.com/emacs_buffers/">https://smythp.com/emacs_buffers
 </div>
 </div>
 
-<div id="outline-container-org9fdadde" class="outline-5">
-<h5 id="org9fdadde">Org Mode</h5>
-<div class="outline-text-5" id="text-org9fdadde">
+<div id="outline-container-org7f51a0d" class="outline-5">
+<h5 id="org7f51a0d">Org Mode</h5>
+<div class="outline-text-5" id="text-org7f51a0d">
 <dl class="org-dl">
 <dt><code>C-c n</code></dt><dd><code>org-capture</code> (take quick note)</dd>
 <dt><code>C-c p</code></dt><dd><code>org-agenda</code> (planning)</dd>
@@ -585,9 +584,9 @@ It could do with more information for Emacs neophytes.
 </p>
 </div>
 
-<div id="outline-container-org71491a0" class="outline-4">
-<h4 id="org71491a0">Navigation</h4>
-<div class="outline-text-4" id="text-org71491a0">
+<div id="outline-container-org0e5ac32" class="outline-4">
+<h4 id="org0e5ac32">Navigation</h4>
+<div class="outline-text-4" id="text-org0e5ac32">
 <p>
 Xref is used by many Emacs modes for navigation, including Eglot for navigating source code.
 </p>
@@ -596,6 +595,34 @@ Xref is used by many Emacs modes for navigation, including Eglot for navigating 
 <dt><code>M-,</code></dt><dd>Go back</dd>
 <dt><code>M-.</code></dt><dd>Find thing</dd>
 <dt><code>M-?</code></dt><dd>Find references</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-org9cc1b5e" class="outline-4">
+<h4 id="org9cc1b5e">Completion</h4>
+<div class="outline-text-4" id="text-org9cc1b5e">
+<p>
+Completion is provided by <a href="https://github.com/minad/corfu">corfu</a> together with <a href="https://github.com/oantolin/orderless">orderless</a>.
+Completion is triggered by <code>C-M-i</code> which is bound to <code>complete-symbol</code>.
+The TAB key is also configured to either indent (if it can), else complete.
+This does not work in the C/C++ mode.
+</p>
+
+<p>
+The completion mechanism provided by orderless is a bit different and can take some time to get used to.
+Multiple patterns (space separated words) can be entered.
+Completions candidates that match all patterns regardless of order are kept.
+Patterns can be regexps as well as regular words, e.g. <code>^desc</code> match candidates starting with <code>desc</code>.
+</p>
+
+<p>
+The built-in <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Dynamic-Abbrevs.html">dabbrev</a> mode can also be useful.
+</p>
+
+<dl class="org-dl">
+<dt><code>M-/</code></dt><dd>dabbrev-expand</dd>
+<dt><code>C-M-/</code></dt><dd>dabbrev-completion</dd>
 </dl>
 </div>
 </div>
@@ -617,9 +644,9 @@ input. This enables iterative reduction of matches.</dd>
 </div>
 </div>
 
-<div id="outline-container-orga4e1e67" class="outline-4">
-<h4 id="orga4e1e67">Incremental Search</h4>
-<div class="outline-text-4" id="text-orga4e1e67">
+<div id="outline-container-org3651939" class="outline-4">
+<h4 id="org3651939">Incremental Search</h4>
+<div class="outline-text-4" id="text-org3651939">
 <p>
 Don't forget about the occur mode when doing incremental search.
 Invoke <code>C-c o</code> to get an overview of all matches in the current document.
@@ -637,9 +664,9 @@ The magit status command is bound to <code>M-x g</code>.
 </div>
 </div>
 
-<div id="outline-container-org8ef5b85" class="outline-4">
-<h4 id="org8ef5b85">Org Mode</h4>
-<div class="outline-text-4" id="text-org8ef5b85">
+<div id="outline-container-org8f7a1db" class="outline-4">
+<h4 id="org8f7a1db">Org Mode</h4>
+<div class="outline-text-4" id="text-org8f7a1db">
 <p>
 <a href="http://orgmode.org">Org mode</a> is a documentation and planning major mode.
 Some HOWTO notes are kept in <a href="docs/howto-org-mode.html">docs/howto-org-mode.html</a>.
@@ -676,16 +703,6 @@ $0
 
 <p>
 Templates are expanded by typing their name (<code>.src</code> in the example above) and pressing <i>TAB</i>.
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgc4797df" class="outline-4">
-<h4 id="orgc4797df">Code Completion</h4>
-<div class="outline-text-4" id="text-orgc4797df">
-<p>
-Code completion is provided by either the <a href="https://github.com/auto-complete/auto-complete">auto-complete</a> or <a href="http://company-mode.github.io">company</a> package.
-The code complete action is triggered by <code>C-c k</code>.
 </p>
 </div>
 </div>
@@ -994,7 +1011,7 @@ Make sure that Cairo is used for the GUI in the configure stage or some library 
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2022-10-12 20:46</p>
+<p class="date">Created: 2022-10-19 23:35</p>
 </div>
 </body>
 </html>

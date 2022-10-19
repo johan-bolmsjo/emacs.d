@@ -9,6 +9,7 @@
          :recursive nil
          :base-directory "./"
          :base-extension "org"
+	 :exclude "^plan"
          :publishing-directory "html/")
 	("emacs.d-docs"
 	 :auto-sitemap nil

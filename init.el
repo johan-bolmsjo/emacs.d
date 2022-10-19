@@ -33,11 +33,11 @@
 (straight-use-package 'use-package)
 
 ;; Various support functions
-(straight-use-package 'auto-complete)
-(straight-use-package 'company)
+(straight-use-package 'corfu)
 (straight-use-package 'eldoc)
 (straight-use-package 'flycheck)
 (straight-use-package 'flymake)
+(straight-use-package 'orderless)
 (straight-use-package 'project)
 (straight-use-package 'treemacs)
 (straight-use-package 'which-key)
@@ -429,33 +429,38 @@ With argument, do this that many times."
 
 ;; ----------------------------------------------------------------------------
 ;; Code completion
+;; - https://github.com/minad/corfu
+;; - https://github.com/oantolin/orderless
 ;; ----------------------------------------------------------------------------
 
-(use-package auto-complete-config
+(use-package corfu
              :ensure nil
-	     :config
-	     (setq-default ac-sources '())
-	     (add-hook 'emacs-lisp-mode-hook 'ac-emacs-lisp-mode-setup)
-	     (add-hook 'auto-complete-mode-hook 'ac-common-setup)
-	     (global-auto-complete-mode t)
-	     (setq
-	      ac-menu-height 15
-	      ac-ignore-case nil
-	      ac-auto-start nil)
-	     ;; Explicit key to trigger completion.
-	     (define-key ac-mode-map (kbd "C-c k") 'auto-complete))
+	     :custom
+	     (corfu-cycle t)          ;; Enable cycling for `corfu-next/previous'
+	     (corfu-separator ?\s)    ;; Set to orderless separator
+	     (corfu-scroll-margin 5)  ;; Use scroll margin
+	     :bind
+	     ;; Configure SPC for separator insertion
+	     (:map corfu-map ("SPC" . corfu-insert-separator))
+	     :init
+	     (global-corfu-mode))
 
-(use-package company
-	     :ensure nil
-	     :config
-	     (add-hook 'prog-mode-hook 'company-mode)
-	     (add-hook 'cmake-mode-hook 'company-mode)
-	     (setq ;; Complete as you type behavior.
-	      company-idle-delay nil
-	      company-minimum-prefix-length 3
-	      company-show-numbers 'left)
-	     ;; Explicit key to trigger completion.
-	     (define-key company-mode-map (kbd "C-c k") 'company-manual-begin))
+;; TAB cycle if there are only few candidates.
+;; Disabled because it can hide that there are more candidates.
+;;(setq completion-cycle-threshold 3)
+
+;; Enable indentation+completion using the TAB key.
+;; `completion-at-point' is often bound to M-TAB.
+;; Unfortunately this does not work for the C/C++ mode.
+(setq tab-always-indent 'complete)
+
+;; Use the `orderless' completion style.
+(use-package orderless
+             :ensure nil
+	     :custom
+	     (completion-styles '(orderless basic))
+	     (completion-category-overrides '((file (styles basic partial-completion))
+					      (eglot (styles orderless basic)))))
 
 ;; ----------------------------------------------------------------------------
 ;; Diagnostics such as compiler errors
@@ -513,9 +518,7 @@ With argument, do this that many times."
    indent-tabs-mode nil
    c-basic-offset 4)
   (modify-syntax-entry ?_ "w" c-mode-syntax-table)
-  (local-set-key  (kbd "C-c o") 'ff-find-other-file)
-  ;; Disable auto-complete mode, use company mode.
-  (auto-complete-mode -1))
+  (local-set-key  (kbd "C-c o") 'ff-find-other-file))
 
 (add-hook 'c-mode-common-hook 'my/c-mode-common-hook)
 
@@ -536,12 +539,6 @@ With argument, do this that many times."
 ;; ----------------------------------------------------------------------------
 
 (require 'go-mode-autoloads)
-
-(defun my/go-mode-hook ()
-  ;; Disable auto-complete mode, use company mode.
-  (auto-complete-mode -1))
-
-(add-hook 'go-mode-hook 'my/go-mode-hook)
 
 ;; ----------------------------------------------------------------------------
 ;; OCaml programming language

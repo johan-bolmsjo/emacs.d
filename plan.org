@@ -1,0 +1,8 @@
+#+title: Johan Bolmsjö's GNU Emacs Configuration (PLAN)
+#+todo: TODO(!) | DONE(@)
+
+* BUGS
+** TODO Completion in Go programming mode does not expand function parameters
+:LOGBOOK:
+- State "TODO"       from              [2022-10-19 Wed 23:05]
+:END:

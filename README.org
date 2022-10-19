@@ -58,14 +58,14 @@ All programming language modes except elisp use eglot to provide code navigation
 
 *** Miscellaneous Support Functions
 
-- Auto complete through auto-complete or company modes.
+- Code completion through corfu and orderless packages.
+- Templated auto complete assisted snippets through yasnippet mode.
+- Project like IDE support using treemacs, project.el and eglot modes.
 - Compiler diagnostics through flycheck or flymake modes.
-- Extraneous whitespace indications.
-- GDB support through gud mode.
 - Git interface through magit.
 - Improved "find file" completions through ido mode.
-- Project like IDE support using treemacs, project.el and eglot modes.
-- Templated auto complete assisted snippets through yasnippet mode.
+- GDB support through gud mode.
+- Extraneous whitespace indications.
 
 ** Keybindings
 
@@ -81,7 +81,6 @@ Also http://xahlee.info/emacs/emacs/keyboard_shortcuts.html for practical overri
 - =C-c g= :: =find-grep=
 - =C-c i= :: =ispell-region=
 - =C-c j= :: =goto-line= (kept for muscle memory, there is =M-g g= for goto-line)
-- =C-c k= :: auto complete (in progamming modes)
 - =C-c o= :: =ff-find-other-file= (in c-mode-common)
 - =C-c s= :: =sort-lines=
 - =C-c t= :: toggle treemacs pane
@@ -223,6 +222,23 @@ Xref is used by many Emacs modes for navigation, including Eglot for navigating 
 - =M-.= :: Find thing
 - =M-?= :: Find references
 
+*** Completion
+
+Completion is provided by [[https://github.com/minad/corfu][corfu]] together with [[https://github.com/oantolin/orderless][orderless]].
+Completion is triggered by =C-M-i= which is bound to =complete-symbol=.
+The TAB key is also configured to either indent (if it can), else complete.
+This does not work in the C/C++ mode.
+
+The completion mechanism provided by orderless is a bit different and can take some time to get used to.
+Multiple patterns (space separated words) can be entered.
+Completions candidates that match all patterns regardless of order are kept.
+Patterns can be regexps as well as regular words, e.g. =^desc= match candidates starting with =desc=.
+
+The built-in [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Dynamic-Abbrevs.html][dabbrev]] mode can also be useful.
+
+- =M-/= :: dabbrev-expand
+- =C-M-/= :: dabbrev-completion
+
 *** Buffer and Filename Completion
 
 [[https://www.masteringemacs.org/article/introduction-to-ido-mode][Ido mode]] is used for buffer and file name completions.
@@ -269,11 +285,6 @@ Example org mode snippet with with one completion argument stored in file =~/.em
 #+end_src
 
 Templates are expanded by typing their name (=.src= in the example above) and pressing /TAB/.
-
-*** Code Completion
-
-Code completion is provided by either the [[https://github.com/auto-complete/auto-complete][auto-complete]] or [[http://company-mode.github.io][company]] package.
-The code complete action is triggered by =C-c k=.
 
 *** Diagnostics
 
