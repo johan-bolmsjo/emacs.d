@@ -223,7 +223,7 @@ Xref is used by many Emacs modes for navigation, including Eglot for navigating 
 
 Jump to specific line.
 
-- =M-g g= goto-line
+- =M-g g= :: goto-line
 
 *** Completion
 
