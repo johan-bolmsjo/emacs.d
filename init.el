@@ -39,6 +39,7 @@
 (straight-use-package 'flymake)
 (straight-use-package 'orderless)
 (straight-use-package 'project)
+(straight-use-package 'selectrum)
 (straight-use-package 'treemacs)
 (straight-use-package 'which-key)
 (straight-use-package 'xref)
@@ -79,6 +80,10 @@
 ;; Emacs <= 26.3 does not recognize st-256color terminal.
 (add-to-list 'term-file-aliases
     '("st-256color" . "xterm-256color"))
+
+;; Persist minibuffer history over Emacs restarts.
+;; This can help completion modes to remember often used commands.
+(savehist-mode)
 
 ;; Disable startup message
 (setq inhibit-startup-message t)
@@ -238,9 +243,6 @@ With argument, do this that many times."
 (define-key global-map [C-delete] 'my/fast-kill-buffer)
 (substitute-key-definition 'kill-buffer 'my/fast-kill-buffer (current-global-map))
 
-;; Invoke "M-x list-buffers" to see the full buffer list.
-(global-set-key (kbd "C-x C-b") 'bs-show)
-
 ;; ----------------------------------------------------------------------------
 ;; Interactive keybinding reminder support
 ;; ----------------------------------------------------------------------------
@@ -293,25 +295,19 @@ With argument, do this that many times."
 ;; Improved interactive file and buffer completion
 ;; ----------------------------------------------------------------------------
 
-(require 'ido)
-
-;; Prevent IDO from looking for non existing files in other directories.
-;; I find it annoying as most of the time I'm about to create a new file.
-(setq ido-auto-merge-work-directories-length -1)
-
-(setq ido-enable-flex-matching t)
-(ido-mode t)
+(selectrum-mode +1)
+(setq selectrum-highlight-candidates-function #'orderless-highlight-matches)
 
 ;; ----------------------------------------------------------------------------
 ;; Text templates
 ;; ----------------------------------------------------------------------------
 
 (use-package yasnippet
-	     :ensure nil
-	     :hook
-	     ((prog-mode org-mode) . yas-minor-mode)
-	     :config
-	     (yas-reload-all))
+  :ensure nil
+  :hook
+  ((prog-mode org-mode) . yas-minor-mode)
+  :config
+  (yas-reload-all))
 
 ;; ----------------------------------------------------------------------------
 ;; Indexed grep search tool
@@ -433,16 +429,16 @@ With argument, do this that many times."
 ;; ----------------------------------------------------------------------------
 
 (use-package corfu
-             :ensure nil
-	     :custom
-	     (corfu-cycle t)          ;; Enable cycling for `corfu-next/previous'
-	     (corfu-separator ?\s)    ;; Set to orderless separator
-	     (corfu-scroll-margin 5)  ;; Use scroll margin
-	     :bind
-	     ;; Configure SPC for separator insertion
-	     (:map corfu-map ("SPC" . corfu-insert-separator))
-	     :init
-	     (global-corfu-mode))
+  :ensure nil
+  :custom
+  (corfu-cycle t)          ;; Enable cycling for `corfu-next/previous'
+  (corfu-separator ?\s)    ;; Set to orderless separator
+  (corfu-scroll-margin 5)  ;; Use scroll margin
+  :bind
+  ;; Configure SPC for separator insertion
+  (:map corfu-map ("SPC" . corfu-insert-separator))
+  :init
+  (global-corfu-mode))
 
 ;; TAB cycle if there are only few candidates.
 ;; Disabled because it can hide that there are more candidates.
@@ -455,24 +451,25 @@ With argument, do this that many times."
 
 ;; Use the `orderless' completion style.
 (use-package orderless
-             :ensure nil
-	     :custom
-	     (completion-styles '(orderless basic))
-	     (completion-category-overrides '((file (styles basic partial-completion))
-					      (eglot (styles orderless basic)))))
+  :ensure nil
+  :config
+  (setq orderless-skip-highlighting (lambda () selectrum-is-active))
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-overrides '((file (styles basic partial-completion))
+				   (eglot (styles orderless basic)))))
 
 ;; ----------------------------------------------------------------------------
 ;; Diagnostics such as compiler errors
 ;; ----------------------------------------------------------------------------
 
 (use-package flymake
-	     :ensure nil
-	     :config
-	     ;; Match often used keybindings with flycheck
-	     (define-key flymake-mode-map (kbd "C-c ! l") 'flymake-show-buffer-diagnostics)
-	     (define-key flymake-mode-map (kbd "C-c ! n") 'flymake-goto-next-error)
-	     (define-key flymake-mode-map (kbd "C-c ! p") 'flymake-goto-prev-error)
-	     )
+  :ensure nil
+  :config
+  ;; Match often used keybindings with flycheck
+  (define-key flymake-mode-map (kbd "C-c ! l") 'flymake-show-buffer-diagnostics)
+  (define-key flymake-mode-map (kbd "C-c ! n") 'flymake-goto-next-error)
+  (define-key flymake-mode-map (kbd "C-c ! p") 'flymake-goto-prev-error))
 
 ;; ----------------------------------------------------------------------------
 ;; Langauge server protocol support
@@ -498,8 +495,7 @@ With argument, do this that many times."
   (define-key eglot-mode-map (kbd "C-c e f") 'eglot-format)
   (define-key eglot-mode-map (kbd "C-c e r") 'eglot-rename)
   (define-key eglot-mode-map (kbd "C-c e i") 'eglot-find-implementation)
-  (define-key eglot-mode-map (kbd "C-c e t") 'eglot-find-typeDefinition)
-  )
+  (define-key eglot-mode-map (kbd "C-c e t") 'eglot-find-typeDefinition))
 
 ;; ----------------------------------------------------------------------------
 ;; Shell scripts

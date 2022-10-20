@@ -58,13 +58,13 @@ All programming language modes except elisp use eglot to provide code navigation
 
 *** Miscellaneous Support Functions
 
-- Code completion through corfu and orderless packages.
-- Templated auto complete assisted snippets through yasnippet mode.
-- Project like IDE support using treemacs, project.el and eglot modes.
-- Compiler diagnostics through flycheck or flymake modes.
-- Git interface through magit.
-- Improved "find file" completions through ido mode.
-- GDB support through gud mode.
+- Improved minibuffer completions through [[https://github.com/radian-software/selectrum][Selectrum]] mode.
+- Code completion through [[https://github.com/minad/corfu][Corfu]] and [[https://github.com/oantolin/orderless][Orderless]] packages.
+- Templated auto complete assisted snippets through [[https://github.com/joaotavora/yasnippet][Yasnippet]] mode.
+- Project like IDE support using [[https://github.com/Alexander-Miller/treemacs][Treemacs]], [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Projects.html][project.el]] and [[https://github.com/joaotavora/eglot][Eglot]] modes.
+- Compiler diagnostics through [[https://www.flycheck.org/en/latest/][Flycheck]] or [[https://www.gnu.org/software/emacs/manual/html_mono/flymake.html][Flymake]] modes.
+- Git interface through [[https://magit.vc/][Magit]].
+- GDB support through [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Debuggers.html][GUD]] mode.
 - Extraneous whitespace indications.
 
 ** Keybindings
@@ -153,7 +153,6 @@ Modifies standard Emacs behavior or use non-user prefix.
 - =M-C-f= :: =forward-paragraph= (replaces forward-sexp)
 - =M-C-b= :: =backward-paragraph= (replaces backward-sexp)
 - =C-x k= :: =my/fast-kill-buffer= (replaces kill-buffer)
-- =C-x C-b= :: =bs-show= (replaces list-buffers)
 
 ** User Facing Functions
 
@@ -221,13 +220,13 @@ Xref is used by many Emacs modes for navigation, including Eglot for navigating 
 - =M-.= :: Find thing
 - =M-?= :: Find references
 
-Jump to specific line.
+Jump to a specific line.
 
 - =M-g g= :: goto-line
 
-*** Completion
+*** Completion in Buffers
 
-Completion is provided by [[https://github.com/minad/corfu][corfu]] together with [[https://github.com/oantolin/orderless][orderless]].
+Completion is provided by [[https://github.com/minad/corfu][Corfu]] together with [[https://github.com/oantolin/orderless][Orderless]].
 Completion is triggered by =C-M-i= which is bound to =complete-symbol=.
 The TAB key is also configured to either indent (if it can), else complete.
 This does not work in the C/C++ mode.
@@ -242,15 +241,22 @@ The built-in [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Dynamic
 - =M-/= :: dabbrev-expand
 - =C-M-/= :: dabbrev-completion
 
-*** Buffer and Filename Completion
+*** Minibuffer Completion
 
-[[https://www.masteringemacs.org/article/introduction-to-ido-mode][Ido mode]] is used for buffer and file name completions.
-There are some keybindings that are particularly useful and easily forgotten.
+[[https://github.com/radian-software/selectrum][Selectrum]] mode together with [[https://github.com/oantolin/orderless][Orderless]] is used to enhance minibuffer completions.
+For example selecting buffers, files or the function to invoke via =M-x=.
 
-- =C-p= :: Toggles prefix matching; when it’s on the input will only match the
-  beginning of a filename.
-- =C-SPC= :: Restricts the completion list to anything that matches the current
-  input. This enables iterative reduction of matches.
+- =TAB=, =C-i= :: Navigate to selected candidate
+- =RET=, =C-m= :: Accept selected candidate
+- =C-j= :: Submit exactly what is typed (or use =C-p= and =RET=)
+- =C-g= :: Abort (as always)
+- =M-w= :: Copy selected candidate to kill ring
+- =M-m= :: Select candidate using quick key selection
+- =M-i= :: Insert candidate into minibuffer using quick key selection
+- =M-q= :: Toggle display style between vertical and horizontal
+
+Searching for previous selections is done using =C-s= and =C-r=.
+Navigation is performed using usual keybindings.
 
 *** Incremental Search
 
@@ -276,18 +282,7 @@ Useful shortcuts include =<s= /TAB/ for source blocks and =<q= /TAB/ for quote b
 Text template support is provided by the [[https://github.com/joaotavora/yasnippet][yasnippet]] package.
 Sippets are kept under =~/.emacs.d/snippets/MODE/FILE=.
 
-Example org mode snippet with with one completion argument stored in file =~/.emacs.d/snippets/org-mode/src=:
-#+begin_src
-  # -*- mode: snippet -*-
-  # name: org/src
-  # key: .src
-  # --
-  ,#+begin_src $1
-  $0
-  ,#+end_src
-#+end_src
-
-Templates are expanded by typing their name (=.src= in the example above) and pressing /TAB/.
+Templates are expanded by typing their name and pressing /TAB/.
 
 *** Diagnostics
 
