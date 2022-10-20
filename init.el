@@ -37,6 +37,7 @@
 (straight-use-package 'eldoc)
 (straight-use-package 'flycheck)
 (straight-use-package 'flymake)
+(straight-use-package 'marginalia)
 (straight-use-package 'orderless)
 (straight-use-package 'project)
 (straight-use-package 'selectrum)
@@ -291,6 +292,22 @@ With argument, do this that many times."
 
 (selectrum-mode +1)
 (setq selectrum-highlight-candidates-function #'orderless-highlight-matches)
+
+;; ----------------------------------------------------------------------------
+;; Margin comments for minibuffer completions.
+;; ----------------------------------------------------------------------------
+
+;; Enable rich annotations using the Marginalia package
+(use-package marginalia
+  :ensure nil
+  ;; Either bind `marginalia-cycle' globally or only in the minibuffer
+  :bind
+  (:map minibuffer-local-map
+	("M-A" . marginalia-cycle))
+  :custom
+  (marginalia-max-relative-age 0)
+  :init
+  (marginalia-mode))
 
 ;; ----------------------------------------------------------------------------
 ;; Text templates

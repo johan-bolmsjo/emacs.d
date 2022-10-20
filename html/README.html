@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-10-20 21:46 -->
+<!-- 2022-10-20 22:29 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Johan Bolmsjö's GNU Emacs Configuration</title>
@@ -313,13 +313,13 @@ All programming language modes except elisp use eglot to provide code navigation
 <h4 id="orgf74a039">Miscellaneous Support Functions</h4>
 <div class="outline-text-4" id="text-orgf74a039">
 <ul class="org-ul">
-<li>Improved minibuffer completions through <a href="https://github.com/radian-software/selectrum">Selectrum</a> mode.</li>
-<li>Code completion through <a href="https://github.com/minad/corfu">Corfu</a> and <a href="https://github.com/oantolin/orderless">Orderless</a> packages.</li>
-<li>Templated auto complete assisted snippets through <a href="https://github.com/joaotavora/yasnippet">Yasnippet</a> mode.</li>
-<li>Project like IDE support using <a href="https://github.com/Alexander-Miller/treemacs">Treemacs</a>, <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Projects.html">project.el</a> and <a href="https://github.com/joaotavora/eglot">Eglot</a> modes.</li>
-<li>Compiler diagnostics through <a href="https://www.flycheck.org/en/latest/">Flycheck</a> or <a href="https://www.gnu.org/software/emacs/manual/html_mono/flymake.html">Flymake</a> modes.</li>
+<li>Improved minibuffer completions through <a href="https://github.com/radian-software/selectrum">Selectrum</a>, <a href="https://github.com/minad/marginalia">Marginalia</a> and <a href="https://github.com/oantolin/orderless">Orderless</a>.</li>
+<li>Code completion through <a href="https://github.com/minad/corfu">Corfu</a> and <a href="https://github.com/oantolin/orderless">Orderless</a>.</li>
+<li>Templated auto complete assisted snippets through <a href="https://github.com/joaotavora/yasnippet">Yasnippet</a>.</li>
+<li>Project like IDE support using <a href="https://github.com/Alexander-Miller/treemacs">Treemacs</a>, <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Projects.html">project.el</a> and <a href="https://github.com/joaotavora/eglot">Eglot</a>.</li>
+<li>Compiler diagnostics through <a href="https://www.flycheck.org/en/latest/">Flycheck</a> or <a href="https://www.gnu.org/software/emacs/manual/html_mono/flymake.html">Flymake</a>.</li>
 <li>Git interface through <a href="https://magit.vc/">Magit</a>.</li>
-<li>GDB support through <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Debuggers.html">GUD</a> mode.</li>
+<li>GDB support through <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Debuggers.html">GUD</a>.</li>
 <li>Extraneous whitespace indications.</li>
 </ul>
 </div>
@@ -353,9 +353,9 @@ Also <a href="http://xahlee.info/emacs/emacs/keyboard_shortcuts.html">http://xah
 </dl>
 </div>
 
-<div id="outline-container-org8a0c63d" class="outline-5">
-<h5 id="org8a0c63d">Incremental Search</h5>
-<div class="outline-text-5" id="text-org8a0c63d">
+<div id="outline-container-org9eaad5f" class="outline-5">
+<h5 id="org9eaad5f">Incremental Search</h5>
+<div class="outline-text-5" id="text-org9eaad5f">
 <dl class="org-dl">
 <dt><code>C-c k</code></dt><dd>isearch mark and exit</dd>
 <dt><code>C-c o</code></dt><dd><code>isearch-occur</code></dd>
@@ -364,9 +364,9 @@ Also <a href="http://xahlee.info/emacs/emacs/keyboard_shortcuts.html">http://xah
 </div>
 </div>
 
-<div id="outline-container-org0dfe1f4" class="outline-5">
-<h5 id="org0dfe1f4">Navigation</h5>
-<div class="outline-text-5" id="text-org0dfe1f4">
+<div id="outline-container-orgf9522fc" class="outline-5">
+<h5 id="orgf9522fc">Navigation</h5>
+<div class="outline-text-5" id="text-orgf9522fc">
 <p>
 Even though these functions are called <code>error</code>, they work in many contexts. E.g. moving through compilation errors, grep results, xref references.
 </p>
@@ -398,9 +398,9 @@ See <a href="https://smythp.com/emacs_buffers/">https://smythp.com/emacs_buffers
 </div>
 </div>
 
-<div id="outline-container-orgc0937bf" class="outline-5">
-<h5 id="orgc0937bf">Org Mode</h5>
-<div class="outline-text-5" id="text-orgc0937bf">
+<div id="outline-container-orge4f260b" class="outline-5">
+<h5 id="orge4f260b">Org Mode</h5>
+<div class="outline-text-5" id="text-orge4f260b">
 <dl class="org-dl">
 <dt><code>C-c n</code></dt><dd><code>org-capture</code> (take quick note)</dd>
 <dt><code>C-c p</code></dt><dd><code>org-agenda</code> (planning)</dd>
@@ -582,9 +582,9 @@ It could do with more information for Emacs neophytes.
 </p>
 </div>
 
-<div id="outline-container-orgf9522fc" class="outline-4">
-<h4 id="orgf9522fc">Navigation</h4>
-<div class="outline-text-4" id="text-orgf9522fc">
+<div id="outline-container-org83084df" class="outline-4">
+<h4 id="org83084df">Navigation</h4>
+<div class="outline-text-4" id="text-org83084df">
 <p>
 Xref is used by many Emacs modes for navigation, including Eglot for navigating source code.
 </p>
@@ -637,7 +637,7 @@ The built-in <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/
 <h4 id="org1e42bcc">Minibuffer Completion</h4>
 <div class="outline-text-4" id="text-org1e42bcc">
 <p>
-<a href="https://github.com/radian-software/selectrum">Selectrum</a> mode together with <a href="https://github.com/oantolin/orderless">Orderless</a> is used to enhance minibuffer completions.
+<a href="https://github.com/radian-software/selectrum">Selectrum</a> together with <a href="https://github.com/minad/marginalia">Marginalia</a> and <a href="https://github.com/oantolin/orderless">Orderless</a> is used to enhance minibuffer completions.
 For example selecting buffers, files or the function to invoke via <code>M-x</code>.
 </p>
 
@@ -650,6 +650,7 @@ For example selecting buffers, files or the function to invoke via <code>M-x</co
 <dt><code>M-m</code></dt><dd>Select candidate using quick key selection</dd>
 <dt><code>M-i</code></dt><dd>Insert candidate into minibuffer using quick key selection</dd>
 <dt><code>M-q</code></dt><dd>Toggle display style between vertical and horizontal</dd>
+<dt><code>M-A</code></dt><dd>Toggle marginalia</dd>
 </dl>
 
 <p>
@@ -659,9 +660,9 @@ Navigation is performed using usual keybindings.
 </div>
 </div>
 
-<div id="outline-container-org9eaad5f" class="outline-4">
-<h4 id="org9eaad5f">Incremental Search</h4>
-<div class="outline-text-4" id="text-org9eaad5f">
+<div id="outline-container-org82389e6" class="outline-4">
+<h4 id="org82389e6">Incremental Search</h4>
+<div class="outline-text-4" id="text-org82389e6">
 <p>
 Don't forget about the occur mode when doing incremental search.
 Invoke <code>C-c o</code> to get an overview of all matches in the current document.
@@ -679,9 +680,9 @@ The magit status command is bound to <code>M-x g</code>.
 </div>
 </div>
 
-<div id="outline-container-orge4f260b" class="outline-4">
-<h4 id="orge4f260b">Org Mode</h4>
-<div class="outline-text-4" id="text-orge4f260b">
+<div id="outline-container-orga796012" class="outline-4">
+<h4 id="orga796012">Org Mode</h4>
+<div class="outline-text-4" id="text-orga796012">
 <p>
 <a href="http://orgmode.org">Org mode</a> is a documentation and planning major mode.
 Some HOWTO notes are kept in <a href="docs/howto-org-mode.html">docs/howto-org-mode.html</a>.
@@ -1013,7 +1014,7 @@ Make sure that Cairo is used for the GUI in the configure stage or some library 
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2022-10-20 21:46</p>
+<p class="date">Created: 2022-10-20 22:29</p>
 </div>
 </body>
 </html>
