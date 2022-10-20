@@ -253,13 +253,7 @@ With argument, do this that many times."
 ;; Fonts
 ;; ----------------------------------------------------------------------------
 
-(require 'cl-lib)
-(defun my/font-candidate (&rest fonts)
-  "Return existing font which first match."
-  (cl-find-if (lambda (f) (find-font (font-spec :name f))) fonts))
-
-(when (display-graphic-p)
-  (set-face-attribute 'default nil :font (my/font-candidate "Go Mono-9" "DejaVu Sans Mono-10")))
+(load (concat user-emacs-directory "fonts.el"))
 
 ;; ----------------------------------------------------------------------------
 ;; Color theme

@@ -193,7 +193,7 @@ Installation (Linux):
   cp ~/.emacs.d/fonts/gofont/*.ttf ~/.fonts
 #+end_src
 
-Update the /Fonts/ section in =~/.emacs.d/init.el= with your preferred fonts.
+Update =~/.emacs.d/fonts.el= with your preferred fonts and default size.
 
 *** Indexed Grep
 
