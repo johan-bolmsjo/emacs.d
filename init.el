@@ -48,7 +48,6 @@
 
 ;; Themes
 (straight-use-package 'solarized-theme)
-(straight-use-package 'color-theme-solarized)
 
 ;; Documentation formats
 (straight-use-package 'markdown-mode)
@@ -77,10 +76,6 @@
 
 ;; Disable pager for "git grep"
 (setenv "PAGER" "cat")
-
-;; Emacs <= 26.3 does not recognize st-256color terminal
-(add-to-list 'term-file-aliases
-    '("st-256color" . "xterm-256color"))
 
 ;; Persist minibuffer history over Emacs restarts.
 ;; This can help completion modes to remember often used commands.
@@ -264,19 +259,10 @@ With argument, do this that many times."
 ;; Color theme
 ;; ----------------------------------------------------------------------------
 
-(if window-system
-    (progn
-      (setq x-underline-at-descent-line t)
-      ;; Don't change the font for some headings and titles
-      (setq solarized-use-variable-pitch nil)
-      (load-theme 'solarized-light t))
-  (progn
-    ;; Use an alternative solarized theme that handle terminals that are
-    ;; in solarized color mode better. The theme works fine for me in
-    ;; PuTTY but have some problems in urxvt.
-    (load-theme 'solarized t)
-    ;;(setq frame-background-mode 'light)
-    ))
+(setq x-underline-at-descent-line t)
+;; Don't change the font for some headings and titles
+(setq solarized-use-variable-pitch nil)
+(load-theme 'solarized-light t)
 
 ;; ----------------------------------------------------------------------------
 ;; Whitespace config

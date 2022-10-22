@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-10-22 16:23 -->
+<!-- 2022-10-23 00:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Johan Bolmsjö's GNU Emacs Configuration</title>
@@ -219,12 +219,12 @@ Installation instruction:
 </li>
 <li><a href="#org9c20098">2. Quick Guides</a>
 <ul>
-<li><a href="#org299d2e1">2.1. Navigation</a></li>
-<li><a href="#org433c41a">2.2. Incremental Search</a></li>
+<li><a href="#orgeae8d32">2.1. Navigation</a></li>
+<li><a href="#org4bca3ba">2.2. Incremental Search</a></li>
 <li><a href="#org6fc770b">2.3. Completion in Buffers</a></li>
 <li><a href="#org1e42bcc">2.4. Minibuffer Completion</a></li>
 <li><a href="#org0b62f28">2.5. Magit</a></li>
-<li><a href="#org90962bb">2.6. Org Mode</a></li>
+<li><a href="#org81e7023">2.6. Org Mode</a></li>
 <li><a href="#orge96f3ee">2.7. Text Templates</a></li>
 <li><a href="#orgfb5b5dc">2.8. Diagnostics</a></li>
 <li><a href="#org4689822">2.9. Language Server Protocol Support</a></li>
@@ -366,18 +366,18 @@ Also <a href="http://xahlee.info/emacs/emacs/keyboard_shortcuts.html">http://xah
 </dl>
 </div>
 
-<div id="outline-container-org0210a63" class="outline-5">
-<h5 id="org0210a63">Incremental Search</h5>
-<div class="outline-text-5" id="text-org0210a63">
+<div id="outline-container-org11c6167" class="outline-5">
+<h5 id="org11c6167">Incremental Search</h5>
+<div class="outline-text-5" id="text-org11c6167">
 <dl class="org-dl">
 <dt><code>C-c k</code></dt><dd>Set mark at start of current match and exit isearch (user function).</dd>
 </dl>
 </div>
 </div>
 
-<div id="outline-container-orgbb8d626" class="outline-5">
-<h5 id="orgbb8d626">Navigation</h5>
-<div class="outline-text-5" id="text-orgbb8d626">
+<div id="outline-container-org10bc031" class="outline-5">
+<h5 id="org10bc031">Navigation</h5>
+<div class="outline-text-5" id="text-org10bc031">
 <p>
 Even though these functions are called <code>error</code>, they work in many contexts. E.g. moving through compilation errors, grep results, xref references.
 </p>
@@ -409,9 +409,9 @@ See <a href="https://smythp.com/emacs_buffers/">https://smythp.com/emacs_buffers
 </div>
 </div>
 
-<div id="outline-container-org9a4688e" class="outline-5">
-<h5 id="org9a4688e">Org Mode</h5>
-<div class="outline-text-5" id="text-org9a4688e">
+<div id="outline-container-org8182958" class="outline-5">
+<h5 id="org8182958">Org Mode</h5>
+<div class="outline-text-5" id="text-org8182958">
 <dl class="org-dl">
 <dt><code>C-c n</code></dt><dd><code>org-capture</code> (take quick note)</dd>
 <dt><code>C-c p</code></dt><dd><code>org-agenda</code> (planning)</dd>
@@ -509,6 +509,40 @@ Configuration adaptations that may be desired when applying this Emacs configura
 </p>
 </div>
 
+<div id="outline-container-orgb7c5aff" class="outline-4">
+<h4 id="orgb7c5aff">Terminal Emulator</h4>
+<div class="outline-text-4" id="text-orgb7c5aff">
+<p>
+The solarized theme that is used by this Emacs configuration only works properly in graphical mode and terminals that support true color.
+</p>
+
+<p>
+The website <a href="https://github.com/termstandard/colors">https://github.com/termstandard/colors</a> describes how to configure terminals and associated tools to support true color.
+</p>
+
+<p>
+In essence the environment variable <code>COLORTERM</code> must be set to <code>truecolor</code>.
+<code>COLORTERM</code> is distinct from the usual <code>TERM</code> environment variable that communicate terminal capabilities.
+Obviously the underlying terminal must also support the true color escape codes.
+</p>
+
+<p>
+My <code>~/.bashrc</code> contains the following lines to set it for the suckless terminal:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"># Set the COLORTERM variable to "truecolor" if the terminal supports it.
+# The suckless terminal (st) definitely does.
+# The tmux-256color can be any underlying type so is technically incorrect;
+# it solves the issue of SSH to remote system from within a Tmux session.
+if [ "$TERM" = st-256color ] || [ "$TERM" = tmux-256color ]; then
+   export COLORTERM=truecolor
+fi
+</pre>
+</div>
+</div>
+</div>
+
 <div id="outline-container-org6e1cfd9" class="outline-4">
 <h4 id="org6e1cfd9">Shell Environment&#xa0;&#xa0;&#xa0;<span class="tag"><span class="optional">optional</span></span></h4>
 <div class="outline-text-4" id="text-org6e1cfd9">
@@ -595,8 +629,8 @@ It could do with more information for Emacs neophytes.
 </p>
 </div>
 
-<div id="outline-container-org299d2e1" class="outline-3">
-<h3 id="org299d2e1"><span class="section-number-3">2.1.</span> Navigation</h3>
+<div id="outline-container-orgeae8d32" class="outline-3">
+<h3 id="orgeae8d32"><span class="section-number-3">2.1.</span> Navigation</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Xref is used by many Emacs modes for navigation, including Eglot for navigating source code.
@@ -618,8 +652,8 @@ Jump to a specific line.
 </div>
 </div>
 
-<div id="outline-container-org433c41a" class="outline-3">
-<h3 id="org433c41a"><span class="section-number-3">2.2.</span> Incremental Search</h3>
+<div id="outline-container-org4bca3ba" class="outline-3">
+<h3 id="org4bca3ba"><span class="section-number-3">2.2.</span> Incremental Search</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 Don't forget about the occur mode when doing incremental search.
@@ -725,8 +759,8 @@ The magit status command is bound to <code>C-x g</code>.
 </div>
 </div>
 
-<div id="outline-container-org90962bb" class="outline-3">
-<h3 id="org90962bb"><span class="section-number-3">2.6.</span> Org Mode</h3>
+<div id="outline-container-org81e7023" class="outline-3">
+<h3 id="org81e7023"><span class="section-number-3">2.6.</span> Org Mode</h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
 <a href="http://orgmode.org">Org mode</a> is a documentation and planning major mode.
@@ -804,6 +838,7 @@ Press <code>F4</code> to end the recording and bind it to the same key.
 </div>
 </div>
 </div>
+
 
 <div id="outline-container-orga5e5705" class="outline-2">
 <h2 id="orga5e5705"><span class="section-number-2">3.</span> Setup of External Tools</h2>
@@ -1068,7 +1103,7 @@ Make sure that Cairo is used for the GUI in the configure stage or some library 
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2022-10-22 16:23</p>
+<p class="date">Created: 2022-10-23 00:56</p>
 </div>
 </body>
 </html>

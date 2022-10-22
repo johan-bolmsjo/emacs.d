@@ -162,6 +162,28 @@ Convenience functions defined by the configuration.
 
 Configuration adaptations that may be desired when applying this Emacs configuration in a new environment.
 
+*** Terminal Emulator
+
+The solarized theme that is used by this Emacs configuration only works properly in graphical mode and terminals that support true color.
+
+The website https://github.com/termstandard/colors describes how to configure terminals and associated tools to support true color.
+
+In essence the environment variable =COLORTERM= must be set to =truecolor=.
+=COLORTERM= is distinct from the usual =TERM= environment variable that communicate terminal capabilities.
+Obviously the underlying terminal must also support the true color escape codes.
+
+My =~/.bashrc= contains the following lines to set it for the suckless terminal:
+
+#+begin_src sh
+  # Set the COLORTERM variable to "truecolor" if the terminal supports it.
+  # The suckless terminal (st) definitely does.
+  # The tmux-256color can be any underlying type so is technically incorrect;
+  # it solves the issue of SSH to remote system from within a Tmux session.
+  if [ "$TERM" = st-256color ] || [ "$TERM" = tmux-256color ]; then
+     export COLORTERM=truecolor
+  fi
+#+end_src
+
 *** Shell Environment                                            :optional:
 
 You may want to source =~/.emacs.d/etc/bashrc= from your =~/.bashrc= file.
@@ -333,6 +355,7 @@ Invoke =C-h .= to show documentation at point.
 Keyboard macros are incredibly useful to apply repetitive changes in close proximity.
 Press =F3= to start recording key presses.
 Press =F4= to end the recording and bind it to the same key.
+
 
 * Setup of External Tools
 
