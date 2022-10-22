@@ -18,7 +18,7 @@ Requires GNU Emacs version 28.1 or greater.
 
 The main init file is =init.el=.
 This file loads packages that require external programs to function properly.
-See chapter [[External Tools]] for how to install required programs for specific packages.
+See chapter [[Setup of External Tools]] for how to install required programs for specific packages.
 
 ** Overview
 
@@ -205,12 +205,13 @@ See section [[#ext-indexed-grep]] for details.
 
 Variables that may need customization (such as file paths) are stored in =~/.emacs.d/custom.el=.
 
-** Quick Guides
+
+* Quick Guides
 
 Scattered quick guides for my own memory.
 It could do with more information for Emacs neophytes.
 
-*** Navigation
+** Navigation
 
 Xref is used by many Emacs modes for navigation, including Eglot for navigating source code.
 
@@ -222,7 +223,7 @@ Jump to a specific line.
 
 - =M-g g= :: goto-line
 
-*** Incremental Search
+** Incremental Search
 
 Don't forget about the occur mode when doing incremental search.
 It's very useful to get a navigable outline of all current matches.
@@ -249,7 +250,7 @@ During search:
 - =M-s SPC= :: Toggle lax whitespace
 - =RET= :: Terminate search, leaving cursor at the current match
 
-*** Completion in Buffers
+** Completion in Buffers
 
 Completion is provided by [[https://github.com/minad/corfu][Corfu]] together with [[https://github.com/oantolin/orderless][Orderless]].
 Completion is triggered by =C-M-i= which is bound to =complete-symbol=.
@@ -266,7 +267,7 @@ The built-in [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Dynamic
 - =M-/= :: dabbrev-expand
 - =C-M-/= :: dabbrev-completion
 
-*** Minibuffer Completion
+** Minibuffer Completion
 
 [[https://github.com/radian-software/selectrum][Selectrum]] together with [[https://github.com/minad/marginalia][Marginalia]] and [[https://github.com/oantolin/orderless][Orderless]] is used to enhance minibuffer completions.
 For example selecting buffers, files or the function to invoke via =M-x=.
@@ -284,12 +285,12 @@ For example selecting buffers, files or the function to invoke via =M-x=.
 Searching for previous selections is done using =C-s= and =C-r=.
 Navigation is performed using usual keybindings.
 
-*** Magit
+** Magit
 
 [[https://magit.vc][Magit]] is a complete text-based user interface to Git.
-The magit status command is bound to =M-x g=.
+The magit status command is bound to =C-x g=.
 
-*** Org Mode
+** Org Mode
 
 [[http://orgmode.org][Org mode]] is a documentation and planning major mode.
 Some HOWTO notes are kept in file:docs/howto-org-mode.org.
@@ -298,18 +299,18 @@ The =org-tempo= package is enabled which provides some template instantiation sh
 Invoke =M-x describe-variable= and enter =org-tempo-tags= to see all shortcuts.
 Useful shortcuts include =<s= /TAB/ for source blocks and =<q= /TAB/ for quote blocks.
 
-*** Text Templates
+** Text Templates
 
 Text template support is provided by the [[https://github.com/joaotavora/yasnippet][yasnippet]] package.
 Sippets are kept under =~/.emacs.d/snippets/MODE/FILE=.
 
 Templates are expanded by typing their name and pressing /TAB/.
 
-*** Diagnostics
+** Diagnostics
 
 Diagnostics such as compiler errors are provied by either the flycheck or flymake package.
 
-*** Language Server Protocol Support
+** Language Server Protocol Support
 
 [[https://github.com/joaotavora/eglot/blob/master/MANUAL.md][Eglot]] works in concert with project.el to identify [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Projects.html][projects]].
 Only version controlled directories can become projects.
@@ -327,8 +328,13 @@ Eglot is well integrated with core Emacs packages.
 Apart from the mentioned xref it use the eldoc package to display documentation and type information.
 Invoke =C-h .= to show documentation at point.
 
+** Keyboard Macros
 
-* External Tools
+Keyboard macros are incredibly useful to apply repetitive changes in close proximity.
+Press =F3= to start recording key presses.
+Press =F4= to end the recording and bind it to the same key.
+
+* Setup of External Tools
 
 Unfortunately the [[#init-file][Emacs init file]] is not self contained.
 External tools are required to support many packages.

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-10-22 16:02 -->
+<!-- 2022-10-22 16:23 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Johan Bolmsjö's GNU Emacs Configuration</title>
@@ -215,21 +215,34 @@ Installation instruction:
 <li><a href="#org06571a1">1.2. Keybindings</a></li>
 <li><a href="#org19e8de7">1.3. User Facing Functions</a></li>
 <li><a href="#orga309fcc">1.4. Configuration Adaptations</a></li>
-<li><a href="#org9c20098">1.5. Quick Guides</a></li>
 </ul>
 </li>
-<li><a href="#org0bb867c">2. External Tools</a>
+<li><a href="#org9c20098">2. Quick Guides</a>
 <ul>
-<li><a href="#ext-indexed-grep">2.1. Indexed Grep</a></li>
-<li><a href="#org7130924">2.2. Shell Script Mode</a></li>
-<li><a href="#org8014202">2.3. PlantUML Documentation</a></li>
-<li><a href="#org0a01e22">2.4. Go Programming Language Mode</a></li>
-<li><a href="#orge49e14e">2.5. OCaml Programming Language Mode</a></li>
-<li><a href="#orge9313ee">2.6. Python Programming Language Mode</a></li>
-<li><a href="#orgb73e97b">2.7. Zig Programming Language Mode</a></li>
+<li><a href="#org299d2e1">2.1. Navigation</a></li>
+<li><a href="#org433c41a">2.2. Incremental Search</a></li>
+<li><a href="#org6fc770b">2.3. Completion in Buffers</a></li>
+<li><a href="#org1e42bcc">2.4. Minibuffer Completion</a></li>
+<li><a href="#org0b62f28">2.5. Magit</a></li>
+<li><a href="#org90962bb">2.6. Org Mode</a></li>
+<li><a href="#orge96f3ee">2.7. Text Templates</a></li>
+<li><a href="#orgfb5b5dc">2.8. Diagnostics</a></li>
+<li><a href="#org4689822">2.9. Language Server Protocol Support</a></li>
+<li><a href="#org5f9ce5d">2.10. Keyboard Macros</a></li>
 </ul>
 </li>
-<li><a href="#orgb7c9c5d">3. Compiling GNU Emacs</a></li>
+<li><a href="#orga5e5705">3. Setup of External Tools</a>
+<ul>
+<li><a href="#ext-indexed-grep">3.1. Indexed Grep</a></li>
+<li><a href="#org7130924">3.2. Shell Script Mode</a></li>
+<li><a href="#org8014202">3.3. PlantUML Documentation</a></li>
+<li><a href="#org0a01e22">3.4. Go Programming Language Mode</a></li>
+<li><a href="#orge49e14e">3.5. OCaml Programming Language Mode</a></li>
+<li><a href="#orge9313ee">3.6. Python Programming Language Mode</a></li>
+<li><a href="#orgb73e97b">3.7. Zig Programming Language Mode</a></li>
+</ul>
+</li>
+<li><a href="#orgb7c9c5d">4. Compiling GNU Emacs</a></li>
 </ul>
 </div>
 </div>
@@ -244,7 +257,7 @@ Requires GNU Emacs version 28.1 or greater.
 <p>
 The main init file is <code>init.el</code>.
 This file loads packages that require external programs to function properly.
-See chapter <a href="#org0bb867c">2</a> for how to install required programs for specific packages.
+See chapter <a href="#orga5e5705">3</a> for how to install required programs for specific packages.
 </p>
 </div>
 
@@ -353,18 +366,18 @@ Also <a href="http://xahlee.info/emacs/emacs/keyboard_shortcuts.html">http://xah
 </dl>
 </div>
 
-<div id="outline-container-org82389e6" class="outline-5">
-<h5 id="org82389e6">Incremental Search</h5>
-<div class="outline-text-5" id="text-org82389e6">
+<div id="outline-container-org0210a63" class="outline-5">
+<h5 id="org0210a63">Incremental Search</h5>
+<div class="outline-text-5" id="text-org0210a63">
 <dl class="org-dl">
 <dt><code>C-c k</code></dt><dd>Set mark at start of current match and exit isearch (user function).</dd>
 </dl>
 </div>
 </div>
 
-<div id="outline-container-org83084df" class="outline-5">
-<h5 id="org83084df">Navigation</h5>
-<div class="outline-text-5" id="text-org83084df">
+<div id="outline-container-orgbb8d626" class="outline-5">
+<h5 id="orgbb8d626">Navigation</h5>
+<div class="outline-text-5" id="text-orgbb8d626">
 <p>
 Even though these functions are called <code>error</code>, they work in many contexts. E.g. moving through compilation errors, grep results, xref references.
 </p>
@@ -396,9 +409,9 @@ See <a href="https://smythp.com/emacs_buffers/">https://smythp.com/emacs_buffers
 </div>
 </div>
 
-<div id="outline-container-orga796012" class="outline-5">
-<h5 id="orga796012">Org Mode</h5>
-<div class="outline-text-5" id="text-orga796012">
+<div id="outline-container-org9a4688e" class="outline-5">
+<h5 id="org9a4688e">Org Mode</h5>
+<div class="outline-text-5" id="text-org9a4688e">
 <dl class="org-dl">
 <dt><code>C-c n</code></dt><dd><code>org-capture</code> (take quick note)</dd>
 <dt><code>C-c p</code></dt><dd><code>org-agenda</code> (planning)</dd>
@@ -556,7 +569,7 @@ Just delete the entire section "Indexed grep search tool" from <code>~/.emacs.d/
 </p>
 
 <p>
-See section <a href="#ext-indexed-grep">2.1</a> for details.
+See section <a href="#ext-indexed-grep">3.1</a> for details.
 </p>
 </div>
 </div>
@@ -570,19 +583,21 @@ Variables that may need customization (such as file paths) are stored in <code>~
 </div>
 </div>
 </div>
+</div>
 
-<div id="outline-container-org9c20098" class="outline-3">
-<h3 id="org9c20098"><span class="section-number-3">1.5.</span> Quick Guides</h3>
-<div class="outline-text-3" id="text-1-5">
+
+<div id="outline-container-org9c20098" class="outline-2">
+<h2 id="org9c20098"><span class="section-number-2">2.</span> Quick Guides</h2>
+<div class="outline-text-2" id="text-2">
 <p>
 Scattered quick guides for my own memory.
 It could do with more information for Emacs neophytes.
 </p>
 </div>
 
-<div id="outline-container-orgffc5ee3" class="outline-4">
-<h4 id="orgffc5ee3">Navigation</h4>
-<div class="outline-text-4" id="text-orgffc5ee3">
+<div id="outline-container-org299d2e1" class="outline-3">
+<h3 id="org299d2e1"><span class="section-number-3">2.1.</span> Navigation</h3>
+<div class="outline-text-3" id="text-2-1">
 <p>
 Xref is used by many Emacs modes for navigation, including Eglot for navigating source code.
 </p>
@@ -603,9 +618,9 @@ Jump to a specific line.
 </div>
 </div>
 
-<div id="outline-container-orgaaf2a58" class="outline-4">
-<h4 id="orgaaf2a58">Incremental Search</h4>
-<div class="outline-text-4" id="text-orgaaf2a58">
+<div id="outline-container-org433c41a" class="outline-3">
+<h3 id="org433c41a"><span class="section-number-3">2.2.</span> Incremental Search</h3>
+<div class="outline-text-3" id="text-2-2">
 <p>
 Don't forget about the occur mode when doing incremental search.
 It's very useful to get a navigable outline of all current matches.
@@ -645,9 +660,9 @@ During search:
 </div>
 </div>
 
-<div id="outline-container-org6fc770b" class="outline-4">
-<h4 id="org6fc770b">Completion in Buffers</h4>
-<div class="outline-text-4" id="text-org6fc770b">
+<div id="outline-container-org6fc770b" class="outline-3">
+<h3 id="org6fc770b"><span class="section-number-3">2.3.</span> Completion in Buffers</h3>
+<div class="outline-text-3" id="text-2-3">
 <p>
 Completion is provided by <a href="https://github.com/minad/corfu">Corfu</a> together with <a href="https://github.com/oantolin/orderless">Orderless</a>.
 Completion is triggered by <code>C-M-i</code> which is bound to <code>complete-symbol</code>.
@@ -673,9 +688,9 @@ The built-in <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/
 </div>
 </div>
 
-<div id="outline-container-org1e42bcc" class="outline-4">
-<h4 id="org1e42bcc">Minibuffer Completion</h4>
-<div class="outline-text-4" id="text-org1e42bcc">
+<div id="outline-container-org1e42bcc" class="outline-3">
+<h3 id="org1e42bcc"><span class="section-number-3">2.4.</span> Minibuffer Completion</h3>
+<div class="outline-text-3" id="text-2-4">
 <p>
 <a href="https://github.com/radian-software/selectrum">Selectrum</a> together with <a href="https://github.com/minad/marginalia">Marginalia</a> and <a href="https://github.com/oantolin/orderless">Orderless</a> is used to enhance minibuffer completions.
 For example selecting buffers, files or the function to invoke via <code>M-x</code>.
@@ -700,19 +715,19 @@ Navigation is performed using usual keybindings.
 </div>
 </div>
 
-<div id="outline-container-org0b62f28" class="outline-4">
-<h4 id="org0b62f28">Magit</h4>
-<div class="outline-text-4" id="text-org0b62f28">
+<div id="outline-container-org0b62f28" class="outline-3">
+<h3 id="org0b62f28"><span class="section-number-3">2.5.</span> Magit</h3>
+<div class="outline-text-3" id="text-2-5">
 <p>
 <a href="https://magit.vc">Magit</a> is a complete text-based user interface to Git.
-The magit status command is bound to <code>M-x g</code>.
+The magit status command is bound to <code>C-x g</code>.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org6bf331d" class="outline-4">
-<h4 id="org6bf331d">Org Mode</h4>
-<div class="outline-text-4" id="text-org6bf331d">
+<div id="outline-container-org90962bb" class="outline-3">
+<h3 id="org90962bb"><span class="section-number-3">2.6.</span> Org Mode</h3>
+<div class="outline-text-3" id="text-2-6">
 <p>
 <a href="http://orgmode.org">Org mode</a> is a documentation and planning major mode.
 Some HOWTO notes are kept in <a href="docs/howto-org-mode.html">docs/howto-org-mode.html</a>.
@@ -726,9 +741,9 @@ Useful shortcuts include <code>&lt;s</code> <i>TAB</i> for source blocks and <co
 </div>
 </div>
 
-<div id="outline-container-orge96f3ee" class="outline-4">
-<h4 id="orge96f3ee">Text Templates</h4>
-<div class="outline-text-4" id="text-orge96f3ee">
+<div id="outline-container-orge96f3ee" class="outline-3">
+<h3 id="orge96f3ee"><span class="section-number-3">2.7.</span> Text Templates</h3>
+<div class="outline-text-3" id="text-2-7">
 <p>
 Text template support is provided by the <a href="https://github.com/joaotavora/yasnippet">yasnippet</a> package.
 Sippets are kept under <code>~/.emacs.d/snippets/MODE/FILE</code>.
@@ -740,18 +755,18 @@ Templates are expanded by typing their name and pressing <i>TAB</i>.
 </div>
 </div>
 
-<div id="outline-container-orgfb5b5dc" class="outline-4">
-<h4 id="orgfb5b5dc">Diagnostics</h4>
-<div class="outline-text-4" id="text-orgfb5b5dc">
+<div id="outline-container-orgfb5b5dc" class="outline-3">
+<h3 id="orgfb5b5dc"><span class="section-number-3">2.8.</span> Diagnostics</h3>
+<div class="outline-text-3" id="text-2-8">
 <p>
 Diagnostics such as compiler errors are provied by either the flycheck or flymake package.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org4689822" class="outline-4">
-<h4 id="org4689822">Language Server Protocol Support</h4>
-<div class="outline-text-4" id="text-org4689822">
+<div id="outline-container-org4689822" class="outline-3">
+<h3 id="org4689822"><span class="section-number-3">2.9.</span> Language Server Protocol Support</h3>
+<div class="outline-text-3" id="text-2-9">
 <p>
 <a href="https://github.com/joaotavora/eglot/blob/master/MANUAL.md">Eglot</a> works in concert with project.el to identify <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Projects.html">projects</a>.
 Only version controlled directories can become projects.
@@ -777,13 +792,22 @@ Invoke <code>C-h .</code> to show documentation at point.
 </p>
 </div>
 </div>
+
+<div id="outline-container-org5f9ce5d" class="outline-3">
+<h3 id="org5f9ce5d"><span class="section-number-3">2.10.</span> Keyboard Macros</h3>
+<div class="outline-text-3" id="text-2-10">
+<p>
+Keyboard macros are incredibly useful to apply repetitive changes in close proximity.
+Press <code>F3</code> to start recording key presses.
+Press <code>F4</code> to end the recording and bind it to the same key.
+</p>
+</div>
 </div>
 </div>
 
-
-<div id="outline-container-org0bb867c" class="outline-2">
-<h2 id="org0bb867c"><span class="section-number-2">2.</span> External Tools</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-orga5e5705" class="outline-2">
+<h2 id="orga5e5705"><span class="section-number-2">3.</span> Setup of External Tools</h2>
+<div class="outline-text-2" id="text-3">
 <p>
 Unfortunately the <a href="#init-file">Emacs init file</a> is not self contained.
 External tools are required to support many packages.
@@ -791,7 +815,7 @@ External tools are required to support many packages.
 </div>
 
 <div id="outline-container-ext-indexed-grep" class="outline-3">
-<h3 id="ext-indexed-grep"><span class="section-number-3">2.1.</span> Indexed Grep</h3>
+<h3 id="ext-indexed-grep"><span class="section-number-3">3.1.</span> Indexed Grep</h3>
 <div class="outline-text-3" id="text-ext-indexed-grep">
 <p>
 The tool <a href="https://github.com/johan-bolmsjo/codesearch">codesearch</a> provides fast, indexed regexp search over large file trees.
@@ -822,8 +846,8 @@ The convenience scripts in <code>~/.emacs.d/bin/</code> has the following purpos
 </div>
 
 <div id="outline-container-org7130924" class="outline-3">
-<h3 id="org7130924"><span class="section-number-3">2.2.</span> Shell Script Mode</h3>
-<div class="outline-text-3" id="text-2-2">
+<h3 id="org7130924"><span class="section-number-3">3.2.</span> Shell Script Mode</h3>
+<div class="outline-text-3" id="text-3-2">
 <p>
 Install the shellcheck linter to get good advice on shell script constructs.
 </p>
@@ -839,8 +863,8 @@ Ubuntu/Debian specific instruction:
 </div>
 
 <div id="outline-container-org8014202" class="outline-3">
-<h3 id="org8014202"><span class="section-number-3">2.3.</span> PlantUML Documentation</h3>
-<div class="outline-text-3" id="text-2-3">
+<h3 id="org8014202"><span class="section-number-3">3.3.</span> PlantUML Documentation</h3>
+<div class="outline-text-3" id="text-3-3">
 <p>
 Install <a href="https://plantuml.com/">PlantUML</a>.
 </p>
@@ -856,8 +880,8 @@ Ubuntu/Debian specific instruction:
 </div>
 
 <div id="outline-container-org0a01e22" class="outline-3">
-<h3 id="org0a01e22"><span class="section-number-3">2.4.</span> Go Programming Language Mode</h3>
-<div class="outline-text-3" id="text-2-4">
+<h3 id="org0a01e22"><span class="section-number-3">3.4.</span> Go Programming Language Mode</h3>
+<div class="outline-text-3" id="text-3-4">
 <ul class="org-ul">
 <li>Install the Go programming language toolchain as instructed on <a href="https://go.dev/dl/">https://go.dev/dl/</a></li>
 <li><p>
@@ -875,8 +899,8 @@ go install github.com/rogpeppe/godef@latest
 </div>
 
 <div id="outline-container-orge49e14e" class="outline-3">
-<h3 id="orge49e14e"><span class="section-number-3">2.5.</span> OCaml Programming Language Mode</h3>
-<div class="outline-text-3" id="text-2-5">
+<h3 id="orge49e14e"><span class="section-number-3">3.5.</span> OCaml Programming Language Mode</h3>
+<div class="outline-text-3" id="text-3-5">
 <ul class="org-ul">
 <li>Install the OCaml language toolchain from <a href="https://ocaml.org/releases/">https://ocaml.org/releases/</a></li>
 <li><p>
@@ -898,8 +922,8 @@ Not by the Emacs package manager.
 </div>
 
 <div id="outline-container-orge9313ee" class="outline-3">
-<h3 id="orge9313ee"><span class="section-number-3">2.6.</span> Python Programming Language Mode</h3>
-<div class="outline-text-3" id="text-2-6">
+<h3 id="orge9313ee"><span class="section-number-3">3.6.</span> Python Programming Language Mode</h3>
+<div class="outline-text-3" id="text-3-6">
 </div>
 <div id="outline-container-org1caab0e" class="outline-4">
 <h4 id="org1caab0e">Python Virtual Environments</h4>
@@ -988,8 +1012,8 @@ Install the language server:
 </div>
 
 <div id="outline-container-orgb73e97b" class="outline-3">
-<h3 id="orgb73e97b"><span class="section-number-3">2.7.</span> Zig Programming Language Mode</h3>
-<div class="outline-text-3" id="text-2-7">
+<h3 id="orgb73e97b"><span class="section-number-3">3.7.</span> Zig Programming Language Mode</h3>
+<div class="outline-text-3" id="text-3-7">
 <ul class="org-ul">
 <li>Install the language toolchain from <a href="https://ziglang.org/download/">https://ziglang.org/download/</a></li>
 <li>Install the language server from <a href="https://github.com/zigtools/zls/">https://github.com/zigtools/zls/</a></li>
@@ -1000,8 +1024,8 @@ Install the language server:
 
 
 <div id="outline-container-orgb7c9c5d" class="outline-2">
-<h2 id="orgb7c9c5d"><span class="section-number-2">3.</span> Compiling GNU Emacs</h2>
-<div class="outline-text-2" id="text-3">
+<h2 id="orgb7c9c5d"><span class="section-number-2">4.</span> Compiling GNU Emacs</h2>
+<div class="outline-text-2" id="text-4">
 <p>
 Compiling <a href="https://www.gnu.org/software/emacs/">GNU Emacs</a> from source is quite easy.
 Many packages see heavy development and may require a recent version.
@@ -1044,7 +1068,7 @@ Make sure that Cairo is used for the GUI in the configure stage or some library 
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2022-10-22 16:02</p>
+<p class="date">Created: 2022-10-22 16:23</p>
 </div>
 </body>
 </html>
