@@ -78,7 +78,7 @@
 ;; Disable pager for "git grep"
 (setenv "PAGER" "cat")
 
-;; Emacs <= 26.3 does not recognize st-256color terminal.
+;; Emacs <= 26.3 does not recognize st-256color terminal
 (add-to-list 'term-file-aliases
     '("st-256color" . "xterm-256color"))
 
@@ -98,7 +98,7 @@
 ;; Open unidentified files in fundamental mode
 (setq default-major-mode 'fundamental-mode)
 
-;; Use UTF8 character encoding.
+;; Use UTF8 character encoding
 (prefer-coding-system 'utf-8)
 (setq-default buffer-file-coding-system 'utf-8-unix)
 
@@ -108,7 +108,7 @@
 ;; Display marked region
 (setq transient-mark-mode t)
 
-;; Allow upcase, downcase commands (we are not morons).
+;; Allow upcase, downcase commands (we are not morons)
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 
@@ -119,8 +119,11 @@
 ;; Turn off stupid double space rules!
 (setq sentence-end-double-space nil)
 
-;; Follow symlinks to version controlled controlled files.
+;; Follow symlinks to version controlled controlled files
 (setq vc-follow-symlinks t)
+
+;; Don't look for obsolete version control systems
+(setq vc-handled-backends '(Git Hg))
 
 ;; Display both line number and column number
 (line-number-mode 1)
@@ -129,7 +132,7 @@
 ;; Show matching parenthesis
 (show-paren-mode 1)
 
-;; Show the function we are in when editing source code.
+;; Show the function we are in when editing source code
 (which-function-mode 1)
 
 ;; Compilation output
