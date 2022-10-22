@@ -177,8 +177,6 @@
   (push-mark isearch-other-end 'no-message 'activate))
 
 (define-key isearch-mode-map (kbd "C-c k") 'my/isearch-mark-and-exit)
-(define-key isearch-mode-map (kbd "C-c o") 'isearch-occur)
-(define-key isearch-mode-map (kbd "C-c SPC") 'isearch-toggle-lax-whitespace)
 
 (defun my/lock-frame ()
   "Lock current frame for automatic splitting"
@@ -287,29 +285,6 @@ With argument, do this that many times."
 (add-hook 'prog-mode-hook 'whitespace-mode)
 
 ;; ----------------------------------------------------------------------------
-;; Improved interactive file and buffer completion
-;; ----------------------------------------------------------------------------
-
-(selectrum-mode +1)
-(setq selectrum-highlight-candidates-function #'orderless-highlight-matches)
-
-;; ----------------------------------------------------------------------------
-;; Margin comments for minibuffer completions.
-;; ----------------------------------------------------------------------------
-
-;; Enable rich annotations using the Marginalia package
-(use-package marginalia
-  :ensure nil
-  ;; Either bind `marginalia-cycle' globally or only in the minibuffer
-  :bind
-  (:map minibuffer-local-map
-	("M-A" . marginalia-cycle))
-  :custom
-  (marginalia-max-relative-age 0)
-  :init
-  (marginalia-mode))
-
-;; ----------------------------------------------------------------------------
 ;; Text templates
 ;; ----------------------------------------------------------------------------
 
@@ -319,18 +294,6 @@ With argument, do this that many times."
   ((prog-mode org-mode) . yas-minor-mode)
   :config
   (yas-reload-all))
-
-;; ----------------------------------------------------------------------------
-;; Indexed grep search tool
-;; ----------------------------------------------------------------------------
-
-(defvar my/grep-find-command "~/.emacs.d/bin/csearch-color "
-  "Grep find command.")
-
-;; Override the grep-find (and find-grep) command to call csearch instead.
-(let ((cmd (bound-and-true-p my/grep-find-command)))
-  (when cmd
-    (setq grep-find-command cmd)))
 
 ;; ----------------------------------------------------------------------------
 ;; markdown-mode (https://github.com/jrblevin/markdown-mode)
@@ -434,9 +397,45 @@ With argument, do this that many times."
 (add-to-list 'auto-mode-alist '("\\.puml\\'" . plantuml-mode))
 
 ;; ----------------------------------------------------------------------------
-;; Code completion
+;; Indexed grep search tool
+;; ----------------------------------------------------------------------------
+
+(defvar my/grep-find-command "~/.emacs.d/bin/csearch-color "
+  "Grep find command.")
+
+;; Override the grep-find (and find-grep) command to call csearch instead.
+(let ((cmd (bound-and-true-p my/grep-find-command)))
+  (when cmd
+    (setq grep-find-command cmd)))
+
+;; ----------------------------------------------------------------------------
+;; Selectrum: Improved interactive file and buffer completion
+;; - https://github.com/radian-software/selectrum
+;; ----------------------------------------------------------------------------
+
+(selectrum-mode +1)
+(setq selectrum-highlight-candidates-function #'orderless-highlight-matches)
+
+;; ----------------------------------------------------------------------------
+;; Marginalia: Margin comments for minibuffer completions.
+;; - https://github.com/minad/marginalia
+;; ----------------------------------------------------------------------------
+
+;; Enable rich annotations using the Marginalia package
+(use-package marginalia
+  :ensure nil
+  ;; Either bind `marginalia-cycle' globally or only in the minibuffer
+  :bind
+  (:map minibuffer-local-map
+	("M-A" . marginalia-cycle))
+  :custom
+  (marginalia-max-relative-age 0)
+  :init
+  (marginalia-mode))
+
+;; ----------------------------------------------------------------------------
+;; Corfu: Code completion
 ;; - https://github.com/minad/corfu
-;; - https://github.com/oantolin/orderless
 ;; ----------------------------------------------------------------------------
 
 (use-package corfu
@@ -459,6 +458,11 @@ With argument, do this that many times."
 ;; `completion-at-point' is often bound to M-TAB.
 ;; Unfortunately this does not work for the C/C++ mode.
 (setq tab-always-indent 'complete)
+
+;; ----------------------------------------------------------------------------
+;; Orderless: Completion style
+;; - https://github.com/oantolin/orderless
+;; ----------------------------------------------------------------------------
 
 ;; Use the `orderless' completion style.
 (use-package orderless

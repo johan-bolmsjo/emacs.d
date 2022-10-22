@@ -86,9 +86,7 @@ Also http://xahlee.info/emacs/emacs/keyboard_shortcuts.html for practical overri
 
 **** Incremental Search
 
-- =C-c k= :: isearch mark and exit
-- =C-c o= :: =isearch-occur=
-- =C-c SPC= :: =isearch-toggle-lax-whitespace=
+- =C-c k= :: Set mark at start of current match and exit isearch (user function).
 
 **** Navigation
 
@@ -158,7 +156,7 @@ Modifies standard Emacs behavior or use non-user prefix.
 
 Convenience functions defined by the configuration.
 
-- =reload-file= :: =revert-buffer= without confirmation (no keybinding)
+- =reload-file= :: Calls =revert-buffer= without asking for confirmation
 
 ** Configuration Adaptations
 
@@ -224,6 +222,33 @@ Jump to a specific line.
 
 - =M-g g= :: goto-line
 
+*** Incremental Search
+
+Don't forget about the occur mode when doing incremental search.
+It's very useful to get a navigable outline of all current matches.
+
+All keybindings can be listed by invoking =C-h b= when in search mode.
+
+Starting search:
+
+- =C-s= :: Search forward for a literal string
+- =C-r= :: Search backward for a literal string
+- =C-M-s= :: Search forward for a regexp
+- =C-M-r= :: Search backward for a regexp
+- =M-s _= :: Search forward for a symbol
+- =M-s .= :: Search forward for the symbol at point
+
+During search:
+
+- =C-s= :: Move to next match (=C-s C-s= to resume search)
+- =C-r= :: Move to previous match (=C-r C-r= to resume search)
+- =C-g= :: Abort search
+- =M-c= :: Toggle case sensitive search
+- =M-e= :: Edit search term
+- =M-s o= :: Outline of current matches (occur)
+- =M-s SPC= :: Toggle lax whitespace
+- =RET= :: Terminate search, leaving cursor at the current match
+
 *** Completion in Buffers
 
 Completion is provided by [[https://github.com/minad/corfu][Corfu]] together with [[https://github.com/oantolin/orderless][Orderless]].
@@ -258,11 +283,6 @@ For example selecting buffers, files or the function to invoke via =M-x=.
 
 Searching for previous selections is done using =C-s= and =C-r=.
 Navigation is performed using usual keybindings.
-
-*** Incremental Search
-
-Don't forget about the occur mode when doing incremental search.
-Invoke =C-c o= to get an overview of all matches in the current document.
 
 *** Magit
 
