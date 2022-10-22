@@ -125,6 +125,9 @@
 ;; Don't look for obsolete version control systems
 (setq vc-handled-backends '(Git Hg))
 
+;; Disable use of lock files to speed up remote file access
+(setq remote-file-name-inhibit-locks t)
+
 ;; Display both line number and column number
 (line-number-mode 1)
 (column-number-mode 1)
