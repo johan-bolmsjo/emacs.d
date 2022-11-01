@@ -40,7 +40,7 @@
 (straight-use-package 'marginalia)
 (straight-use-package 'orderless)
 (straight-use-package 'project)
-(straight-use-package 'selectrum)
+(straight-use-package 'vertico)
 (straight-use-package 'treemacs)
 (straight-use-package 'which-key)
 (straight-use-package 'xref)
@@ -405,12 +405,14 @@ With argument, do this that many times."
     (setq grep-find-command cmd)))
 
 ;; ----------------------------------------------------------------------------
-;; Selectrum: Improved interactive file and buffer completion
-;; - https://github.com/radian-software/selectrum
+;; Vertico: VERTical Interactive COmpletion
+;; - https://github.com/minad/vertico
 ;; ----------------------------------------------------------------------------
 
-(selectrum-mode +1)
-(setq selectrum-highlight-candidates-function #'orderless-highlight-matches)
+(use-package vertico
+  :ensure nil
+  :init
+  (vertico-mode))
 
 ;; ----------------------------------------------------------------------------
 ;; Marginalia: Margin comments for minibuffer completions.
@@ -463,8 +465,6 @@ With argument, do this that many times."
 ;; Use the `orderless' completion style.
 (use-package orderless
   :ensure nil
-  :config
-  (setq orderless-skip-highlighting (lambda () selectrum-is-active))
   :custom
   (completion-styles '(orderless basic))
   (completion-category-overrides '((file (styles basic partial-completion))

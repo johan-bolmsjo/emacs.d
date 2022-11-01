@@ -58,7 +58,7 @@ All programming language modes except elisp use eglot to provide code navigation
 
 *** Miscellaneous Support Functions
 
-- Improved minibuffer completions through [[https://github.com/radian-software/selectrum][Selectrum]], [[https://github.com/minad/marginalia][Marginalia]] and [[https://github.com/oantolin/orderless][Orderless]].
+- Improved minibuffer completions through [[https://github.com/minad/vertico][Vertico]], [[https://github.com/minad/marginalia][Marginalia]] and [[https://github.com/oantolin/orderless][Orderless]].
 - Code completion through [[https://github.com/minad/corfu][Corfu]] and [[https://github.com/oantolin/orderless][Orderless]].
 - Templated auto complete assisted snippets through [[https://github.com/joaotavora/yasnippet][Yasnippet]].
 - Project like IDE support using [[https://github.com/Alexander-Miller/treemacs][Treemacs]], [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Projects.html][project.el]] and [[https://github.com/joaotavora/eglot][Eglot]].
@@ -291,21 +291,16 @@ The built-in [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Dynamic
 
 ** Minibuffer Completion
 
-[[https://github.com/radian-software/selectrum][Selectrum]] together with [[https://github.com/minad/marginalia][Marginalia]] and [[https://github.com/oantolin/orderless][Orderless]] is used to enhance minibuffer completions.
+[[https://github.com/minad/vertico][Vertico]] together with [[https://github.com/minad/marginalia][Marginalia]] and [[https://github.com/oantolin/orderless][Orderless]] is used to enhance minibuffer completions.
 For example selecting buffers, files or the function to invoke via =M-x=.
 
-- =TAB=, =C-i= :: Navigate to selected candidate
-- =RET=, =C-m= :: Accept selected candidate
-- =C-j= :: Submit exactly what is typed (or use =C-p= and =RET=)
-- =C-g= :: Abort (as always)
-- =M-w= :: Copy selected candidate to kill ring
-- =M-m= :: Select candidate using quick key selection
-- =M-i= :: Insert candidate into minibuffer using quick key selection
-- =M-q= :: Toggle display style between vertical and horizontal
-- =M-A= :: Toggle marginalia
+- =TAB=   :: Navigate to selected candidate
+- =RET=   :: Accept selected candidate
+- =M-RET= :: Submit exactly what is typed (ignore candidate completion)
+- =C-g=   :: Abort (as always)
 
 Searching for previous selections is done using =C-s= and =C-r=.
-Navigation is performed using usual keybindings.
+Navigation is performed using the usual keybindings.
 
 ** Magit
 
