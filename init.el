@@ -156,6 +156,10 @@
 ;; Not a big fan of pulse animations, find it slightly distracting.
 (setq pulse-iterations 0)
 
+;; Mouse wheel scroll speed.
+(setq mouse-wheel-scroll-amount '(0.05))
+(setq mouse-wheel-progressive-speed t)
+
 ;; There is no keybinding for this, just do M-x reload-file if you need it.
 (defun reload-file ()
     "Revert buffer without confirmation."
