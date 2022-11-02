@@ -487,8 +487,18 @@ Many packages see heavy development and may require a recent version.
 Install dependencies (Ubuntu 22.04 specific):
 
 #+begin_src sh
-  sudo apt install libjansson-dev libxpm-dev libgif-dev libgnutls28-dev \
-       libxaw7-dev libncurses-dev libgccjit-11-dev
+  sudo apt install \
+       libjansson-dev \
+       libxpm-dev \
+       libgif-dev \
+       libgnutls28-dev \
+       libxaw7-dev \
+       libncurses-dev \
+       libgccjit-11-dev \
+       libjpeg-dev \
+       libtiff-dev \
+       libcairo2-dev \
+       libharfbuzz-dev
 #+end_src
 
 Download, configure, build and install GNU Emacs on Linux:
