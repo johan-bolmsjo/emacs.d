@@ -33,15 +33,18 @@
 (straight-use-package 'use-package)
 
 ;; Various support functions
+(straight-use-package 'consult)
 (straight-use-package 'corfu)
 (straight-use-package 'eldoc)
+(straight-use-package 'embark)
+(straight-use-package 'embark-consult)
 (straight-use-package 'flycheck)
 (straight-use-package 'flymake)
 (straight-use-package 'marginalia)
 (straight-use-package 'orderless)
 (straight-use-package 'project)
-(straight-use-package 'vertico)
 (straight-use-package 'treemacs)
+(straight-use-package 'vertico)
 (straight-use-package 'which-key)
 (straight-use-package 'xref)
 (straight-use-package 'yasnippet)
@@ -413,6 +416,46 @@ With argument, do this that many times."
   :ensure nil
   :init
   (vertico-mode))
+
+;; ----------------------------------------------------------------------------
+;; Consult: Consulting completing-read
+;; - https://github.com/minad/consult
+;; ----------------------------------------------------------------------------
+
+(use-package consult
+  :ensure nil)
+
+;; ----------------------------------------------------------------------------
+;; Embark: Emacs Mini-Buffer Actions Rooted in Keymaps
+;; - https://github.com/oantolin/embark
+;; ----------------------------------------------------------------------------
+
+(use-package embark
+  :ensure nil
+
+  :bind
+  (("C-." . embark-act)         ;; pick some comfortable binding
+   ("C-;" . embark-dwim)        ;; good alternative: M-.
+   ("C-h B" . embark-bindings)) ;; alternative for `describe-bindings'
+
+  :init
+
+  ;; Optionally replace the key help with a completing-read interface
+  (setq prefix-help-command #'embark-prefix-help-command)
+
+  :config
+
+  ;; Hide the mode line of the Embark live/completions buffers
+  (add-to-list 'display-buffer-alist
+               '("\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
+                 nil
+                 (window-parameters (mode-line-format . none)))))
+
+;; Consult users will also want the embark-consult package.
+(use-package embark-consult
+  :ensure nil ; only need to install it, embark loads it after consult if found
+  :hook
+  (embark-collect-mode . consult-preview-at-point-mode))
 
 ;; ----------------------------------------------------------------------------
 ;; Marginalia: Margin comments for minibuffer completions.

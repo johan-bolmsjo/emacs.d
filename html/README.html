@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-02 23:30 -->
+<!-- 2022-11-19 16:40 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Johan Bolmsjö's GNU Emacs Configuration</title>
@@ -219,12 +219,12 @@ Installation instruction:
 </li>
 <li><a href="#org9c20098">2. Quick Guides</a>
 <ul>
-<li><a href="#orgdb86e7f">2.1. Navigation</a></li>
-<li><a href="#orgaa104c8">2.2. Incremental Search</a></li>
+<li><a href="#orgbcd98fe">2.1. Navigation</a></li>
+<li><a href="#org1bc3977">2.2. Incremental Search</a></li>
 <li><a href="#org6fc770b">2.3. Completion in Buffers</a></li>
 <li><a href="#org1e42bcc">2.4. Minibuffer Completion</a></li>
 <li><a href="#org0b62f28">2.5. Magit</a></li>
-<li><a href="#orgc736849">2.6. Org Mode</a></li>
+<li><a href="#org1fed3d5">2.6. Org Mode</a></li>
 <li><a href="#orge96f3ee">2.7. Text Templates</a></li>
 <li><a href="#orgfb5b5dc">2.8. Diagnostics</a></li>
 <li><a href="#org4689822">2.9. Language Server Protocol Support</a></li>
@@ -327,6 +327,8 @@ All programming language modes except elisp use eglot to provide code navigation
 <div class="outline-text-4" id="text-orgf74a039">
 <ul class="org-ul">
 <li>Improved minibuffer completions through <a href="https://github.com/minad/vertico">Vertico</a>, <a href="https://github.com/minad/marginalia">Marginalia</a> and <a href="https://github.com/oantolin/orderless">Orderless</a>.</li>
+<li>Collection of minibuffer utilities provided by <a href="https://github.com/minad/consult">Consult</a>.</li>
+<li>Context aware minibuffer actions through <a href="https://github.com/oantolin/embark">Embark</a>.</li>
 <li>Code completion through <a href="https://github.com/minad/corfu">Corfu</a> and <a href="https://github.com/oantolin/orderless">Orderless</a>.</li>
 <li>Templated auto complete assisted snippets through <a href="https://github.com/joaotavora/yasnippet">Yasnippet</a>.</li>
 <li>Project like IDE support using <a href="https://github.com/Alexander-Miller/treemacs">Treemacs</a>, <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Projects.html">project.el</a> and <a href="https://github.com/joaotavora/eglot">Eglot</a>.</li>
@@ -366,18 +368,18 @@ Also <a href="http://xahlee.info/emacs/emacs/keyboard_shortcuts.html">http://xah
 </dl>
 </div>
 
-<div id="outline-container-org1bc3977" class="outline-5">
-<h5 id="org1bc3977">Incremental Search</h5>
-<div class="outline-text-5" id="text-org1bc3977">
+<div id="outline-container-orgb22fa67" class="outline-5">
+<h5 id="orgb22fa67">Incremental Search</h5>
+<div class="outline-text-5" id="text-orgb22fa67">
 <dl class="org-dl">
 <dt><code>C-c k</code></dt><dd>Set mark at start of current match and exit isearch (user function).</dd>
 </dl>
 </div>
 </div>
 
-<div id="outline-container-orgbcd98fe" class="outline-5">
-<h5 id="orgbcd98fe">Navigation</h5>
-<div class="outline-text-5" id="text-orgbcd98fe">
+<div id="outline-container-orgb3afc7b" class="outline-5">
+<h5 id="orgb3afc7b">Navigation</h5>
+<div class="outline-text-5" id="text-orgb3afc7b">
 <p>
 Even though these functions are called <code>error</code>, they work in many contexts. E.g. moving through compilation errors, grep results, xref references.
 </p>
@@ -409,9 +411,9 @@ See <a href="https://smythp.com/emacs_buffers/">https://smythp.com/emacs_buffers
 </div>
 </div>
 
-<div id="outline-container-org1fed3d5" class="outline-5">
-<h5 id="org1fed3d5">Org Mode</h5>
-<div class="outline-text-5" id="text-org1fed3d5">
+<div id="outline-container-orgd848c2f" class="outline-5">
+<h5 id="orgd848c2f">Org Mode</h5>
+<div class="outline-text-5" id="text-orgd848c2f">
 <dl class="org-dl">
 <dt><code>C-c n</code></dt><dd><code>org-capture</code> (take quick note)</dd>
 <dt><code>C-c p</code></dt><dd><code>org-agenda</code> (planning)</dd>
@@ -450,6 +452,28 @@ Aligned with flycheck counterparts.
 <dt><code>C-c ! n</code></dt><dd><code>flymake-goto-next-error</code></dd>
 <dt><code>C-c ! p</code></dt><dd><code>flymake-goto-prev-error</code></dd>
 </dl>
+</div>
+</div>
+
+<div id="outline-container-org9ba6921" class="outline-5">
+<h5 id="org9ba6921">Embark</h5>
+<div class="outline-text-5" id="text-org9ba6921">
+<p>
+<a href="https://github.com/oantolin/embark">Embark</a> executes context aware actions.
+For example opening the URL that the cursor is placed on in a buffer.
+It extends some of the consult commands by making it possible to export the current selection to regular buffers for easier manipulation.
+</p>
+
+<dl class="org-dl">
+<dt><code>C-.</code>  </dt><dd>Execute action</dd>
+<dt><code>C-;</code>  </dt><dd>"Do what I mean"</dd>
+<dt><code>C-h B</code></dt><dd><code>embark-bindings</code>; alternative for `describe-bindings'</dd>
+</dl>
+
+<p>
+Note that <code>C-.</code> may be hijacked as a system shortcut to insert a Unicode code point or Emoji.
+Disable it in <code>ibus-settings</code> on Linux systems.
+</p>
 </div>
 </div>
 
@@ -629,8 +653,8 @@ It could do with more information for Emacs neophytes.
 </p>
 </div>
 
-<div id="outline-container-orgdb86e7f" class="outline-3">
-<h3 id="orgdb86e7f"><span class="section-number-3">2.1.</span> Navigation</h3>
+<div id="outline-container-orgbcd98fe" class="outline-3">
+<h3 id="orgbcd98fe"><span class="section-number-3">2.1.</span> Navigation</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Xref is used by many Emacs modes for navigation, including Eglot for navigating source code.
@@ -652,8 +676,8 @@ Jump to a specific line.
 </div>
 </div>
 
-<div id="outline-container-orgaa104c8" class="outline-3">
-<h3 id="orgaa104c8"><span class="section-number-3">2.2.</span> Incremental Search</h3>
+<div id="outline-container-org1bc3977" class="outline-3">
+<h3 id="org1bc3977"><span class="section-number-3">2.2.</span> Incremental Search</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 Don't forget about the occur mode when doing incremental search.
@@ -754,8 +778,8 @@ The magit status command is bound to <code>C-x g</code>.
 </div>
 </div>
 
-<div id="outline-container-orgc736849" class="outline-3">
-<h3 id="orgc736849"><span class="section-number-3">2.6.</span> Org Mode</h3>
+<div id="outline-container-org1fed3d5" class="outline-3">
+<h3 id="org1fed3d5"><span class="section-number-3">2.6.</span> Org Mode</h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
 <a href="http://orgmode.org">Org mode</a> is a documentation and planning major mode.
@@ -1108,7 +1132,7 @@ Make sure that Cairo is used for the GUI in the configure stage or some library 
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2022-11-02 23:30</p>
+<p class="date">Created: 2022-11-19 16:40</p>
 </div>
 </body>
 </html>

@@ -59,6 +59,8 @@ All programming language modes except elisp use eglot to provide code navigation
 *** Miscellaneous Support Functions
 
 - Improved minibuffer completions through [[https://github.com/minad/vertico][Vertico]], [[https://github.com/minad/marginalia][Marginalia]] and [[https://github.com/oantolin/orderless][Orderless]].
+- Collection of minibuffer utilities provided by [[https://github.com/minad/consult][Consult]].
+- Context aware minibuffer actions through [[https://github.com/oantolin/embark][Embark]].
 - Code completion through [[https://github.com/minad/corfu][Corfu]] and [[https://github.com/oantolin/orderless][Orderless]].
 - Templated auto complete assisted snippets through [[https://github.com/joaotavora/yasnippet][Yasnippet]].
 - Project like IDE support using [[https://github.com/Alexander-Miller/treemacs][Treemacs]], [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Projects.html][project.el]] and [[https://github.com/joaotavora/eglot][Eglot]].
@@ -130,6 +132,19 @@ Aligned with flycheck counterparts.
 - =C-c ! l= :: =flymake-show-buffer-diagnostics=
 - =C-c ! n= :: =flymake-goto-next-error=
 - =C-c ! p= :: =flymake-goto-prev-error=
+
+**** Embark
+
+[[https://github.com/oantolin/embark][Embark]] executes context aware actions.
+For example opening the URL that the cursor is placed on in a buffer.
+It extends some of the consult commands by making it possible to export the current selection to regular buffers for easier manipulation.
+
+- =C-.=   :: Execute action
+- =C-;=   :: "Do what I mean"
+- =C-h B= :: =embark-bindings=; alternative for `describe-bindings'
+
+Note that =C-.= may be hijacked as a system shortcut to insert a Unicode code point or Emoji.
+Disable it in =ibus-settings= on Linux systems.
 
 **** GDB (debugger)
 
