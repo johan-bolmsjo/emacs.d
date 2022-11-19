@@ -379,6 +379,12 @@ Keyboard macros are incredibly useful to apply repetitive changes in close proxi
 Press =F3= to start recording key presses.
 Press =F4= to end the recording and bind it to the same key.
 
+** Debugging Using GDB
+
+Activate by =M-x gdb= followed by =M-x gdb-many-windows=.
+The toolbar contain debugger navigation icons so you may want to enable it using =M-x tool-bar-mode=.
+Keybindings are listed in section [[*GDB (debugger)][GDB (debugger)]].
+
 
 * Setup of External Tools
 

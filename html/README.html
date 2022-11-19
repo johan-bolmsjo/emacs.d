@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-19 17:11 -->
+<!-- 2022-11-19 17:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Johan Bolmsjö's GNU Emacs Configuration</title>
@@ -219,17 +219,18 @@ Installation instruction:
 </li>
 <li><a href="#org9c20098">2. Quick Guides</a>
 <ul>
-<li><a href="#org14728dc">2.1. Navigation</a></li>
-<li><a href="#orgf80e14b">2.2. Incremental Search</a></li>
+<li><a href="#orge448402">2.1. Navigation</a></li>
+<li><a href="#orgb3dba3d">2.2. Incremental Search</a></li>
 <li><a href="#org6fc770b">2.3. Completion in Buffers</a></li>
 <li><a href="#org1e42bcc">2.4. Minibuffer Completion</a></li>
 <li><a href="#org0b62f28">2.5. Magit</a></li>
-<li><a href="#org8c38e72">2.6. Denote</a></li>
-<li><a href="#orgcb3f435">2.7. Org Mode</a></li>
+<li><a href="#orge404e1b">2.6. Denote</a></li>
+<li><a href="#org09a21c9">2.7. Org Mode</a></li>
 <li><a href="#orge96f3ee">2.8. Text Templates</a></li>
 <li><a href="#orgfb5b5dc">2.9. Diagnostics</a></li>
 <li><a href="#org4689822">2.10. Language Server Protocol Support</a></li>
 <li><a href="#org5f9ce5d">2.11. Keyboard Macros</a></li>
+<li><a href="#org277f8d9">2.12. Debugging Using GDB</a></li>
 </ul>
 </li>
 <li><a href="#orga5e5705">3. Setup of External Tools</a>
@@ -370,18 +371,18 @@ Also <a href="http://xahlee.info/emacs/emacs/keyboard_shortcuts.html">http://xah
 </dl>
 </div>
 
-<div id="outline-container-orgb3dba3d" class="outline-5">
-<h5 id="orgb3dba3d">Incremental Search</h5>
-<div class="outline-text-5" id="text-orgb3dba3d">
+<div id="outline-container-org3b9f1eb" class="outline-5">
+<h5 id="org3b9f1eb">Incremental Search</h5>
+<div class="outline-text-5" id="text-org3b9f1eb">
 <dl class="org-dl">
 <dt><code>C-c k</code></dt><dd>Set mark at start of current match and exit isearch (user function).</dd>
 </dl>
 </div>
 </div>
 
-<div id="outline-container-orge448402" class="outline-5">
-<h5 id="orge448402">Navigation</h5>
-<div class="outline-text-5" id="text-orge448402">
+<div id="outline-container-org48979ad" class="outline-5">
+<h5 id="org48979ad">Navigation</h5>
+<div class="outline-text-5" id="text-org48979ad">
 <p>
 Even though these functions are called <code>error</code>, they work in many contexts. E.g. moving through compilation errors, grep results, xref references.
 </p>
@@ -413,9 +414,9 @@ See <a href="https://smythp.com/emacs_buffers/">https://smythp.com/emacs_buffers
 </div>
 </div>
 
-<div id="outline-container-orge404e1b" class="outline-5">
-<h5 id="orge404e1b">Denote</h5>
-<div class="outline-text-5" id="text-orge404e1b">
+<div id="outline-container-orgb6706b9" class="outline-5">
+<h5 id="orgb6706b9">Denote</h5>
+<div class="outline-text-5" id="text-orgb6706b9">
 <dl class="org-dl">
 <dt><code>C-c n</code></dt><dd>Command prefix</dd>
 </dl>
@@ -428,9 +429,9 @@ Discover all commands by entering <code>M-x denote</code>
 </div>
 </div>
 
-<div id="outline-container-org09a21c9" class="outline-5">
-<h5 id="org09a21c9">Org Mode</h5>
-<div class="outline-text-5" id="text-org09a21c9">
+<div id="outline-container-org32e75d8" class="outline-5">
+<h5 id="org32e75d8">Org Mode</h5>
+<div class="outline-text-5" id="text-org32e75d8">
 <dl class="org-dl">
 <dt><code>C-c p</code></dt><dd><code>org-agenda</code> (planning)</dd>
 <dt><code>C-c L</code></dt><dd><code>org-store-link</code> (works in other modes to store links)</dd>
@@ -669,8 +670,8 @@ It could do with more information for Emacs neophytes.
 </p>
 </div>
 
-<div id="outline-container-org14728dc" class="outline-3">
-<h3 id="org14728dc"><span class="section-number-3">2.1.</span> Navigation</h3>
+<div id="outline-container-orge448402" class="outline-3">
+<h3 id="orge448402"><span class="section-number-3">2.1.</span> Navigation</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Xref is used by many Emacs modes for navigation, including Eglot for navigating source code.
@@ -692,8 +693,8 @@ Jump to a specific line.
 </div>
 </div>
 
-<div id="outline-container-orgf80e14b" class="outline-3">
-<h3 id="orgf80e14b"><span class="section-number-3">2.2.</span> Incremental Search</h3>
+<div id="outline-container-orgb3dba3d" class="outline-3">
+<h3 id="orgb3dba3d"><span class="section-number-3">2.2.</span> Incremental Search</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 Don't forget about the occur mode when doing incremental search.
@@ -794,8 +795,8 @@ The magit status command is bound to <code>C-x g</code>.
 </div>
 </div>
 
-<div id="outline-container-org8c38e72" class="outline-3">
-<h3 id="org8c38e72"><span class="section-number-3">2.6.</span> Denote</h3>
+<div id="outline-container-orge404e1b" class="outline-3">
+<h3 id="orge404e1b"><span class="section-number-3">2.6.</span> Denote</h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
 The YouTube presentation <a href="https://www.youtube.com/watch?v=mLzFJcLpDFI">https://www.youtube.com/watch?v=mLzFJcLpDFI</a> by the package author gives a good overview of the note taking workflow.
@@ -804,8 +805,8 @@ I recommend studying the <a href="https://protesilaos.com/emacs/denote">manual</
 </div>
 </div>
 
-<div id="outline-container-orgcb3f435" class="outline-3">
-<h3 id="orgcb3f435"><span class="section-number-3">2.7.</span> Org Mode</h3>
+<div id="outline-container-org09a21c9" class="outline-3">
+<h3 id="org09a21c9"><span class="section-number-3">2.7.</span> Org Mode</h3>
 <div class="outline-text-3" id="text-2-7">
 <p>
 <a href="http://orgmode.org">Org mode</a> is a documentation and planning major mode.
@@ -879,6 +880,17 @@ Invoke <code>C-h .</code> to show documentation at point.
 Keyboard macros are incredibly useful to apply repetitive changes in close proximity.
 Press <code>F3</code> to start recording key presses.
 Press <code>F4</code> to end the recording and bind it to the same key.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org277f8d9" class="outline-3">
+<h3 id="org277f8d9"><span class="section-number-3">2.12.</span> Debugging Using GDB</h3>
+<div class="outline-text-3" id="text-2-12">
+<p>
+Activate by <code>M-x gdb</code> followed by <code>M-x gdb-many-windows</code>.
+The toolbar contain debugger navigation icons so you may want to enable it using <code>M-x tool-bar-mode</code>.
+Keybindings are listed in section <a href="#org36ab8cd">GDB (debugger)</a>.
 </p>
 </div>
 </div>
@@ -1159,7 +1171,7 @@ Make sure that Cairo is used for the GUI in the configure stage or some library 
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2022-11-19 17:11</p>
+<p class="date">Created: 2022-11-19 17:12</p>
 </div>
 </body>
 </html>
