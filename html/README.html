@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-19 16:40 -->
+<!-- 2022-11-19 17:05 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Johan Bolmsjö's GNU Emacs Configuration</title>
@@ -219,16 +219,17 @@ Installation instruction:
 </li>
 <li><a href="#org9c20098">2. Quick Guides</a>
 <ul>
-<li><a href="#orgbcd98fe">2.1. Navigation</a></li>
-<li><a href="#org1bc3977">2.2. Incremental Search</a></li>
+<li><a href="#orgb3afc7b">2.1. Navigation</a></li>
+<li><a href="#orgb22fa67">2.2. Incremental Search</a></li>
 <li><a href="#org6fc770b">2.3. Completion in Buffers</a></li>
 <li><a href="#org1e42bcc">2.4. Minibuffer Completion</a></li>
 <li><a href="#org0b62f28">2.5. Magit</a></li>
-<li><a href="#org1fed3d5">2.6. Org Mode</a></li>
-<li><a href="#orge96f3ee">2.7. Text Templates</a></li>
-<li><a href="#orgfb5b5dc">2.8. Diagnostics</a></li>
-<li><a href="#org4689822">2.9. Language Server Protocol Support</a></li>
-<li><a href="#org5f9ce5d">2.10. Keyboard Macros</a></li>
+<li><a href="#orgd05a9ac">2.6. Denote</a></li>
+<li><a href="#orgd848c2f">2.7. Org Mode</a></li>
+<li><a href="#orge96f3ee">2.8. Text Templates</a></li>
+<li><a href="#orgfb5b5dc">2.9. Diagnostics</a></li>
+<li><a href="#org4689822">2.10. Language Server Protocol Support</a></li>
+<li><a href="#org5f9ce5d">2.11. Keyboard Macros</a></li>
 </ul>
 </li>
 <li><a href="#orga5e5705">3. Setup of External Tools</a>
@@ -297,7 +298,8 @@ It's transferable between machines.
 <h4 id="orgf3724b1">Documentation Modes</h4>
 <div class="outline-text-4" id="text-orgf3724b1">
 <ul class="org-ul">
-<li><a href="https://orgmode.org/">Org Mode</a></li>
+<li><a href="https://protesilaos.com/emacs/denote">Denote</a> for structured note taking.</li>
+<li><a href="https://orgmode.org/">Org Mode</a> for documentation and planning.</li>
 <li><a href="https://daringfireball.net/projects/markdown/">Markdown</a></li>
 <li><a href="https://plantuml.com/">PlantUML</a></li>
 </ul>
@@ -368,18 +370,18 @@ Also <a href="http://xahlee.info/emacs/emacs/keyboard_shortcuts.html">http://xah
 </dl>
 </div>
 
-<div id="outline-container-orgb22fa67" class="outline-5">
-<h5 id="orgb22fa67">Incremental Search</h5>
-<div class="outline-text-5" id="text-orgb22fa67">
+<div id="outline-container-orgf80e14b" class="outline-5">
+<h5 id="orgf80e14b">Incremental Search</h5>
+<div class="outline-text-5" id="text-orgf80e14b">
 <dl class="org-dl">
 <dt><code>C-c k</code></dt><dd>Set mark at start of current match and exit isearch (user function).</dd>
 </dl>
 </div>
 </div>
 
-<div id="outline-container-orgb3afc7b" class="outline-5">
-<h5 id="orgb3afc7b">Navigation</h5>
-<div class="outline-text-5" id="text-orgb3afc7b">
+<div id="outline-container-org14728dc" class="outline-5">
+<h5 id="org14728dc">Navigation</h5>
+<div class="outline-text-5" id="text-org14728dc">
 <p>
 Even though these functions are called <code>error</code>, they work in many contexts. E.g. moving through compilation errors, grep results, xref references.
 </p>
@@ -411,11 +413,25 @@ See <a href="https://smythp.com/emacs_buffers/">https://smythp.com/emacs_buffers
 </div>
 </div>
 
-<div id="outline-container-orgd848c2f" class="outline-5">
-<h5 id="orgd848c2f">Org Mode</h5>
-<div class="outline-text-5" id="text-orgd848c2f">
+<div id="outline-container-org8c38e72" class="outline-5">
+<h5 id="org8c38e72">Denote</h5>
+<div class="outline-text-5" id="text-org8c38e72">
 <dl class="org-dl">
-<dt><code>C-c n</code></dt><dd><code>org-capture</code> (take quick note)</dd>
+<dt><code>C-c n</code></dt><dd>Command prefix</dd>
+</dl>
+
+<p>
+The main note taking command is <code>C-c n n</code>.
+Other keybindings are listed when entering the command prefix.
+Discover all commands by entering <code>M-x denote</code>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcb3f435" class="outline-5">
+<h5 id="orgcb3f435">Org Mode</h5>
+<div class="outline-text-5" id="text-orgcb3f435">
+<dl class="org-dl">
 <dt><code>C-c p</code></dt><dd><code>org-agenda</code> (planning)</dd>
 <dt><code>C-c L</code></dt><dd><code>org-store-link</code> (works in other modes to store links)</dd>
 </dl>
@@ -653,8 +669,8 @@ It could do with more information for Emacs neophytes.
 </p>
 </div>
 
-<div id="outline-container-orgbcd98fe" class="outline-3">
-<h3 id="orgbcd98fe"><span class="section-number-3">2.1.</span> Navigation</h3>
+<div id="outline-container-orgb3afc7b" class="outline-3">
+<h3 id="orgb3afc7b"><span class="section-number-3">2.1.</span> Navigation</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Xref is used by many Emacs modes for navigation, including Eglot for navigating source code.
@@ -676,8 +692,8 @@ Jump to a specific line.
 </div>
 </div>
 
-<div id="outline-container-org1bc3977" class="outline-3">
-<h3 id="org1bc3977"><span class="section-number-3">2.2.</span> Incremental Search</h3>
+<div id="outline-container-orgb22fa67" class="outline-3">
+<h3 id="orgb22fa67"><span class="section-number-3">2.2.</span> Incremental Search</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 Don't forget about the occur mode when doing incremental search.
@@ -778,9 +794,18 @@ The magit status command is bound to <code>C-x g</code>.
 </div>
 </div>
 
-<div id="outline-container-org1fed3d5" class="outline-3">
-<h3 id="org1fed3d5"><span class="section-number-3">2.6.</span> Org Mode</h3>
+<div id="outline-container-orgd05a9ac" class="outline-3">
+<h3 id="orgd05a9ac"><span class="section-number-3">2.6.</span> Denote</h3>
 <div class="outline-text-3" id="text-2-6">
+<p>
+The YouTube presentation <a href="https://www.youtube.com/watch?v=mLzFJcLpDFI">https://www.youtube.com/watch?v=mLzFJcLpDFI</a> by the package author gives a good overview of the note taking workflow. I recommend studying the <a href="https://protesilaos.com/emacs/denote">manual</a> for further details.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd848c2f" class="outline-3">
+<h3 id="orgd848c2f"><span class="section-number-3">2.7.</span> Org Mode</h3>
+<div class="outline-text-3" id="text-2-7">
 <p>
 <a href="http://orgmode.org">Org mode</a> is a documentation and planning major mode.
 Some HOWTO notes are kept in <a href="docs/howto-org-mode.html">docs/howto-org-mode.html</a>.
@@ -795,8 +820,8 @@ Useful shortcuts include <code>&lt;s</code> <i>TAB</i> for source blocks and <co
 </div>
 
 <div id="outline-container-orge96f3ee" class="outline-3">
-<h3 id="orge96f3ee"><span class="section-number-3">2.7.</span> Text Templates</h3>
-<div class="outline-text-3" id="text-2-7">
+<h3 id="orge96f3ee"><span class="section-number-3">2.8.</span> Text Templates</h3>
+<div class="outline-text-3" id="text-2-8">
 <p>
 Text template support is provided by the <a href="https://github.com/joaotavora/yasnippet">yasnippet</a> package.
 Sippets are kept under <code>~/.emacs.d/snippets/MODE/FILE</code>.
@@ -809,8 +834,8 @@ Templates are expanded by typing their name and pressing <i>TAB</i>.
 </div>
 
 <div id="outline-container-orgfb5b5dc" class="outline-3">
-<h3 id="orgfb5b5dc"><span class="section-number-3">2.8.</span> Diagnostics</h3>
-<div class="outline-text-3" id="text-2-8">
+<h3 id="orgfb5b5dc"><span class="section-number-3">2.9.</span> Diagnostics</h3>
+<div class="outline-text-3" id="text-2-9">
 <p>
 Diagnostics such as compiler errors are provied by either the flycheck or flymake package.
 </p>
@@ -818,8 +843,8 @@ Diagnostics such as compiler errors are provied by either the flycheck or flymak
 </div>
 
 <div id="outline-container-org4689822" class="outline-3">
-<h3 id="org4689822"><span class="section-number-3">2.9.</span> Language Server Protocol Support</h3>
-<div class="outline-text-3" id="text-2-9">
+<h3 id="org4689822"><span class="section-number-3">2.10.</span> Language Server Protocol Support</h3>
+<div class="outline-text-3" id="text-2-10">
 <p>
 <a href="https://github.com/joaotavora/eglot/blob/master/MANUAL.md">Eglot</a> works in concert with project.el to identify <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Projects.html">projects</a>.
 Only version controlled directories can become projects.
@@ -847,8 +872,8 @@ Invoke <code>C-h .</code> to show documentation at point.
 </div>
 
 <div id="outline-container-org5f9ce5d" class="outline-3">
-<h3 id="org5f9ce5d"><span class="section-number-3">2.10.</span> Keyboard Macros</h3>
-<div class="outline-text-3" id="text-2-10">
+<h3 id="org5f9ce5d"><span class="section-number-3">2.11.</span> Keyboard Macros</h3>
+<div class="outline-text-3" id="text-2-11">
 <p>
 Keyboard macros are incredibly useful to apply repetitive changes in close proximity.
 Press <code>F3</code> to start recording key presses.
@@ -1132,7 +1157,7 @@ Make sure that Cairo is used for the GUI in the configure stage or some library 
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2022-11-19 16:40</p>
+<p class="date">Created: 2022-11-19 17:05</p>
 </div>
 </body>
 </html>

@@ -41,7 +41,8 @@ It's transferable between machines.
 
 *** Documentation Modes
 
-- [[https://orgmode.org/][Org Mode]]
+- [[https://protesilaos.com/emacs/denote][Denote]] for structured note taking.
+- [[https://orgmode.org/][Org Mode]] for documentation and planning.
 - [[https://daringfireball.net/projects/markdown/][Markdown]]
 - [[https://plantuml.com/][PlantUML]]
   
@@ -108,9 +109,16 @@ Commands useful to prevent Emacs from splitting frames and replacing buffers in 
 
 See https://smythp.com/emacs_buffers/ for an explanation of the frames, windows and buffers terminology.
 
+**** Denote
+
+- =C-c n= :: Command prefix
+
+The main note taking command is =C-c n n=.
+Other keybindings are listed when entering the command prefix.
+Discover all commands by entering =M-x denote=
+
 **** Org Mode
 
-- =C-c n= :: =org-capture= (take quick note)
 - =C-c p= :: =org-agenda= (planning)
 - =C-c L= :: =org-store-link= (works in other modes to store links)
 
@@ -321,6 +329,11 @@ Navigation is performed using the usual keybindings.
 
 [[https://magit.vc][Magit]] is a complete text-based user interface to Git.
 The magit status command is bound to =C-x g=.
+
+** Denote
+
+The YouTube presentation https://www.youtube.com/watch?v=mLzFJcLpDFI by the package author gives a good overview of the note taking workflow.
+I recommend studying the [[https://protesilaos.com/emacs/denote][manual]] for further details.
 
 ** Org Mode
 
