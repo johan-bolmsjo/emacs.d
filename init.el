@@ -313,7 +313,7 @@ With argument, do this that many times."
 (require 'denote)
 
 ;; Remember to check the doc strings of those variables.
-(setq denote-known-keywords '("metanote" "denote" "emacs"))
+(setq denote-known-keywords '("metanote"))
 (setq denote-infer-keywords t)
 (setq denote-sort-keywords t)
 (setq denote-file-type nil) ; Org is the default, set others here
