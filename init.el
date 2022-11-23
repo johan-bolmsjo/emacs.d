@@ -648,7 +648,7 @@ With argument, do this that many times."
   (add-hook 'python-mode-hook 'eglot-ensure)
   (add-hook 'zig-mode-hook 'eglot-ensure)
   ;; format on save
-  (add-hook 'go-mode-hook '(lambda() (add-hook 'before-save-hook 'eglot-format-buffer nil t)))
+  (add-hook 'go-mode-hook #'(lambda() (add-hook 'before-save-hook 'eglot-format-buffer nil t)))
   (define-key eglot-mode-map (kbd "C-c e a") 'eglot-code-actions)
   (define-key eglot-mode-map (kbd "C-c e f") 'eglot-format)
   (define-key eglot-mode-map (kbd "C-c e r") 'eglot-rename)
