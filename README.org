@@ -1,6 +1,6 @@
 #+title: Johan Bolmsjö's GNU Emacs Configuration
-#+html_head: <link rel="stylesheet" type="text/css" href="https://bitmaster.se/css/org-mini.css" />
-#+options: toc:nil num:2 H:4 author:nil timestamp:t ^:nil
+#+options: num:2
+#+date: [2022-11-24]
 
 Installation instruction:
 #+begin_src sh
@@ -552,5 +552,3 @@ Download, configure, build and install GNU Emacs on Linux:
 #+end_src
 
 Make sure that Cairo is used for the GUI in the configure stage or some library dependency is missing.
-
------

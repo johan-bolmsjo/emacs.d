@@ -3,7 +3,6 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-19 17:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Johan Bolmsjö's GNU Emacs Configuration</title>
@@ -219,13 +218,13 @@ Installation instruction:
 </li>
 <li><a href="#org9c20098">2. Quick Guides</a>
 <ul>
-<li><a href="#orge448402">2.1. Navigation</a></li>
-<li><a href="#orgb3dba3d">2.2. Incremental Search</a></li>
+<li><a href="#org48979ad">2.1. Navigation</a></li>
+<li><a href="#org3b9f1eb">2.2. Incremental Search</a></li>
 <li><a href="#org6fc770b">2.3. Completion in Buffers</a></li>
 <li><a href="#org1e42bcc">2.4. Minibuffer Completion</a></li>
 <li><a href="#org0b62f28">2.5. Magit</a></li>
-<li><a href="#orge404e1b">2.6. Denote</a></li>
-<li><a href="#org09a21c9">2.7. Org Mode</a></li>
+<li><a href="#orgb6706b9">2.6. Denote</a></li>
+<li><a href="#org32e75d8">2.7. Org Mode</a></li>
 <li><a href="#orge96f3ee">2.8. Text Templates</a></li>
 <li><a href="#orgfb5b5dc">2.9. Diagnostics</a></li>
 <li><a href="#org4689822">2.10. Language Server Protocol Support</a></li>
@@ -371,18 +370,18 @@ Also <a href="http://xahlee.info/emacs/emacs/keyboard_shortcuts.html">http://xah
 </dl>
 </div>
 
-<div id="outline-container-org3b9f1eb" class="outline-5">
-<h5 id="org3b9f1eb">Incremental Search</h5>
-<div class="outline-text-5" id="text-org3b9f1eb">
+<div id="outline-container-org5bb107b" class="outline-5">
+<h5 id="org5bb107b">Incremental Search</h5>
+<div class="outline-text-5" id="text-org5bb107b">
 <dl class="org-dl">
 <dt><code>C-c k</code></dt><dd>Set mark at start of current match and exit isearch (user function).</dd>
 </dl>
 </div>
 </div>
 
-<div id="outline-container-org48979ad" class="outline-5">
-<h5 id="org48979ad">Navigation</h5>
-<div class="outline-text-5" id="text-org48979ad">
+<div id="outline-container-org74e6441" class="outline-5">
+<h5 id="org74e6441">Navigation</h5>
+<div class="outline-text-5" id="text-org74e6441">
 <p>
 Even though these functions are called <code>error</code>, they work in many contexts. E.g. moving through compilation errors, grep results, xref references.
 </p>
@@ -414,9 +413,9 @@ See <a href="https://smythp.com/emacs_buffers/">https://smythp.com/emacs_buffers
 </div>
 </div>
 
-<div id="outline-container-orgb6706b9" class="outline-5">
-<h5 id="orgb6706b9">Denote</h5>
-<div class="outline-text-5" id="text-orgb6706b9">
+<div id="outline-container-org0c17415" class="outline-5">
+<h5 id="org0c17415">Denote</h5>
+<div class="outline-text-5" id="text-org0c17415">
 <dl class="org-dl">
 <dt><code>C-c n</code></dt><dd>Command prefix</dd>
 </dl>
@@ -429,9 +428,9 @@ Discover all commands by entering <code>M-x denote</code>
 </div>
 </div>
 
-<div id="outline-container-org32e75d8" class="outline-5">
-<h5 id="org32e75d8">Org Mode</h5>
-<div class="outline-text-5" id="text-org32e75d8">
+<div id="outline-container-org0761e8e" class="outline-5">
+<h5 id="org0761e8e">Org Mode</h5>
+<div class="outline-text-5" id="text-org0761e8e">
 <dl class="org-dl">
 <dt><code>C-c p</code></dt><dd><code>org-agenda</code> (planning)</dd>
 <dt><code>C-c L</code></dt><dd><code>org-store-link</code> (works in other modes to store links)</dd>
@@ -670,8 +669,8 @@ It could do with more information for Emacs neophytes.
 </p>
 </div>
 
-<div id="outline-container-orge448402" class="outline-3">
-<h3 id="orge448402"><span class="section-number-3">2.1.</span> Navigation</h3>
+<div id="outline-container-org48979ad" class="outline-3">
+<h3 id="org48979ad"><span class="section-number-3">2.1.</span> Navigation</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Xref is used by many Emacs modes for navigation, including Eglot for navigating source code.
@@ -693,8 +692,8 @@ Jump to a specific line.
 </div>
 </div>
 
-<div id="outline-container-orgb3dba3d" class="outline-3">
-<h3 id="orgb3dba3d"><span class="section-number-3">2.2.</span> Incremental Search</h3>
+<div id="outline-container-org3b9f1eb" class="outline-3">
+<h3 id="org3b9f1eb"><span class="section-number-3">2.2.</span> Incremental Search</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 Don't forget about the occur mode when doing incremental search.
@@ -795,8 +794,8 @@ The magit status command is bound to <code>C-x g</code>.
 </div>
 </div>
 
-<div id="outline-container-orge404e1b" class="outline-3">
-<h3 id="orge404e1b"><span class="section-number-3">2.6.</span> Denote</h3>
+<div id="outline-container-orgb6706b9" class="outline-3">
+<h3 id="orgb6706b9"><span class="section-number-3">2.6.</span> Denote</h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
 The YouTube presentation <a href="https://www.youtube.com/watch?v=mLzFJcLpDFI">https://www.youtube.com/watch?v=mLzFJcLpDFI</a> by the package author gives a good overview of the note taking workflow.
@@ -805,8 +804,8 @@ I recommend studying the <a href="https://protesilaos.com/emacs/denote">manual</
 </div>
 </div>
 
-<div id="outline-container-org09a21c9" class="outline-3">
-<h3 id="org09a21c9"><span class="section-number-3">2.7.</span> Org Mode</h3>
+<div id="outline-container-org32e75d8" class="outline-3">
+<h3 id="org32e75d8"><span class="section-number-3">2.7.</span> Org Mode</h3>
 <div class="outline-text-3" id="text-2-7">
 <p>
 <a href="http://orgmode.org">Org mode</a> is a documentation and planning major mode.
@@ -1165,13 +1164,11 @@ make install
 <p>
 Make sure that Cairo is used for the GUI in the configure stage or some library dependency is missing.
 </p>
-
-<hr />
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2022-11-19 17:12</p>
+<p class="date">Date: 2022-11-24</p>
 </div>
 </body>
 </html>
