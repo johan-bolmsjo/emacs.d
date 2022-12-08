@@ -260,7 +260,7 @@ With argument, do this that many times."
 ;; Fonts
 ;; ----------------------------------------------------------------------------
 
-(load (concat user-emacs-directory "fonts.el"))
+(load (expand-file-name "fonts.el" user-emacs-directory))
 
 ;; ----------------------------------------------------------------------------
 ;; Color theme
@@ -440,16 +440,6 @@ With argument, do this that many times."
 ;; Syntax highlight src blocks.
 (setq org-src-fontify-natively t)
 
-;; HTML output: Don't emit validation link
-(setq org-html-validation-link nil)
-
-;; Export via ODT format
-(setq org-odt-preferred-output-format "pdf")
-(setq org-odt-fontify-srcblocks nil)
-
-;; Text file export line width
-(setq org-ascii-text-width 80)
-
 ;; org-agenda
 (setq org-agenda-span 14)
 (setq org-agenda-skip-scheduled-if-done t)
@@ -491,6 +481,30 @@ With argument, do this that many times."
 	    ))
 
 (require 'org-tempo)
+
+(eval-after-load "org"
+  '(require 'ox-md nil t))
+
+;; Set default export options.
+;; Override on a per Org file basis with "#+options:".
+;; See https://orgmode.org/manual/Export-Settings.html
+(setq org-export-with-toc nil)
+(setq org-export-with-section-numbers 0)
+(setq org-export-headline-levels 4)
+(setq org-export-with-author nil)
+(setq org-export-time-stamp-file nil)
+(setq org-export-with-sub-superscripts nil)
+(setq org-export-with-date nil)
+
+(setq org-odt-preferred-output-format "pdf")
+(setq org-odt-fontify-srcblocks nil)
+
+(setq org-ascii-text-width 80)
+
+(setq org-html-head-include-default-style nil)
+(setq org-html-metadata-timestamp-format "%Y-%m-%d")
+(setq org-html-validation-link nil)
+(load (expand-file-name "css/org-main-optimized.css.el" user-emacs-directory))
 
 ;; ----------------------------------------------------------------------------
 ;; PlantUML: Diagrams etc
@@ -769,5 +783,4 @@ With argument, do this that many times."
 ;; Customized Variables
 ;; ----------------------------------------------------------------------------
 
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-(load custom-file)
+(load (expand-file-name "custom.el" user-emacs-directory))

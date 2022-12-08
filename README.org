@@ -1,5 +1,5 @@
 #+title: Johan Bolmsjö's GNU Emacs Configuration
-#+options: num:2
+#+options: date:t num:2
 #+date: [2022-11-24]
 
 Installation instruction:

@@ -1,6 +1,6 @@
 #+title: HOWTO: Directory Local Variables
-#+html_head: <link rel="stylesheet" type="text/css" href="https://bitmaster.se/css/org-mini.css" />
-#+options: toc:2 num:2 H:4 author:nil timestamp:t ^:nil
+#+date: [2022-10-06]
+#+options: date:t toc:2 num:2
 
 * Example .dir-locals.el file
 
@@ -15,5 +15,3 @@ and its child directories.
               (tab-width . 8)
               )))
 #+end_src
-
------

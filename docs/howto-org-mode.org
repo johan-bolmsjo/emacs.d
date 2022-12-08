@@ -1,6 +1,6 @@
 #+title: HOWTO: Org Mode
-#+html_head: <link rel="stylesheet" type="text/css" href="https://bitmaster.se/css/org-mini.css" />
-#+options: toc:2 num:2 H:4 author:nil timestamp:t ^:nil
+#+date: [2022-10-06]
+#+options: date:t toc:2 num:2
 
 * Per document TODO states
 
@@ -75,5 +75,3 @@ Contents of file =style.css.org=:
 See https://orgmode.org/manual/CSS-support.html for more information.
 
 My CSS file is kept at https://github.com/johan-bolmsjo/org_css for reference.
-
------
