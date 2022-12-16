@@ -5,7 +5,7 @@
  ("consult" . "d1463da28e9954308b3eb167300f851a8b1e9547")
  ("corfu" . "381d4be5fb354955be8026f898ddc4aaacf56b67")
  ("dash.el" . "3df46d7d9fe74f52a661565888e4d31fd760f0df")
- ("denote" . "e2beb5441dded3207bfb7efdb6acca28a4c16e5d")
+ ("denote" . "9feb33c03f1f83ae79e23f2068cf0b5874c30bd8")
  ("eglot" . "e501275e06952889056268dabe08ccd0dbaf23e5")
  ("el-get" . "ecd4347373fe3e00e42c2ddc37791d2fb6524caa")
  ("eldoc" . "192bcd5571a84e4b4084a840565f40fbec0b0abc")
@@ -25,8 +25,9 @@
  ("marginalia" . "ce8db0acf7e81b78cb47d6cbb234ef93f2cbb822")
  ("markdown-mode" . "c338cdff80012893e64ba62a199281f430db7021")
  ("melpa" . "8d14a6b06d97b36d5d76e418f800d6bc3156700f")
+ ("nongnu-elpa" . "bfa61abeb9a79f4b12f6a5b184ea02843b5cd826")
  ("orderless" . "2debd96da6f75703ccbca6d852ad994ce84fa529")
- ("org" . "0737112852afe835a5a5833a2dd0a6852c04e0f0")
+ ("org" . "f49ee9200c748a988589219c99cce1097a478014")
  ("ox-jira.el" . "00184f8fdef02a3a359a253712e8769cbfbea3ba")
  ("paredit" . "e4a67f4f23ba936b4bdc8d7e66bd8c6729064558")
  ("pfuture" . "19b53aebbc0f2da31de6326c495038901bffb73c")
@@ -46,4 +47,4 @@
  ("xref" . "bb60966e9642f854a69b44f84d648a0b74499a8e")
  ("yasnippet" . "5cbdbf0d2015540c59ed8ee0fcf4788effdf75b6")
  ("zig-mode" . "dbc648f5bca8f3b9ca2cc7827f326f5530115144"))
-:beta
+:gamma
