@@ -6,6 +6,12 @@
  '(denote-directory "~/notes/")
  '(org-agenda-files '("~/org/plan.org"))
  '(org-default-notes-file "~/org/notes.org")
+ '(org-link-frame-setup
+   '((vm . vm-visit-folder-other-frame)
+     (vm-imap . vm-visit-imap-folder-other-frame)
+     (gnus . org-gnus-no-new-news)
+     (file . find-file)
+     (wl . wl-other-frame)))
  '(plantuml-default-exec-mode 'jar)
  '(plantuml-jar-path "/usr/share/plantuml/plantuml.jar")
  '(plantuml-server-url ""))
