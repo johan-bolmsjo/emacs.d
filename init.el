@@ -655,6 +655,8 @@ With argument, do this that many times."
 (use-package eglot
   :ensure nil
   :config
+  (setq-default eglot-workspace-configuration
+		'((:gopls . (:usePlaceholders t))))
   (add-hook 'c-mode-hook 'eglot-ensure)
   (add-hook 'c++-mode-hook 'eglot-ensure)
   (add-hook 'go-mode-hook 'eglot-ensure)

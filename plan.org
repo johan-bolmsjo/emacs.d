@@ -2,7 +2,9 @@
 #+todo: TODO(!) | DONE(@)
 
 * BUGS
-** TODO Completion in Go programming mode does not expand function parameters
+** DONE Completion in Go programming mode does not expand function parameters :ARCHIVE:
 :LOGBOOK:
+- State "DONE"       from "TODO"       [2022-12-16 Fri 20:45] \\
+  Fixed with configuration of eglot-workspace-configuration
 - State "TODO"       from              [2022-10-19 Wed 23:05]
 :END:
