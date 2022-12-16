@@ -783,4 +783,5 @@ With argument, do this that many times."
 ;; Customized Variables
 ;; ----------------------------------------------------------------------------
 
-(load (expand-file-name "custom.el" user-emacs-directory))
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(load custom-file)
