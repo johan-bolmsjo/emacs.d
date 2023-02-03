@@ -354,20 +354,21 @@ With argument, do this that many times."
 ;; OR if only want it in `denote-dired-directories':
 (add-hook 'dired-mode-hook #'denote-dired-mode-in-directories)
 
-;; Here is a custom, user-level command from one of the examples we
-;; showed in this manual.  We define it here and add it to a key binding
-;; below.
-(defun my-denote-journal ()
-  "Create an entry tagged 'journal', while prompting for a title."
+;; Custom command to create a journal entry with a predefined "journal"
+;; keyword in a dedicated sub directory.
+(defun my/denote-journal ()
+  "Create an entry tagged 'journal', while prompting for a title and additional keywords."
   (interactive)
   (denote
-   (denote--title-prompt)
-   '("journal")))
+   (denote-title-prompt)
+   (denote-keywords-sort (cons "journal" (denote-keywords-prompt)))
+   nil
+   (concat denote-directory "/journal")))
 
 ;; Denote DOES NOT define any key bindings.  This is for the user to
 ;; decide.  For example:
 (let ((map global-map))
-  (define-key map (kbd "C-c n j") #'my-denote-journal) ; our custom command
+  (define-key map (kbd "C-c n j") #'my/denote-journal) ; our custom command
   (define-key map (kbd "C-c n n") #'denote)
   (define-key map (kbd "C-c n N") #'denote-type)
   (define-key map (kbd "C-c n d") #'denote-date)
