@@ -27,7 +27,7 @@
  ("markdown-mode" . "0f7eae811308f92b8681b5411f7a5035d1fcd5a7")
  ("melpa" . "8d14a6b06d97b36d5d76e418f800d6bc3156700f")
  ("nongnu-elpa" . "bfa61abeb9a79f4b12f6a5b184ea02843b5cd826")
- ("orderless" . "847694e78c12d903d5e3f6cb365a5d3b984db537")
+ ("orderless" . "ae849b3d9f8c8a777e05816321ed2b00e8304447")
  ("org" . "630f86dfc42472aafd9a4f305e1965cbe92b2891")
  ("ox-jira.el" . "00184f8fdef02a3a359a253712e8769cbfbea3ba")
  ("paredit" . "e4a67f4f23ba936b4bdc8d7e66bd8c6729064558")
