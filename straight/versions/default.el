@@ -12,7 +12,7 @@
  ("emacs-reformatter" . "f454b179ab7d39dc8783b9f2a046cab353b272f5")
  ("emacs-which-key" . "8093644032854b1cdf3245ce4e3c7b6673f741bf")
  ("emacsmirror-mirror" . "6942c3f94fe3d095d00977d3f021f59ea235e47f")
- ("embark" . "784ce24a1ad37459041418182af49565cad4974b")
+ ("embark" . "589b057d0003af99d376462531d2d4453439da52")
  ("epl" . "78ab7a85c08222cd15582a298a364774e3282ce6")
  ("flycheck" . "15f0759602f9a31aff134c44d001ab058fbe747c")
  ("flymake" . "480ab33e649fe841b83caafc0a2be2a112879796")
