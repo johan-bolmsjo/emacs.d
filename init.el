@@ -59,6 +59,9 @@
 (straight-use-package 'ox-jira) ; Org Jira export plugin
 (straight-use-package 'plantuml-mode)
 
+;; Data formats
+(straight-use-package 'yaml-mode)
+
 ;; Programming language support
 (straight-use-package 'eglot)
 (straight-use-package 'magit)

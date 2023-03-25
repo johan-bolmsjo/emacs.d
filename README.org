@@ -45,7 +45,11 @@ It's transferable between machines.
 - [[https://orgmode.org/][Org Mode]] for documentation and planning.
 - [[https://daringfireball.net/projects/markdown/][Markdown]]
 - [[https://plantuml.com/][PlantUML]]
-  
+
+*** Data Formats
+
+- [[https://yaml.org/][YAML]] through [[https://www.emacswiki.org/emacs/YamlMode][yaml-mode]]
+
 *** Programming Languages Modes
 
 All programming language modes except elisp use eglot to provide code navigation and completion support.
