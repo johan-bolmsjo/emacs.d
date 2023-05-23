@@ -13,8 +13,9 @@
      (gnus . org-gnus-no-new-news)
      (file . find-file)
      (wl . wl-other-frame)))
- '(plantuml-default-exec-mode 'jar)
+ '(org-plantuml-jar-path "/usr/share/plantuml/plantuml.jar")
  '(plantuml-jar-path "/usr/share/plantuml/plantuml.jar")
+ '(plantuml-default-exec-mode 'jar)
  '(plantuml-server-url ""))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

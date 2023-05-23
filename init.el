@@ -412,11 +412,19 @@ With argument, do this that many times."
 ;; `denote-link-or-create'.  You may want to bind them to keys as well.
 
 ;; ----------------------------------------------------------------------------
+;; PlantUML: Diagrams etc
+;; - https://plantuml.com/
+;; ----------------------------------------------------------------------------
+
+(add-to-list 'auto-mode-alist '("\\.puml\\'" . plantuml-mode))
+
+;; ----------------------------------------------------------------------------
 ;; Org: Documentation format, planning etc
 ;; - https://orgmode.org/
 ;; ----------------------------------------------------------------------------
 
 ;; Hide markup characters for bold, italics, underline etc.
+;; I find this results in a confusing editing experience, so is disabled.
 ;;(setq org-hide-emphasis-markers t)
 
 ;; Word wrap mode.
@@ -428,21 +436,17 @@ With argument, do this that many times."
 ;; Put all task logs into LOGBOOK drawer.
 (setq org-log-into-drawer t)
 
-;; Log time stamp when marking a task as done.
-;; Control time stamping per org mode file using TODO keyword specification instead.
-;; See https://orgmode.org/manual/Tracking-TODO-state-changes.html for details.
-;;(setq org-log-done 'time)
-
-;; Ask for log note when marking a task as done.
-;; Control logging per org mode file using TODO keyword specification instead.
-;; See https://orgmode.org/manual/Tracking-TODO-state-changes.html for details.
-;;(setq org-log-done 'note)
-
 ;; Prevent parent tasks from being marked as DUNE unless all child tasks are DONE.
 (setq org-enforce-todo-dependencies t)
 
 ;; Syntax highlight src blocks.
 (setq org-src-fontify-natively t)
+
+;; PlantUML integration - also see customization of org-plantuml-jar-path in custom.el
+(org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t)))
+(add-hook 'org-mode-hook
+          (lambda ()
+	    (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))))
 
 ;; org-agenda
 (setq org-agenda-span 14)
@@ -484,8 +488,10 @@ With argument, do this that many times."
 	    (local-set-key (kbd "M-.") 'org-open-at-point)  ;; xref-find-definitions
 	    ))
 
+;; See https://orgmode.org/manual/Structure-Templates.html
 (require 'org-tempo)
 
+;; Markdown export
 (eval-after-load "org"
   '(require 'ox-md nil t))
 
@@ -509,13 +515,6 @@ With argument, do this that many times."
 (setq org-html-metadata-timestamp-format "%Y-%m-%d")
 (setq org-html-validation-link nil)
 (load (expand-file-name "css/org-main-optimized.css.el" user-emacs-directory))
-
-;; ----------------------------------------------------------------------------
-;; PlantUML: Diagrams etc
-;; - https://plantuml.com/
-;; ----------------------------------------------------------------------------
-
-(add-to-list 'auto-mode-alist '("\\.puml\\'" . plantuml-mode))
 
 ;; ----------------------------------------------------------------------------
 ;; Indexed grep search tool
