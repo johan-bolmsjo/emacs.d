@@ -1,6 +1,6 @@
 #+title: Johan Bolmsjö's GNU Emacs Configuration
 #+options: date:t num:2
-#+date: [2022-11-24]
+#+date: [2023-08-03]
 
 Installation instruction:
 #+begin_src sh
