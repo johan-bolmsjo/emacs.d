@@ -73,6 +73,7 @@
 ;; Programming languages
 (straight-use-package 'go-mode)
 (straight-use-package 'zig-mode)
+(straight-use-package 'slime)
 
 ;; ----------------------------------------------------------------------------
 ;; Miscellaneous minor tweaks
@@ -138,6 +139,9 @@
 (show-paren-mode 1)
 
 ;; Show the function we are in when editing source code
+;;
+;; TODO: This triggers an error message when treemacs is enabled:
+;;       which-func-ff-hook error: (wrong-type-argument arrayp nil)
 (which-function-mode 1)
 
 ;; Compilation output
@@ -711,6 +715,46 @@ With argument, do this that many times."
 ;; ----------------------------------------------------------------------------
 
 (require 'go-mode-autoloads)
+
+;; ----------------------------------------------------------------------------
+;; LISP
+;; ----------------------------------------------------------------------------
+
+(use-package paredit
+  :hook
+  (emacs-lisp-mode                  . paredit-mode) ; Elisp buffers.
+  (lisp-mode                        . paredit-mode) ; Common Lisp buffers.
+  (lisp-interaction-mode            . paredit-mode) ; Scratch buffers.
+  (ielm-mode-hook                   . paredit-mode) ; ELM buffers.
+  (eval-expression-minibuffer-setup . paredit-mode) ; Eval minibuffers.
+  :bind
+  (:map paredit-mode-map
+        ("<return>" . my/paredit-RET))
+  :config
+  (defun my/paredit-RET ()
+    "Wraps `paredit-RET' to provide a sensible minibuffer experience."
+    (interactive)
+    (if (minibufferp)
+        (read--expression-try-read)
+      (paredit-RET))))
+
+(eldoc-add-command
+ 'paredit-backward-delete
+ 'paredit-close-round)
+
+;; Stop SLIME's REPL from grabbing DEL,
+;; which is annoying when backspacing over a '('
+(defun my/override-slime-repl-bindings-with-paredit ()
+  (define-key slime-repl-mode-map
+    (read-kbd-macro paredit-backward-delete-key) nil))
+
+(add-hook 'slime-repl-mode-hook 'my/override-slime-repl-bindings-with-paredit)
+(add-hook 'slime-repl-mode-hook (lambda () (paredit-mode +1)))
+
+(use-package slime
+  :ensure nil
+  :config
+  (setq inferior-lisp-program "sbcl"))
 
 ;; ----------------------------------------------------------------------------
 ;; OCaml programming language

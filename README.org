@@ -53,8 +53,10 @@ It's transferable between machines.
 *** Programming Languages Modes
 
 All programming language modes except elisp use eglot to provide code navigation and completion support.
+Some configuration may be missing for SLIME as I've barely used it.
 
 - C/C++ (builtin)
+- [[https://lisp-lang.org/][Common Lisp]] using [[https://slime.common-lisp.dev/][SLIME]]
 - [[https://www.gnu.org/software/emacs/manual/html_node/elisp/index.html][elisp]] (builtin)
 - [[https://go.dev/][Go]]
 - [[https://ocaml.org/][OCaml]] (externally managed)
@@ -522,6 +524,8 @@ Install the language server:
 Compiling [[https://www.gnu.org/software/emacs/][GNU Emacs]] from source is quite easy.
 Many packages see heavy development and may require a recent version.
 
+** Emacs 28.2
+
 Install dependencies (Ubuntu 22.04 specific):
 
 #+begin_src sh
@@ -556,3 +560,51 @@ Download, configure, build and install GNU Emacs on Linux:
 #+end_src
 
 Make sure that Cairo is used for the GUI in the configure stage or some library dependency is missing.
+
+** Emacs 29.1
+
+Install dependencies (Ubuntu 22.04 specific):
+
+#+begin_src sh
+  sudo apt install \
+     libcairo2-dev \
+     libgccjit-11-dev \
+     libgif-dev \
+     libgnutls28-dev \
+     libharfbuzz-dev \
+     libjansson-dev \
+     libjpeg-dev \
+     libncurses-dev \
+     librsvg2-dev \
+     libsqlite3-dev \
+     libtiff-dev \
+     libtree-sitter-dev \
+     libxaw7-dev \
+     libxml2-dev \
+     libxpm-dev
+#+end_src
+
+Download, configure, build and install GNU Emacs on Linux:
+
+#+begin_src sh
+  wget https://ftp.acc.umu.se/mirror/gnu.org/gnu/emacs/emacs-29.1.tar.xz
+  tar xf emacs-29.1.tar.xz
+  cd emacs-29.1
+  ./configure \
+      --with-native-compilation \
+      --with-mailutils \
+      --with-x-toolkit=lucid \
+      --with-tree-sitter \
+      --prefix=$HOME/.local
+  make -j16
+  make install
+#+end_src
+
+Make sure that Cairo is used for the GUI in the configure stage or some library dependency is missing.
+
+Install tree-sitter language grammar files using =M-x treesit-install-language-grammar=;
+example language names: python, c, cpp.
+
+See https://www.masteringemacs.org/article/how-to-get-started-tree-sitter for an introduction to Emacs tree-sitter support and how to use it.
+
+For now, none of the tree-sitter major modes are enabled by default.
