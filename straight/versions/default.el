@@ -38,6 +38,7 @@
  ("pkg-info" . "76ba7415480687d05a4353b27fea2ae02b8d9d61")
  ("plantuml-mode" . "ea45a13707abd2a70df183f1aec6447197fc9ccc")
  ("posframe" . "48b7130ca3b5c98bdb21bf99b64a3536acf2b0eb")
+ ("ppindent" . "244c4058650a6c4e756caf27bb38b42fc22c9511")
  ("project" . "985a4346709ceae1e84ca1fa146581ed96076bba")
  ("pyenv.el" . "d500e1fd3b222ab0a061b80c5301e6a0cd804b42")
  ("s.el" . "e957dcb0677da18b2bb60ad867db5df5c35b5616")

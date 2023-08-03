@@ -67,9 +67,12 @@
 (straight-use-package 'eglot)
 (straight-use-package 'magit)
 (straight-use-package 'paredit)
+(straight-use-package 'ppindent)
 (straight-use-package 'pyenv)
-;; Only enable if used; it clones the entire CMake repo which is large!
+;; Only enable cmake-mode if used as the entire source repo is cloned!
 ;;(straight-use-package 'cmake-mode)
+;; Only enable protobuf-mode if used as the entire source repo is cloned!
+;;(straight-use-package 'protobuf-mode)
 
 ;; Programming languages
 (straight-use-package 'go-mode)
@@ -693,6 +696,8 @@ With argument, do this that many times."
 ;; ----------------------------------------------------------------------------
 ;; C programming language (common C/C++)
 ;; ----------------------------------------------------------------------------
+
+(require 'ppindent)
 
 (defun my/c-mode-common-hook ()
   (c-set-style "Linux")
