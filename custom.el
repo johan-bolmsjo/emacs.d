@@ -1,3 +1,12 @@
+;; Example customization of org-mode file open actions:
+;;
+;; '(org-file-apps
+;;   '((auto-mode . emacs)
+;;     (directory . emacs)
+;;     ("\\.mm\\'" . default)
+;;     ("\\.x?html?\\'" . system)
+;;     ("\\.pdf\\'" . "okular %s")))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -7,6 +16,7 @@
  '(denote-directory "~/notes/")
  '(org-agenda-files '("~/org/plan.org"))
  '(org-default-notes-file "~/org/notes.org")
+ '(org-id-link-to-org-use-id 'use-existing)
  '(org-link-frame-setup
    '((vm . vm-visit-folder-other-frame)
      (vm-imap . vm-visit-imap-folder-other-frame)

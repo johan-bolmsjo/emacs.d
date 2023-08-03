@@ -58,6 +58,7 @@
 (straight-use-package 'org)
 (straight-use-package 'ox-jira) ; Org Jira export plugin
 (straight-use-package 'plantuml-mode)
+(straight-use-package 'gnuplot)
 
 ;; Data formats
 (straight-use-package 'yaml-mode)
@@ -446,8 +447,13 @@ With argument, do this that many times."
 ;; Syntax highlight src blocks.
 (setq org-src-fontify-natively t)
 
-;; PlantUML integration - also see customization of org-plantuml-jar-path in custom.el
-(org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t)))
+;; Org mode integration of PlantUML and gnuplot.
+;; Also see customization of org-plantuml-jar-path in custom.el
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((plantuml . t)
+   (gnuplot . t)))
+
 (add-hook 'org-mode-hook
           (lambda ()
 	    (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))))
