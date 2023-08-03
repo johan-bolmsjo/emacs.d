@@ -15,6 +15,7 @@
  '(cmake-tab-width 4)
  '(denote-directory "~/notes/")
  '(org-agenda-files '("~/org/plan.org"))
+ '(marginalia-field-width 160)
  '(org-default-notes-file "~/org/notes.org")
  '(org-id-link-to-org-use-id 'use-existing)
  '(org-link-frame-setup
