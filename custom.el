@@ -14,8 +14,10 @@
  ;; If there is more than one, they won't work right.
  '(cmake-tab-width 4)
  '(denote-directory "~/notes/")
- '(org-agenda-files '("~/org/plan.org"))
+ '(denote-dired-directories
+   '("~/notes/" "~/notes/journal"))
  '(marginalia-field-width 160)
+ '(org-agenda-files '("~/org/plan.org"))
  '(org-default-notes-file "~/org/notes.org")
  '(org-id-link-to-org-use-id 'use-existing)
  '(org-link-frame-setup
@@ -25,8 +27,8 @@
      (file . find-file)
      (wl . wl-other-frame)))
  '(org-plantuml-jar-path "/usr/share/plantuml/plantuml.jar")
- '(plantuml-jar-path "/usr/share/plantuml/plantuml.jar")
  '(plantuml-default-exec-mode 'jar)
+ '(plantuml-jar-path "/usr/share/plantuml/plantuml.jar")
  '(plantuml-server-url ""))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

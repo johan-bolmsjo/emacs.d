@@ -347,22 +347,13 @@ With argument, do this that many times."
 ;; file names.  This provides a more informative view.
 (setq denote-backlinks-show-context t)
 
-;; Also see `denote-link-backlinks-display-buffer-action' which is a bit
-;; advanced.
+;; Also see `denote-link-backlinks-display-buffer-action' which is a bit advanced.
 
-;; If you use Markdown or plain text files (Org renders links as buttons
-;; right away)
+;; If you use Markdown or plain text files (Org renders links as buttons right away)
 (add-hook 'find-file-hook #'denote-link-buttonize-buffer)
 
-;; We use different ways to specify a path for demo purposes.
-(setq denote-dired-directories
-      (list denote-directory
-            (thread-last denote-directory (expand-file-name "attachments"))))
-
-;; Generic (great if you rename files Denote-style in lots of places):
-;; (add-hook 'dired-mode-hook #'denote-dired-mode)
-;;
-;; OR if only want it in `denote-dired-directories':
+;; Fontify Denote-style file names in denote-dired-directories in dired mode.
+;; Alternatively #'denote-dired-mode can be used as a hook to fontify in all directories.
 (add-hook 'dired-mode-hook #'denote-dired-mode-in-directories)
 
 ;; Custom command to create a journal entry with a predefined "journal"
@@ -376,10 +367,23 @@ With argument, do this that many times."
    nil
    (concat denote-directory "/journal")))
 
+;; Custom command to create a journal entry with a predefined "journal"
+;; keyword in a dedicated sub directory, asking for the file type.
+(defun my/denote-journal-type ()
+  "Create an entry tagged 'journal', while prompting for the file type, a title and additional keywords."
+  (interactive)
+  (let ((file-type (denote-file-type-prompt)))
+    (denote
+     (denote-title-prompt)
+     (denote-keywords-sort (cons "journal" (denote-keywords-prompt)))
+     file-type
+     (concat denote-directory "/journal"))))
+
 ;; Denote DOES NOT define any key bindings.  This is for the user to
 ;; decide.  For example:
 (let ((map global-map))
-  (define-key map (kbd "C-c n j") #'my/denote-journal) ; our custom command
+  (define-key map (kbd "C-c n j") #'my/denote-journal)
+  (define-key map (kbd "C-c n J") #'my/denote-journal-type)
   (define-key map (kbd "C-c n n") #'denote)
   (define-key map (kbd "C-c n N") #'denote-type)
   (define-key map (kbd "C-c n d") #'denote-date)
@@ -415,9 +419,6 @@ With argument, do this that many times."
                  :immediate-finish nil
                  :kill-buffer t
                  :jump-to-captured t)))
-
-;; Also check the commands `denote-link-after-creating',
-;; `denote-link-or-create'.  You may want to bind them to keys as well.
 
 ;; ----------------------------------------------------------------------------
 ;; PlantUML: Diagrams etc
