@@ -463,12 +463,13 @@ With argument, do this that many times."
 	    (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))))
 
 ;; org-agenda
-(setq org-agenda-span 14)
-(setq org-agenda-skip-scheduled-if-done t)
-(setq org-agenda-skip-deadline-if-done t)
-(setq org-deadline-warning-days 2)
-(setq org-agenda-show-future-repeats 'next)
 (setq org-agenda-prefer-last-repeat '("REPEATED"))
+(setq org-agenda-show-future-repeats 'next)
+(setq org-agenda-skip-deadline-if-done t)
+(setq org-agenda-skip-deadline-prewarning-if-scheduled t)
+(setq org-agenda-skip-scheduled-if-done t)
+(setq org-agenda-span 14)
+(setq org-deadline-warning-days 2)
 
 ;; System locale to use for formatting time values. Make sure that the weekdays
 ;; in the time stamps of Org mode files and in the agenda appear in English.
