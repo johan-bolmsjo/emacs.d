@@ -61,6 +61,7 @@
 (straight-use-package 'gnuplot)
 
 ;; Data formats
+(straight-use-package 'csv-mode)
 (straight-use-package 'yaml-mode)
 
 ;; Programming language support

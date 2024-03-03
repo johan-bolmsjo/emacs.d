@@ -4,6 +4,7 @@
  ("compat" . "f014343fe45f1b47f3381a025aa6c216c915edf9")
  ("consult" . "fe49dedd71802ff97be7b89f1ec4bd61b98c2b13")
  ("corfu" . "bf40e80fa867380012bc7b0e068da7396ee2363f")
+ ("csv-mode" . "81c1a9febd2adf79cfbdf939081ef7bf3a41ffd6")
  ("dash.el" . "3df46d7d9fe74f52a661565888e4d31fd760f0df")
  ("denote" . "dd4ac3941d59329e326baa7dc3ea5ca61b60c375")
  ("eglot" . "8b5532dd32b25276c1857508030b207f765ef9b6")
