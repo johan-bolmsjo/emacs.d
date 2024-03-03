@@ -48,6 +48,7 @@
 (straight-use-package 'which-key)
 (straight-use-package 'xref)
 (straight-use-package 'yasnippet)
+(straight-use-package 'visual-fill-column)
 
 ;; Themes
 (straight-use-package 'solarized-theme)
