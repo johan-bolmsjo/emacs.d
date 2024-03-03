@@ -139,6 +139,12 @@
 (line-number-mode 1)
 (column-number-mode 1)
 
+;; Highlight the current line
+(global-hl-line-mode)
+
+;; Display line numbers for each line
+(global-display-line-numbers-mode)
+
 ;; Show matching parenthesis
 (show-paren-mode 1)
 
