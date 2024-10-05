@@ -26,6 +26,7 @@
          :base-directory "./"
          :base-extension "org"
 	 :exclude "^plan"
+	 :exclude "^latex-setupfile"
          :publishing-directory "html/")
 	("emacs.d-docs"
 	 :auto-sitemap nil

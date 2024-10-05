@@ -1,6 +1,7 @@
 #+title: Johan Bolmsjö's GNU Emacs Configuration
-#+options: date:t num:2
-#+date: [2023-08-03]
+#+setupfile:latex-setupfile.org
+#+options: date:t num:3
+#+date: /2024-10-05/
 
 Installation instruction:
 #+begin_src sh
@@ -197,7 +198,7 @@ The solarized theme that is used by this Emacs configuration only works properly
 
 The website https://github.com/termstandard/colors describes how to configure terminals and associated tools to support true color.
 
-In essence the environment variable =COLORTERM= must be set to =truecolor=.
+In essence, the environment variable =COLORTERM= must be set to =truecolor=.
 =COLORTERM= is distinct from the usual =TERM= environment variable that communicate terminal capabilities.
 Obviously the underlying terminal must also support the true color escape codes.
 
@@ -352,10 +353,9 @@ Useful shortcuts include =<s= /TAB/ for source blocks and =<q= /TAB/ for quote b
 
 ** Text Templates
 
-Text template support is provided by the [[https://github.com/joaotavora/yasnippet][yasnippet]] package.
-Sippets are kept under =~/.emacs.d/snippets/MODE/FILE=.
-
-Templates are expanded by typing their name and pressing /TAB/.
+Text template support is provided by the [[https://github.com/joaotavora/yasnippet][yasnippet]] package. Sippets are kept under\\
+=~/.emacs.d/<MODE>/<FILE>= and they are are expanded by typing their name and pressing
+/TAB/.
 
 ** Diagnostics
 
@@ -437,24 +437,26 @@ Ubuntu/Debian specific instruction:
 
 ** Go Programming Language Mode
 
-- Install the Go programming language toolchain as instructed on https://go.dev/dl/
-- Install required tools:
-  #+begin_src sh
-    go install golang.org/x/tools/gopls@latest
-    go install golang.org/x/tools/cmd/goimports@latest
-    go install golang.org/x/tools/cmd/gorename@latest
-    go install github.com/rogpeppe/godef@latest
-  #+end_src
+Install the Go programming language toolchain as instructed on https://go.dev/dl/
+
+Install required tools:
+#+begin_src sh
+  go install golang.org/x/tools/gopls@latest
+  go install golang.org/x/tools/cmd/goimports@latest
+  go install golang.org/x/tools/cmd/gorename@latest
+  go install github.com/rogpeppe/godef@latest
+#+end_src
 
 ** OCaml Programming Language Mode
 
-- Install the OCaml language toolchain from https://ocaml.org/releases/
-- Install required tools:
-  #+begin_src sh
-    opam update
-    opam switch create 4.13.1
-    opam install dune utop ocaml-lsp-server merlin tuareg ocp-indent odig
-  #+end_src
+Install the OCaml language toolchain from https://ocaml.org/releases/
+
+Install required tools:
+#+begin_src sh
+  opam update
+  opam switch create 4.13.1
+  opam install dune utop ocaml-lsp-server merlin tuareg ocp-indent odig
+#+end_src
 
 The OCaml setup is a bit special in that the Emacs packages are installed by the steps above.
 Not by the Emacs package manager.

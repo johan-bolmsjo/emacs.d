@@ -1,0 +1,51 @@
+# Inspired by:
+# - https://www.youtube.com/watch?v=0qHloGTT8XE
+# - https://jakebox.github.io/youtube/org_latex_video.html
+
+#+LaTeX_CLASS: plain-article
+#+LaTeX_CLASS_OPTIONS: [a4paper,11pt]
+#+LATEX_HEADER: \usepackage{lmodern}  % Ensures we have the right font
+
+#+LATEX_HEADER: \usepackage[T1]{fontenc}
+#+LATEX_HEADER: \usepackage[AUTO]{inputenc}
+#+LATEX_HEADER: \usepackage{graphicx}
+#+LATEX_HEADER: \usepackage{amsmath, amsthm, amssymb}
+#+LATEX_HEADER: \usepackage{xcolor}
+
+% Colorizing links in a nicer way
+#+LATEX_HEADER: \definecolor{ceruleanblue}{rgb}{0.16, 0.32, 0.75}
+#+LATEX_HEADER: \definecolor{auburn}{rgb}{0.43, 0.21, 0.1}
+#+LATEX_HEADER: \usepackage[colorlinks]{hyperref}
+#+LATEX_HEADER: \hypersetup{colorlinks, linkcolor=ceruleanblue, urlcolor=auburn}
+
+% Move title up
+#+LATEX_HEADER: \usepackage{titling}
+#+LATEX_HEADER: \setlength{\droptitle}{-6em}
+
+% Spacing, titling, text setting
+#+LATEX_HEADER: \usepackage[raggedright]{titlesec}
+
+% Make 4th level paragraph section headings look like as regular headings (with line break).
+% Note: incompatible with titlesec "explicit" option.
+#+LATEX_HEADER: \titleformat{\paragraph}[hang]{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+#+LATEX_HEADER: \titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{0.5em}
+
+% Paragraph spacing
+#+LATEX_HEADER: \setlength{\parindent}{0pt}
+#+LATEX_HEADER: \setlength{\parskip}{1em}
+#+LATEX_HEADER: \usepackage[stretch=10]{microtype}
+#+LATEX_HEADER: \usepackage{hyphenat}
+#+LATEX_HEADER: \usepackage{ragged2e}
+#+LATEX_HEADER: \usepackage{subfig} % Subfigures (not needed in Org I think)
+#+LATEX_HEADER: \usepackage{hyperref} % Links
+
+% Disable flush alighment on the right side.
+# #+LATEX_HEADER: \RaggedRight
+
+% Line spacing
+#+LATEX_HEADER: \renewcommand{\baselinestretch}{1.15}
+
+% List spacing
+#+LATEX_HEADER: \usepackage{enumitem}
+#+LATEX_HEADER: \setlist{itemsep=-10pt}
+# #+LATEX_HEADER: \setlist{noitemsep}

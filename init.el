@@ -528,6 +528,7 @@ With argument, do this that many times."
 (setq org-export-time-stamp-file nil)
 (setq org-export-with-sub-superscripts nil)
 (setq org-export-with-date nil)
+(setq org-export-with-smart-quotes t)
 
 (setq org-odt-preferred-output-format "pdf")
 (setq org-odt-fontify-srcblocks nil)
@@ -538,6 +539,44 @@ With argument, do this that many times."
 (setq org-html-metadata-timestamp-format "%Y-%m-%d")
 (setq org-html-validation-link nil)
 (load (expand-file-name "css/org-main-optimized.css.el" user-emacs-directory))
+
+;; Export LaTeX with normal-sized margins (fullpage package).
+;; Depends on: texlive-latex-extra
+(add-to-list 'org-latex-packages-alist '("" "fullpage"))
+(add-to-list 'org-latex-packages-alist '("avoid-all" "widows-and-orphans"))
+(add-to-list 'org-latex-packages-alist '("" "svg"))
+
+;; Export LaTeX without paragraph indentation; use vertical skip instead.
+;; Depends on: texlive-latex-recommended
+(add-to-list 'org-latex-packages-alist '("" "parskip"))
+
+;; Export LaTeX with left aligned tables
+(setq org-latex-tables-centered nil)
+
+;; Export LaTeX with A4 paper size
+(with-eval-after-load 'ox-latex
+  (add-to-list 'org-latex-classes
+	       '("a4-article" "\\documentclass[11pt,a4paper]{article}"
+		 ("\\section{%s}" . "\\section*{%s}")
+		 ("\\subsection{%s}" . "\\subsection*{%s}")
+		 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+		 ("\\paragraph{%s}" . "\\paragraph*{%s}")
+		 ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+
+;; "plain-article" requires an org document setup file to be loaded, such as ./latex-setupfile.org
+(with-eval-after-load 'ox-latex
+  (add-to-list 'org-latex-classes
+               '("plain-article" "\\documentclass{article}
+           [NO-DEFAULT-PACKAGES]
+           [PACKAGES]
+           [EXTRA]"
+		 ("\\section{%s}" . "\\section*{%s}")
+		 ("\\subsection{%s}" . "\\subsection*{%s}")
+		 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+		 ("\\paragraph{%s}" . "\\paragraph*{%s}")
+		 ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+
+(setq org-latex-default-class "a4-article")
 
 ;; ----------------------------------------------------------------------------
 ;; Indexed grep search tool
