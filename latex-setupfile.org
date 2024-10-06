@@ -43,7 +43,7 @@
 # #+LATEX_HEADER: \RaggedRight
 
 % Line spacing
-#+LATEX_HEADER: \renewcommand{\baselinestretch}{1.15}
+# #+LATEX_HEADER: \renewcommand{\baselinestretch}{1.15}
 
 % List spacing
 #+LATEX_HEADER: \usepackage{enumitem}
