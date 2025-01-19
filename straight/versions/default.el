@@ -45,7 +45,7 @@
  ("s.el" . "e957dcb0677da18b2bb60ad867db5df5c35b5616")
  ("slime" . "a4f3471487db48f7289dc0ea019611d093e5ee7f")
  ("solarized-emacs" . "0f0b1129cf51c85904f9e015da4fcca5f5f7a4ce")
- ("straight.el" . "ff63b154bef1ef8d92c141bd189001bff74f6982")
+ ("straight.el" . "33fb4695066781c634ff1c3c81ba96e880deccf7")
  ("transient" . "79d1426de173312bd6a3091731675bb010d804ec")
  ("treemacs" . "32bb3dd02ddfca85661614b3b227e770fab821e2")
  ("use-package" . "9090080b15486c3e337be254226efe7e5fde4c99")
