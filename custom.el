@@ -27,6 +27,7 @@
      (file . find-file)
      (wl . wl-other-frame)))
  '(org-plantuml-jar-path "/usr/share/plantuml/plantuml.jar")
+ '(org-startup-folded 'overview)
  '(plantuml-default-exec-mode 'jar)
  '(plantuml-jar-path "/usr/share/plantuml/plantuml.jar")
  '(plantuml-server-url ""))
