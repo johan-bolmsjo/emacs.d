@@ -58,6 +58,7 @@
 (straight-use-package 'denote)
 (straight-use-package 'org)
 (straight-use-package 'ox-jira) ; Org Jira export plugin
+(straight-use-package 'ox-gfm)  ; Org Git flavored markdown export plugin
 (straight-use-package 'plantuml-mode)
 (straight-use-package 'gnuplot)
 

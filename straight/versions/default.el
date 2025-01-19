@@ -33,6 +33,7 @@
  ("nongnu-elpa" . "9e236b82a2da24bb9983e2f63061323354d6ecfe")
  ("orderless" . "6936fe46ef07df168a423f04efeda130b4e69753")
  ("org" . "ca873f7fe47546bca19821f1578a6ab95bf5351c")
+ ("ox-gfm" . "4f774f13d34b3db9ea4ddb0b1edc070b1526ccbb")
  ("ox-jira.el" . "00184f8fdef02a3a359a253712e8769cbfbea3ba")
  ("paredit" . "9a2c4b37fc8c1c7bdbb1f86fdec874c0d0652e64")
  ("pfuture" . "19b53aebbc0f2da31de6326c495038901bffb73c")
