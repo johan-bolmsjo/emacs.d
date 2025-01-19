@@ -7,7 +7,7 @@
  ("corfu-terminal" . "501548c3d51f926c687e8cd838c5865ec45d03cc")
  ("csv-mode" . "81c1a9febd2adf79cfbdf939081ef7bf3a41ffd6")
  ("dash.el" . "3df46d7d9fe74f52a661565888e4d31fd760f0df")
- ("denote" . "dd4ac3941d59329e326baa7dc3ea5ca61b60c375")
+ ("denote" . "a3077f05e8c2b2b348fc736e2718a8cf0e791237")
  ("eglot" . "8b5532dd32b25276c1857508030b207f765ef9b6")
  ("el-get" . "bc4299031e634b514eceb472b6b02432c2bb86ba")
  ("eldoc" . "2cb9b9b18afd0afb4ceac3d53fb416b74c21a75b")

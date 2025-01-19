@@ -338,40 +338,72 @@ With argument, do this that many times."
 ;; ----------------------------------------------------------------------------
 
 ;; This is a lightly edited sample configuration from https://protesilaos.com/emacs/denote.
-(require 'denote)
+;;
+;; Denote provides integration with many other packages that is not
+;; configured here. See the documentation linked to above for details.
 
-;; Remember to check the doc strings of those variables.
-(setq denote-known-keywords '("metanote"))
-(setq denote-infer-keywords t)
-(setq denote-sort-keywords t)
-(setq denote-file-type nil) ; Org is the default, set others here
-(setq denote-prompts '(title keywords))
-(setq denote-excluded-directories-regexp nil)
+(use-package denote
+  :ensure nil
+  :hook
+  (;; If you use Markdown or plain text files, then you want to make
+   ;; the Denote links clickable (Org renders links as buttons right
+   ;; away)
+   (text-mode . denote-fontify-links-mode-maybe)
+   ;; Apply colours to Denote names in Dired.  This applies to all
+   ;; directories.  Check `denote-dired-directories' for the specific
+   ;; directories you may prefer instead.  Then, instead of
+   ;; `denote-dired-mode', use `denote-dired-mode-in-directories'.
+   (dired-mode . denote-dired-mode))
+  :bind
+  ;; Denote DOES NOT define any key bindings.  This is for the user to
+  ;; decide.  For example:
+  ( :map global-map
+    ("C-c n n" . denote)
+    ("C-c n N" . denote-type)
+    ("C-c n j" . my/denote-journal)
+    ("C-c n J" . my/denote-journal-type)
+    ("C-c n d" . denote-sort-dired)
+    ;; If you intend to use Denote with a variety of file types, it is
+    ;; easier to bind the link-related commands to the `global-map', as
+    ;; shown here.  Otherwise follow the same pattern for `org-mode-map',
+    ;; `markdown-mode-map', and/or `text-mode-map'.
+    ("C-c n l" . denote-link)
+    ("C-c n L" . denote-add-links)
+    ("C-c n b" . denote-backlinks)
+    ;; Note that `denote-rename-file' can work from any context, not just
+    ;; Dired bufffers.  That is why we bind it here to the `global-map'.
+    ("C-c n r" . denote-rename-file)
+    ("C-c n R" . denote-rename-file-using-front-matter)
 
-;; Pick dates, where relevant, with Org's advanced interface:
-(setq denote-date-prompt-use-org-read-date t)
+    ;; Key bindings specifically for Dired.
+    :map dired-mode-map
+    ("C-c C-d C-i" . denote-dired-link-marked-notes)
+    ("C-c C-d C-r" . denote-dired-rename-files)
+    ("C-c C-d C-k" . denote-dired-rename-marked-files-with-keywords)
+    ("C-c C-d C-R" . denote-dired-rename-marked-files-using-front-matter))
 
-;; Read this manual for how to specify `denote-templates'.  We do not
-;; include an example here to avoid potential confusion.
+  :config
+  ;; Remember to check the doc string of each of those variables.
+  ;;(setq denote-directory (expand-file-name "~/Documents/notes"))  ; Configured in custom.el
+  (setq denote-save-buffers nil)
+  (setq denote-known-keywords '("metanote"))
+  (setq denote-infer-keywords t)
+  (setq denote-sort-keywords t)
+  (setq denote-prompts '(title keywords))
+  (setq denote-excluded-directories-regexp nil)
+  (setq denote-excluded-keywords-regexp nil)
+  (setq denote-rename-confirmations '(rewrite-front-matter modify-file-name))
 
-;; We allow multi-word keywords by default.  The author's personal
-;; preference is for single-word keywords for a more rigid workflow.
-(setq denote-allow-multi-word-keywords nil)
+  ;; Pick dates, where relevant, with Org's advanced interface:
+  (setq denote-date-prompt-use-org-read-date t)
 
-(setq denote-date-format nil) ; read doc string
+  ;; By default, we do not show the context of links.  We just display
+  ;; file names.  This provides a more informative view.
+  (setq denote-backlinks-show-context t)
 
-;; By default, we do not show the context of links.  We just display
-;; file names.  This provides a more informative view.
-(setq denote-backlinks-show-context t)
+  ;; Automatically rename Denote buffers using the `denote-rename-buffer-format'.
+  (denote-rename-buffer-mode 1))
 
-;; Also see `denote-link-backlinks-display-buffer-action' which is a bit advanced.
-
-;; If you use Markdown or plain text files (Org renders links as buttons right away)
-(add-hook 'find-file-hook #'denote-link-buttonize-buffer)
-
-;; Fontify Denote-style file names in denote-dired-directories in dired mode.
-;; Alternatively #'denote-dired-mode can be used as a hook to fontify in all directories.
-(add-hook 'dired-mode-hook #'denote-dired-mode-in-directories)
 
 ;; Custom command to create a journal entry with a predefined "journal"
 ;; keyword in a dedicated sub directory.
@@ -395,47 +427,6 @@ With argument, do this that many times."
      (denote-keywords-sort (cons "journal" (denote-keywords-prompt)))
      file-type
      (concat denote-directory "/journal"))))
-
-;; Denote DOES NOT define any key bindings.  This is for the user to
-;; decide.  For example:
-(let ((map global-map))
-  (define-key map (kbd "C-c n j") #'my/denote-journal)
-  (define-key map (kbd "C-c n J") #'my/denote-journal-type)
-  (define-key map (kbd "C-c n n") #'denote)
-  (define-key map (kbd "C-c n N") #'denote-type)
-  (define-key map (kbd "C-c n d") #'denote-date)
-  (define-key map (kbd "C-c n s") #'denote-subdirectory)
-  (define-key map (kbd "C-c n t") #'denote-template)
-  ;; If you intend to use Denote with a variety of file types, it is
-  ;; easier to bind the link-related commands to the `global-map', as
-  ;; shown here.  Otherwise follow the same pattern for `org-mode-map',
-  ;; `markdown-mode-map', and/or `text-mode-map'.
-  (define-key map (kbd "C-c n i") #'denote-link) ; "insert" mnemonic
-  (define-key map (kbd "C-c n I") #'denote-link-add-links)
-  (define-key map (kbd "C-c n b") #'denote-link-backlinks)
-  (define-key map (kbd "C-c n f f") #'denote-link-find-file)
-  (define-key map (kbd "C-c n f b") #'denote-link-find-backlink)
-  ;; Note that `denote-rename-file' can work from any context, not just
-  ;; Dired bufffers.  That is why we bind it here to the `global-map'.
-  (define-key map (kbd "C-c n r") #'denote-rename-file)
-  (define-key map (kbd "C-c n R") #'denote-rename-file-using-front-matter))
-
-;; Key bindings specifically for Dired.
-(let ((map dired-mode-map))
-  (define-key map (kbd "C-c C-d C-i") #'denote-link-dired-marked-notes)
-  (define-key map (kbd "C-c C-d C-r") #'denote-dired-rename-marked-files)
-  (define-key map (kbd "C-c C-d C-R") #'denote-dired-rename-marked-files-using-front-matter))
-
-(with-eval-after-load 'org-capture
-  (setq denote-org-capture-specifiers "%l\n%i\n%?")
-  (add-to-list 'org-capture-templates
-               '("n" "New note (with denote.el)" plain
-                 (file denote-last-path)
-                 #'denote-org-capture
-                 :no-save t
-                 :immediate-finish nil
-                 :kill-buffer t
-                 :jump-to-captured t)))
 
 ;; ----------------------------------------------------------------------------
 ;; PlantUML: Diagrams etc
