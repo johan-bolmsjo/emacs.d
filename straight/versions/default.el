@@ -47,7 +47,7 @@
  ("solarized-emacs" . "0f0b1129cf51c85904f9e015da4fcca5f5f7a4ce")
  ("straight.el" . "ff63b154bef1ef8d92c141bd189001bff74f6982")
  ("transient" . "79d1426de173312bd6a3091731675bb010d804ec")
- ("treemacs" . "127485317a19254ca20ba1910d10edf7dbaa2d97")
+ ("treemacs" . "32bb3dd02ddfca85661614b3b227e770fab821e2")
  ("use-package" . "9090080b15486c3e337be254226efe7e5fde4c99")
  ("vertico" . "1612856f0fcf889041ad53e4a7f40fb30a7d40c0")
  ("visual-fill-column" . "5b9f9309bdf040b72bb2c3d99d1d8a0f0d98c308")
