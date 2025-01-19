@@ -35,6 +35,7 @@
 ;; Various support functions
 (straight-use-package 'consult)
 (straight-use-package 'corfu)
+(straight-use-package 'corfu-terminal)
 (straight-use-package 'eldoc)
 (straight-use-package 'embark)
 (straight-use-package 'embark-consult)
@@ -702,6 +703,10 @@ With argument, do this that many times."
 ;; `completion-at-point' is often bound to M-TAB.
 ;; Unfortunately this does not work for the C/C++ mode.
 (setq tab-always-indent 'complete)
+
+;; Enable alternative completion frame rendering in terminals.
+(unless (display-graphic-p)
+  (corfu-terminal-mode +1))
 
 ;; ----------------------------------------------------------------------------
 ;; Orderless: Completion style
