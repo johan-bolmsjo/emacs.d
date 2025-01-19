@@ -21,7 +21,7 @@
  ("flymake" . "0203887d8b424daf227d192045aa66aeb891a631")
  ("gnu-elpa-mirror" . "c1eac9ab251d13d9a37cfba975246f30878ee2b8")
  ("gnuplot" . "4c6b18f71ff7604e2640033207f5a882ddce78af")
- ("go-mode.el" . "f21347ae9cf68ea33031bf5125896e8f16c8183c")
+ ("go-mode.el" . "602d73e22646b1b98b2eb97927fd426c0d1d2f92")
  ("ht.el" . "e83fdb8bc0a3cc8cd2687a947e2610b20b68b7d3")
  ("hydra" . "317e1de33086637579a7aeb60f77ed0405bf359b")
  ("jsonrpc" . "e928dd7017b0d301f065cf1550633eed907b14f3")
