@@ -50,6 +50,7 @@
  ("treemacs" . "127485317a19254ca20ba1910d10edf7dbaa2d97")
  ("use-package" . "9090080b15486c3e337be254226efe7e5fde4c99")
  ("vertico" . "f8e0b0b5cee41a391ac8a0268488b99147e6c5d2")
+ ("visual-fill-column" . "5b9f9309bdf040b72bb2c3d99d1d8a0f0d98c308")
  ("with-editor" . "8066a6e9a9e2e3d8810e4b6e23506c54f2842722")
  ("xref" . "33e5f37aa089d6ea42f06dd4ecba9538202316f3")
  ("yaml-mode" . "13728b4b1b1bd33d3a754236a0f23e4c76d6ba91")
