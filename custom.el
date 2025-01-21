@@ -28,7 +28,8 @@
  '(org-startup-folded 'overview)
  '(plantuml-default-exec-mode 'jar)
  '(plantuml-jar-path "/usr/share/plantuml/plantuml.jar")
- '(plantuml-server-url ""))
+ '(plantuml-server-url "")
+ '(xref-search-program 'ripgrep))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
