@@ -2,6 +2,9 @@
 ;; ~/.emacs.d/init.el -- Snippets from from many emacsen files.
 ;; ----------------------------------------------------------------------------
 
+;; Set load path for locally maintained packages.
+(add-to-list 'load-path (concat user-emacs-directory "/elisp"))
+
 ;; ----------------------------------------------------------------------------
 ;; Straight package manager: boot strapping
 ;; ----------------------------------------------------------------------------
