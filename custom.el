@@ -14,6 +14,7 @@
  ;; If there is more than one, they won't work right.
  '(cmake-tab-width 4)
  '(denote-directory "~/Documents/notes/")
+ '(denote-excluded-files-regexp "/attachments/")
  '(marginalia-field-width 160)
  '(org-agenda-files '("~/org/plan.org"))
  '(org-default-notes-file "~/org/notes.org")
