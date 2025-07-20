@@ -56,6 +56,7 @@
 
 ;; Themes
 (straight-use-package 'solarized-theme)
+;;(straight-use-package 'modus-themes)
 
 ;; Documentation formats
 (straight-use-package 'markdown-mode)
@@ -95,6 +96,9 @@
 
 ;; Disable pager for "git grep"
 (setenv "PAGER" "cat")
+
+;; Mostly for eshell commands launching an editor; requires "M-x server-start" to be effective.
+(setenv "EDITOR" "emacsclient -n")
 
 ;; Persist minibuffer history over Emacs restarts.
 ;; This can help completion modes to remember often used commands.
@@ -286,6 +290,7 @@ With argument, do this that many times."
 ;; ----------------------------------------------------------------------------
 
 (require 'tmux)
+(require 'wsl)
 
 ;; ----------------------------------------------------------------------------
 ;; Interactive keybinding reminder support
@@ -307,6 +312,7 @@ With argument, do this that many times."
 ;; Don't change the font for some headings and titles
 (setq solarized-use-variable-pitch nil)
 (load-theme 'solarized-light t)
+;;(load-theme 'modus-operandi t)
 
 ;; ----------------------------------------------------------------------------
 ;; Whitespace config
@@ -473,7 +479,8 @@ With argument, do this that many times."
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((plantuml . t)
-   (gnuplot . t)))
+   (gnuplot . t)
+   (shell . t)))
 
 (add-hook 'org-mode-hook
           (lambda ()
@@ -747,6 +754,12 @@ With argument, do this that many times."
   :config
   (setq-default eglot-workspace-configuration
 		'((:gopls . (:usePlaceholders t))))
+  ;; The pylsp language server discover pytest fixtures.
+  ;; The pyright language server has better type checking.
+  (add-to-list 'eglot-server-programs
+               '(python-mode . ("pylsp")))
+
+  ;; Eglot major mode activation
   (add-hook 'c-mode-hook 'eglot-ensure)
   (add-hook 'c++-mode-hook 'eglot-ensure)
   (add-hook 'go-mode-hook 'eglot-ensure)
@@ -755,11 +768,27 @@ With argument, do this that many times."
   (add-hook 'zig-mode-hook 'eglot-ensure)
   ;; format on save
   (add-hook 'go-mode-hook #'(lambda() (add-hook 'before-save-hook 'eglot-format-buffer nil t)))
+  (add-hook 'c-mode-common-hook #'(lambda() (add-hook 'before-save-hook 'eglot-format-buffer nil t)))
   (define-key eglot-mode-map (kbd "C-c e a") 'eglot-code-actions)
   (define-key eglot-mode-map (kbd "C-c e f") 'eglot-format)
   (define-key eglot-mode-map (kbd "C-c e r") 'eglot-rename)
   (define-key eglot-mode-map (kbd "C-c e i") 'eglot-find-implementation)
   (define-key eglot-mode-map (kbd "C-c e t") 'eglot-find-typeDefinition))
+
+
+;; Example: Custom clangd language server configuration
+;; (with-eval-after-load 'eglot
+;;   (add-to-list 'eglot-server-programs
+;; 	       '((c-mode c++-mode)
+;; 		. ("clangd-18"
+;; 		   "--query-driver=/cross/compiler/root/**" ;; These compilers are accepted from compile_commands.json
+;; 		   "-j=8"
+;; 		   "--log=error" ;; error|verbose
+;; 		   "--background-index"
+;; 		   "--clang-tidy"
+;; 		   "--completion-style=detailed"
+;; 		   "--header-insertion=never"
+;; 		   "--header-insertion-decorators=0"))))
 
 ;; ----------------------------------------------------------------------------
 ;; Shell scripts
@@ -812,16 +841,7 @@ With argument, do this that many times."
   (lisp-interaction-mode            . paredit-mode) ; Scratch buffers.
   (ielm-mode-hook                   . paredit-mode) ; ELM buffers.
   (eval-expression-minibuffer-setup . paredit-mode) ; Eval minibuffers.
-  :bind
-  (:map paredit-mode-map
-        ("<return>" . my/paredit-RET))
-  :config
-  (defun my/paredit-RET ()
-    "Wraps `paredit-RET' to provide a sensible minibuffer experience."
-    (interactive)
-    (if (minibufferp)
-        (read--expression-try-read)
-      (paredit-RET))))
+  )
 
 (eldoc-add-command
  'paredit-backward-delete
@@ -840,6 +860,13 @@ With argument, do this that many times."
   :ensure nil
   :config
   (setq inferior-lisp-program "sbcl"))
+
+;; Workaround for paredit breaking RETURN for minibuffer commands, e.g. "M-x :".
+(defun my/paredit-minibuffer-fix ()
+  (define-key paredit-mode-map (kbd "RET") nil)
+  (define-key paredit-mode-map (kbd "C-j") 'paredit-newline))
+
+ (add-hook 'paredit-mode-hook 'my/paredit-minibuffer-fix)
 
 ;; ----------------------------------------------------------------------------
 ;; OCaml programming language
@@ -912,6 +939,14 @@ With argument, do this that many times."
                                (interactive)
                                (gud-stop-subjob)
                                (comint-interrupt-subjob)))
+
+;; ----------------------------------------------------------------------------
+;; Emacs client/server mode
+;; ----------------------------------------------------------------------------
+
+;; Start Emacs server unless already running.
+(load "server")
+(unless (server-running-p) (server-start))
 
 ;; ----------------------------------------------------------------------------
 ;; Customized Variables
