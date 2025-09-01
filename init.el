@@ -292,6 +292,9 @@ With argument, do this that many times."
 (require 'tmux)
 (require 'wsl)
 
+(global-set-key (kbd "<f12>") 'tmux-copy-kill-ring)
+(global-set-key (kbd "<S-f12>") 'wsl-copy-kill-ring)
+
 ;; ----------------------------------------------------------------------------
 ;; Interactive keybinding reminder support
 ;; ----------------------------------------------------------------------------
