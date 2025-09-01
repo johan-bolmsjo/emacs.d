@@ -16,7 +16,7 @@
  '(denote-directory "~/notes/")
  '(denote-excluded-files-regexp "/attachments/")
  '(marginalia-field-width 160)
- '(org-agenda-files '("~/org/plan.org"))
+ '(org-agenda-files '("~/notes/plan.org"))
  '(org-default-notes-file "~/org/notes.org")
  '(org-id-link-to-org-use-id 'use-existing)
  '(org-link-frame-setup
