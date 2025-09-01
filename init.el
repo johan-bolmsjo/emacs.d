@@ -399,7 +399,7 @@ With argument, do this that many times."
 
   :config
   ;; Remember to check the doc string of each of those variables.
-  ;;(setq denote-directory (expand-file-name "~/Documents/notes"))  ; Configured in custom.el
+  ;;(setq denote-directory (expand-file-name "~/notes"))  ; Configured in custom.el
   (setq denote-save-buffers nil)
   (setq denote-known-keywords '("metanote"))
   (setq denote-infer-keywords t)
