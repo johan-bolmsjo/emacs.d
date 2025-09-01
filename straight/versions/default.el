@@ -44,7 +44,7 @@
  ("pyenv.el" . "d500e1fd3b222ab0a061b80c5301e6a0cd804b42")
  ("s.el" . "e957dcb0677da18b2bb60ad867db5df5c35b5616")
  ("slime" . "a4f3471487db48f7289dc0ea019611d093e5ee7f")
- ("solarized-emacs" . "0f0b1129cf51c85904f9e015da4fcca5f5f7a4ce")
+ ("solarized-emacs" . "5d136736f76c85a83fef737d10ecd32af4d493fd")
  ("straight.el" . "33fb4695066781c634ff1c3c81ba96e880deccf7")
  ("transient" . "79d1426de173312bd6a3091731675bb010d804ec")
  ("treemacs" . "32bb3dd02ddfca85661614b3b227e770fab821e2")
