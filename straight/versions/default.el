@@ -53,6 +53,7 @@
  ("visual-fill-column" . "5b9f9309bdf040b72bb2c3d99d1d8a0f0d98c308")
  ("with-editor" . "8066a6e9a9e2e3d8810e4b6e23506c54f2842722")
  ("xref" . "512b9211589492a4d524df439869fd2ad7eea8dc")
+ ("xclip" . "9ab22517f3f2044e1c8c19be263da9803fbca26a")
  ("yaml-mode" . "13728b4b1b1bd33d3a754236a0f23e4c76d6ba91")
  ("yasnippet" . "5cbdbf0d2015540c59ed8ee0fcf4788effdf75b6")
  ("zig-mode" . "0ced3ffb6d76c906c62d7f8f97272aa577fb0c3a"))

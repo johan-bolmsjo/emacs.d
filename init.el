@@ -53,6 +53,7 @@
 (straight-use-package 'xref)
 (straight-use-package 'yasnippet)
 (straight-use-package 'visual-fill-column)
+(straight-use-package 'xclip)
 
 ;; Themes
 (straight-use-package 'solarized-theme)
