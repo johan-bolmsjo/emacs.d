@@ -30,7 +30,7 @@
 
 (defun tmux-set-buffer (data index)
   (let ((args (tmux-set-buffer-argument index data)))
-    (apply 'tmux-run-command nil "set-buffer" args)))
+    (apply 'tmux-run-command nil "set-buffer" "--" args)))
 
 ;;;###autoload
 (defun tmux-copy-kill-ring (arg)
