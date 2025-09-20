@@ -39,31 +39,20 @@
 (straight-use-package 'consult)
 (straight-use-package 'corfu)
 (straight-use-package 'corfu-terminal)
-(straight-use-package 'eldoc)
 (straight-use-package 'embark)
 (straight-use-package 'embark-consult)
 (straight-use-package 'flycheck)
-(straight-use-package 'flymake)
 (straight-use-package 'marginalia)
 (straight-use-package 'orderless)
-(straight-use-package 'project)
 (straight-use-package 'treemacs)
 (straight-use-package 'vertico)
-(straight-use-package 'which-key)
-(straight-use-package 'xref)
 (straight-use-package 'yasnippet)
 (straight-use-package 'visual-fill-column)
 (straight-use-package 'xclip)
 
-;; Themes
-(straight-use-package 'solarized-theme)
-;;(straight-use-package 'modus-themes)
-
 ;; Documentation formats
 (straight-use-package 'markdown-mode)
 (straight-use-package 'denote)
-(straight-use-package 'org)
-(straight-use-package 'ox-jira) ; Org Jira export plugin
 (straight-use-package 'ox-gfm)  ; Org Git flavored markdown export plugin
 (straight-use-package 'plantuml-mode)
 (straight-use-package 'gnuplot)
@@ -73,7 +62,6 @@
 (straight-use-package 'yaml-mode)
 
 ;; Programming language support
-(straight-use-package 'eglot)
 (straight-use-package 'magit)
 (straight-use-package 'paredit)
 (straight-use-package 'ppindent)
@@ -205,6 +193,8 @@
     "Revert buffer without confirmation."
     (interactive) (revert-buffer t t))
 
+(setq x-underline-at-descent-line t)
+
 ;; ----------------------------------------------------------------------------
 ;; Keybindings
 ;; ----------------------------------------------------------------------------
@@ -296,6 +286,8 @@ With argument, do this that many times."
 (global-set-key (kbd "<f12>") 'tmux-copy-kill-ring)
 (global-set-key (kbd "<S-f12>") 'wsl-copy-kill-ring)
 
+(xclip-mode)
+
 ;; ----------------------------------------------------------------------------
 ;; Interactive keybinding reminder support
 ;; ----------------------------------------------------------------------------
@@ -312,11 +304,7 @@ With argument, do this that many times."
 ;; Color theme
 ;; ----------------------------------------------------------------------------
 
-(setq x-underline-at-descent-line t)
-;; Don't change the font for some headings and titles
-(setq solarized-use-variable-pitch nil)
-(load-theme 'solarized-light t)
-;;(load-theme 'modus-operandi t)
+(load-theme 'modus-operandi t)
 
 ;; ----------------------------------------------------------------------------
 ;; Whitespace config
@@ -599,18 +587,6 @@ With argument, do this that many times."
 (setq org-latex-default-class "a4-article")
 
 ;; ----------------------------------------------------------------------------
-;; Indexed grep search tool
-;; ----------------------------------------------------------------------------
-
-(defvar my/grep-find-command "~/.emacs.d/bin/csearch-color "
-  "Grep find command.")
-
-;; Override the grep-find (and find-grep) command to call csearch instead.
-(let ((cmd (bound-and-true-p my/grep-find-command)))
-  (when cmd
-    (setq grep-find-command cmd)))
-
-;; ----------------------------------------------------------------------------
 ;; Vertico: VERTical Interactive COmpletion
 ;; - https://github.com/minad/vertico
 ;; ----------------------------------------------------------------------------
@@ -778,7 +754,6 @@ With argument, do this that many times."
   (define-key eglot-mode-map (kbd "C-c e r") 'eglot-rename)
   (define-key eglot-mode-map (kbd "C-c e i") 'eglot-find-implementation)
   (define-key eglot-mode-map (kbd "C-c e t") 'eglot-find-typeDefinition))
-
 
 ;; Example: Custom clangd language server configuration
 ;; (with-eval-after-load 'eglot

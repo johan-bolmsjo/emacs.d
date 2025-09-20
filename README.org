@@ -4,7 +4,7 @@
 #+date: /2024-10-05/
 
 Installation instruction:
-#+begin_src sh
+#+begin_src bash
   git clone github.com/johan-bolmsjo/emacs.d ~/.emacs.d
 #+end_src
 
@@ -15,7 +15,7 @@ Installation instruction:
 :CUSTOM_ID: init-file
 :END:
 
-Requires GNU Emacs version 28.1 or greater.
+Requires GNU Emacs version 30.1 or greater.
 
 The main init file is =init.el=.
 This file loads packages that require external programs to function properly.
@@ -204,7 +204,7 @@ Obviously the underlying terminal must also support the true color escape codes.
 
 My =~/.bashrc= contains the following lines to set it for the suckless terminal:
 
-#+begin_src sh
+#+begin_src bash
   # Set the COLORTERM variable to "truecolor" if the terminal supports it.
   # The suckless terminal (st) definitely does.
   # The tmux-256color can be any underlying type so is technically incorrect;
@@ -219,7 +219,7 @@ My =~/.bashrc= contains the following lines to set it for the suckless terminal:
 You may want to source =~/.emacs.d/etc/bashrc= from your =~/.bashrc= file.
 Read the small script to find its purpose.
 
-#+begin_src sh
+#+begin_src bash
   if [ -f ~/.emacs.d/etc/bashrc ]; then
       . ~/.emacs.d/etc/bashrc
   fi
@@ -227,7 +227,7 @@ Read the small script to find its purpose.
 
 You may also want to source =~/.emacs.d/etc/profile= from your =~/.profile= or =~/.bash_profile= to add =~/.emacs.d/bin= to the program search path.
 
-#+begin_src sh
+#+begin_src bash
   if [ -f ~/.emacs.d/etc/profile ]; then
       . ~/.emacs.d/etc/profile
   fi
@@ -238,20 +238,12 @@ You may also want to source =~/.emacs.d/etc/profile= from your =~/.profile= or =
 A personal choice, my current favorite monospaced fonts can be found in the =~/.emacs.d/fonts/gofont= directory.
 
 Installation (Linux):
-#+begin_src sh
+#+begin_src bash
   mkdir -p ~/.fonts
   cp ~/.emacs.d/fonts/gofont/*.ttf ~/.fonts
 #+end_src
 
 Update =~/.emacs.d/fonts.el= with your preferred fonts and default size.
-
-*** Indexed Grep
-
-I've opted to replace the =grep-find= command with a wrapper script that invokes a grep program based on an index.
-This speeds up grep operations in large code bases massively but it may not be to your liking.
-Just delete the entire section "Indexed grep search tool" from =~/.emacs.d/init.el= to restore the original behavior.
-
-See section [[#ext-indexed-grep]] for details.
 
 *** Custom Variables
 
@@ -397,32 +389,20 @@ Keybindings are listed in section [[*GDB (debugger)][GDB (debugger)]].
 Unfortunately the [[#init-file][Emacs init file]] is not self contained.
 External tools are required to support many packages.
 
-** Indexed Grep
-:PROPERTIES:
-:CUSTOM_ID: ext-indexed-grep
-:END:
+** Terminal Mode Copy+Paste
 
-The tool [[https://github.com/johan-bolmsjo/codesearch][codesearch]] provides fast, indexed regexp search over large file trees.
+Install ~xclip~ to make Emacs running in terminal mode copy to the X clipboard.
 
-Install the following commands (requires Go toolchain).
-#+begin_src sh
-  go install github.com/johan-bolmsjo/codesearch/cmd/{cindex,csearch}@latest
+#+begin_src bash
+  apt install xclip
 #+end_src
-
-Note that the only integration is that the =grep-find= command has been changed to invoke =~/.emacs.d/bin/csearch-color= instead.
-
-The convenience scripts in =~/.emacs.d/bin/= has the following purpose:
-
-- =cindex-append= :: Scan directories for source files to add to code index.
-- =cindex-reset= :: Clear code index.
-- =csearch-color= :: Colorize grep matches for Emacs.
 
 ** Shell Script Mode
 
 Install the shellcheck linter to get good advice on shell script constructs.
 
 Ubuntu/Debian specific instruction:
-#+begin_src sh
+#+begin_src bash
   apt install shellcheck
 #+end_src
 
@@ -431,7 +411,7 @@ Ubuntu/Debian specific instruction:
 Install [[https://plantuml.com/][PlantUML]].
 
 Ubuntu/Debian specific instruction:
-#+begin_src sh
+#+begin_src bash
   apt install plantuml
 #+end_src
 
@@ -440,7 +420,7 @@ Ubuntu/Debian specific instruction:
 Install the Go programming language toolchain as instructed on https://go.dev/dl/
 
 Install required tools:
-#+begin_src sh
+#+begin_src bash
   go install golang.org/x/tools/gopls@latest
   go install golang.org/x/tools/cmd/goimports@latest
   go install golang.org/x/tools/cmd/gorename@latest
@@ -452,7 +432,7 @@ Install required tools:
 Install the OCaml language toolchain from https://ocaml.org/releases/
 
 Install required tools:
-#+begin_src sh
+#+begin_src bash
   opam update
   opam switch create 4.13.1
   opam install dune utop ocaml-lsp-server merlin tuareg ocp-indent odig
@@ -469,13 +449,13 @@ Pyenv is used to compartmentalize python installations and make it possible to s
 Install pyenv from https://github.com/pyenv/pyenv:
 
 Clone the pyenv repo:
-#+begin_src sh
+#+begin_src bash
   git clone https://github.com/pyenv/pyenv.git ~/.pyenv
   cd ~/.pyenv && src/configure && make -C src
 #+end_src
 
 Put the following in =~/.bashrc=:
-#+begin_src sh
+#+begin_src bash
   export PYENV_ROOT="$HOME/.pyenv"
   if [ -d "$PYENV_ROOT" ]; then
       command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
@@ -484,12 +464,12 @@ Put the following in =~/.bashrc=:
 #+end_src
 
 Apply the changes in the current shell (or login again):
-#+begin_src sh
+#+begin_src bash
   exec "$SHELL"
 #+end_src
 
 Install Python build dependencies (Ubuntu specific, refer to https://github.com/pyenv/pyenv/wiki#suggested-build-environment for other OSes):
-#+begin_src sh
+#+begin_src bash
   sudo apt-get update
   sudo apt-get install make build-essential libssl-dev zlib1g-dev libbz2-dev \
        libreadline-dev libsqlite3-dev wget curl llvm libncursesw5-dev xz-utils \
@@ -497,7 +477,7 @@ Install Python build dependencies (Ubuntu specific, refer to https://github.com/
 #+end_src
 
 Install a Python version using pyenv:
-#+begin_src sh
+#+begin_src bash
   pyenv install 3.10.7
 #+end_src
 
@@ -511,7 +491,7 @@ Switching between Python versions:
 *** Language Server
 
 Install the language server:
-#+begin_src sh
+#+begin_src bash
   pip install 'python-language-server[all]' scrapy
 #+end_src
 
@@ -526,51 +506,13 @@ Install the language server:
 Compiling [[https://www.gnu.org/software/emacs/][GNU Emacs]] from source is quite easy.
 Many packages see heavy development and may require a recent version.
 
-** Emacs 28.2
+** Emacs 30.2
 
 Install dependencies (Ubuntu 22.04 specific):
 
-#+begin_src sh
-  sudo apt install \
-       libcairo2-dev \
-       libgccjit-11-dev \
-       libgif-dev \
-       libgnutls28-dev \
-       libharfbuzz-dev \
-       libjansson-dev \
-       libjpeg-dev \
-       libncurses-dev \
-       libtiff-dev \
-       libxaw7-dev \
-       libxml2-dev \
-       libxpm-dev
-#+end_src
-
-Download, configure, build and install GNU Emacs on Linux:
-
-#+begin_src sh
-  wget https://ftp.acc.umu.se/mirror/gnu.org/gnu/emacs/emacs-28.2.tar.xz
-  tar xf emacs-28.2.tar.xz
-  cd emacs-28.2
-  ./configure \
-      --with-native-compilation \
-      --with-mailutils \
-      --with-x-toolkit=lucid \
-      --prefix=$HOME/.local
-  make -j16
-  make install
-#+end_src
-
-Make sure that Cairo is used for the GUI in the configure stage or some library dependency is missing.
-
-** Emacs 29.1
-
-Install dependencies (Ubuntu 22.04 specific):
-
-#+begin_src sh
+#+begin_src bash
   sudo apt install \
      libcairo2-dev \
-     libgccjit-11-dev \
      libgif-dev \
      libgnutls28-dev \
      libharfbuzz-dev \
@@ -586,12 +528,21 @@ Install dependencies (Ubuntu 22.04 specific):
      libxpm-dev
 #+end_src
 
+Install the libgccjit package corresponding to GCC compiler version.
+Check compiler version with ~gcc --version~.
+
+Example: Install libgccjit corresponding to GCC version
+
+#+begin_src bash
+  apt install libgccjit-11-dev:amd64
+#+end_src
+
 Download, configure, build and install GNU Emacs on Linux:
 
-#+begin_src sh
-  wget https://ftp.acc.umu.se/mirror/gnu.org/gnu/emacs/emacs-29.1.tar.xz
-  tar xf emacs-29.1.tar.xz
-  cd emacs-29.1
+#+begin_src bash
+  wget https://ftp.acc.umu.se/mirror/gnu.org/gnu/emacs/emacs-30.2.tar.xz
+  tar xf emacs-30.2.tar.xz
+  cd emacs-30.2
   ./configure \
       --with-native-compilation \
       --with-mailutils \

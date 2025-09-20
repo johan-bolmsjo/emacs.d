@@ -1,3 +1,0 @@
-#!/bin/sh
-# Create the codesearch index using only files matching typical source code files.
-cindex -f '.*(\.(h|c|cc|cpp|s|sh|bash|mk|mak|txt|go|rs|nim|zig|ml|mli)|Makefile.*)$' "$@"
