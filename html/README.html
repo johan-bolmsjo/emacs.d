@@ -35,13 +35,13 @@ Installation instruction:
 </li>
 <li><a href="#orgbb84ef4">2. Quick Guides</a>
 <ul>
-<li><a href="#org492fc25">2.1. Navigation</a></li>
-<li><a href="#org047ba68">2.2. Incremental Search</a></li>
+<li><a href="#org8e591c9">2.1. Navigation</a></li>
+<li><a href="#orgcfe8586">2.2. Incremental Search</a></li>
 <li><a href="#org40d21d3">2.3. Completion in Buffers</a></li>
 <li><a href="#org61a7e37">2.4. Minibuffer Completion</a></li>
 <li><a href="#org11ac5e8">2.5. Magit</a></li>
-<li><a href="#org76e6b5d">2.6. Denote</a></li>
-<li><a href="#orgc1bee3a">2.7. Org Mode</a></li>
+<li><a href="#orge599b37">2.6. Denote</a></li>
+<li><a href="#org96084e4">2.7. Org Mode</a></li>
 <li><a href="#org2d015bf">2.8. Text Templates</a></li>
 <li><a href="#org144e520">2.9. Diagnostics</a></li>
 <li><a href="#org68555a3">2.10. Language Server Protocol Support</a></li>
@@ -192,17 +192,17 @@ Also <a href="http://xahlee.info/emacs/emacs/keyboard_shortcuts.html">http://xah
 <dt><code>C-c t</code></dt><dd>toggle treemacs pane</dd>
 </dl>
 </div>
-<div id="outline-container-orgcfe8586" class="outline-5">
-<h5 id="orgcfe8586">Incremental Search</h5>
-<div class="outline-text-5" id="text-orgcfe8586">
+<div id="outline-container-org4464d7b" class="outline-5">
+<h5 id="org4464d7b">Incremental Search</h5>
+<div class="outline-text-5" id="text-org4464d7b">
 <dl class="org-dl">
 <dt><code>C-c k</code></dt><dd>Set mark at start of current match and exit isearch (user function).</dd>
 </dl>
 </div>
 </div>
-<div id="outline-container-org8e591c9" class="outline-5">
-<h5 id="org8e591c9">Navigation</h5>
-<div class="outline-text-5" id="text-org8e591c9">
+<div id="outline-container-org51624a3" class="outline-5">
+<h5 id="org51624a3">Navigation</h5>
+<div class="outline-text-5" id="text-org51624a3">
 <p>
 Even though these functions are called <code>error</code>, they work in many contexts. E.g. moving through compilation errors, grep results, xref references.
 </p>
@@ -232,9 +232,9 @@ See <a href="https://smythp.com/emacs_buffers/">https://smythp.com/emacs_buffers
 </p>
 </div>
 </div>
-<div id="outline-container-orge599b37" class="outline-5">
-<h5 id="orge599b37">Denote</h5>
-<div class="outline-text-5" id="text-orge599b37">
+<div id="outline-container-org0b456c6" class="outline-5">
+<h5 id="org0b456c6">Denote</h5>
+<div class="outline-text-5" id="text-org0b456c6">
 <dl class="org-dl">
 <dt><code>C-c n</code></dt><dd>Command prefix</dd>
 </dl>
@@ -246,9 +246,9 @@ Discover all commands by entering <code>M-x denote</code>
 </p>
 </div>
 </div>
-<div id="outline-container-org96084e4" class="outline-5">
-<h5 id="org96084e4">Org Mode</h5>
-<div class="outline-text-5" id="text-org96084e4">
+<div id="outline-container-org21ed872" class="outline-5">
+<h5 id="org21ed872">Org Mode</h5>
+<div class="outline-text-5" id="text-org21ed872">
 <dl class="org-dl">
 <dt><code>C-c p</code></dt><dd><code>org-agenda</code> (planning)</dd>
 <dt><code>C-c L</code></dt><dd><code>org-store-link</code> (works in other modes to store links)</dd>
@@ -296,15 +296,10 @@ It extends some of the consult commands by making it possible to export the curr
 </p>
 
 <dl class="org-dl">
-<dt><code>C-.</code>  </dt><dd>Execute action</dd>
-<dt><code>C-;</code>  </dt><dd>"Do what I mean"</dd>
+<dt><code>C-c v</code></dt><dd>Execute action on current context</dd>
+<dt><code>C-c d</code></dt><dd>"Do what I mean" on current context</dd>
 <dt><code>C-h B</code></dt><dd><code>embark-bindings</code>; alternative for `describe-bindings'</dd>
 </dl>
-
-<p>
-Note that <code>C-.</code> may be hijacked as a system shortcut to insert a Unicode code point or Emoji.
-Disable it in <code>ibus-settings</code> on Linux systems.
-</p>
 </div>
 </div>
 <div id="outline-container-org42b8d05" class="outline-5">
@@ -458,8 +453,8 @@ Scattered quick guides for my own memory.
 It could do with more information for Emacs neophytes.
 </p>
 </div>
-<div id="outline-container-org492fc25" class="outline-3">
-<h3 id="org492fc25"><span class="section-number-3">2.1.</span> Navigation</h3>
+<div id="outline-container-org8e591c9" class="outline-3">
+<h3 id="org8e591c9"><span class="section-number-3">2.1.</span> Navigation</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Xref is used by many Emacs modes for navigation, including Eglot for navigating source code.
@@ -480,8 +475,8 @@ Jump to a specific line.
 </dl>
 </div>
 </div>
-<div id="outline-container-org047ba68" class="outline-3">
-<h3 id="org047ba68"><span class="section-number-3">2.2.</span> Incremental Search</h3>
+<div id="outline-container-orgcfe8586" class="outline-3">
+<h3 id="orgcfe8586"><span class="section-number-3">2.2.</span> Incremental Search</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 Don't forget about the occur mode when doing incremental search.
@@ -578,8 +573,8 @@ The magit status command is bound to <code>C-x g</code>.
 </p>
 </div>
 </div>
-<div id="outline-container-org76e6b5d" class="outline-3">
-<h3 id="org76e6b5d"><span class="section-number-3">2.6.</span> Denote</h3>
+<div id="outline-container-orge599b37" class="outline-3">
+<h3 id="orge599b37"><span class="section-number-3">2.6.</span> Denote</h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
 The YouTube presentation <a href="https://www.youtube.com/watch?v=mLzFJcLpDFI">https://www.youtube.com/watch?v=mLzFJcLpDFI</a> by the package author gives a good overview of the note taking workflow.
@@ -587,8 +582,8 @@ I recommend studying the <a href="https://protesilaos.com/emacs/denote">manual</
 </p>
 </div>
 </div>
-<div id="outline-container-orgc1bee3a" class="outline-3">
-<h3 id="orgc1bee3a"><span class="section-number-3">2.7.</span> Org Mode</h3>
+<div id="outline-container-org96084e4" class="outline-3">
+<h3 id="org96084e4"><span class="section-number-3">2.7.</span> Org Mode</h3>
 <div class="outline-text-3" id="text-2-7">
 <p>
 <a href="http://orgmode.org">Org mode</a> is a documentation and planning major mode.

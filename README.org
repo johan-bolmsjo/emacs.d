@@ -154,12 +154,9 @@ Aligned with flycheck counterparts.
 For example opening the URL that the cursor is placed on in a buffer.
 It extends some of the consult commands by making it possible to export the current selection to regular buffers for easier manipulation.
 
-- =C-.=   :: Execute action
-- =C-;=   :: "Do what I mean"
+- =C-c v= :: Execute action on current context
+- =C-c d= :: "Do what I mean" on current context
 - =C-h B= :: =embark-bindings=; alternative for `describe-bindings'
-
-Note that =C-.= may be hijacked as a system shortcut to insert a Unicode code point or Emoji.
-Disable it in =ibus-settings= on Linux systems.
 
 **** GDB (debugger)
 

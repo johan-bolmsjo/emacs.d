@@ -625,8 +625,8 @@ With argument, do this that many times."
   :ensure nil
 
   :bind
-  (("C-." . embark-act)         ;; pick some comfortable binding
-   ("C-;" . embark-dwim)        ;; good alternative: M-.
+  (("C-c v" . embark-act)         ;; pick some comfortable binding
+   ("C-c d" . embark-dwim)        ;; good alternative: M-.
    ("C-h B" . embark-bindings)) ;; alternative for `describe-bindings'
 
   :init
