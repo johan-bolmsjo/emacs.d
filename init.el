@@ -481,7 +481,7 @@ With argument, do this that many times."
 
 (add-hook 'org-mode-hook
           (lambda ()
-	    (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))))
+            (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))))
 
 ;; org-agenda
 (setq org-agenda-prefer-last-repeat '("REPEATED"))
@@ -519,10 +519,10 @@ With argument, do this that many times."
 ;;         from the other file to the Org file.
 ;;
 (add-hook 'org-mode-hook
-	  (lambda ()
-	    (local-set-key (kbd "M-,") 'org-mark-ring-goto) ;; xref-pop-marker-stack
-	    (local-set-key (kbd "M-.") 'org-open-at-point)  ;; xref-find-definitions
-	    ))
+          (lambda ()
+            (local-set-key (kbd "M-,") 'org-mark-ring-goto) ;; xref-pop-marker-stack
+            (local-set-key (kbd "M-.") 'org-open-at-point)  ;; xref-find-definitions
+            ))
 
 ;; See https://orgmode.org/manual/Structure-Templates.html
 (require 'org-tempo)
@@ -569,12 +569,12 @@ With argument, do this that many times."
 ;; Export LaTeX with A4 paper size
 (with-eval-after-load 'ox-latex
   (add-to-list 'org-latex-classes
-	       '("a4-article" "\\documentclass[11pt,a4paper]{article}"
-		 ("\\section{%s}" . "\\section*{%s}")
-		 ("\\subsection{%s}" . "\\subsection*{%s}")
-		 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-		 ("\\paragraph{%s}" . "\\paragraph*{%s}")
-		 ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+               '("a4-article" "\\documentclass[11pt,a4paper]{article}"
+                 ("\\section{%s}" . "\\section*{%s}")
+                 ("\\subsection{%s}" . "\\subsection*{%s}")
+                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
 
 ;; "plain-article" requires an org document setup file to be loaded, such as ./latex-setupfile.org
 (with-eval-after-load 'ox-latex
@@ -583,11 +583,11 @@ With argument, do this that many times."
            [NO-DEFAULT-PACKAGES]
            [PACKAGES]
            [EXTRA]"
-		 ("\\section{%s}" . "\\section*{%s}")
-		 ("\\subsection{%s}" . "\\subsection*{%s}")
-		 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-		 ("\\paragraph{%s}" . "\\paragraph*{%s}")
-		 ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+                 ("\\section{%s}" . "\\section*{%s}")
+                 ("\\subsection{%s}" . "\\subsection*{%s}")
+                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
 
 (setq org-latex-default-class "a4-article")
 
@@ -609,16 +609,16 @@ With argument, do this that many times."
 (use-package consult
   :ensure nil
   :bind (
-	 ;; Buffer commands
-	 ("C-x b"   . consult-buffer)              ;; orig. switch-to-buffer
-	 ("C-x 4 b" . consult-buffer-other-window) ;; orig. switch-to-buffer-other-window
-	 ("C-x 5 b" . consult-buffer-other-frame)  ;; orig. switch-to-buffer-other-frame
-	 ("C-x t b" . consult-buffer-other-tab)    ;; orig. switch-to-buffer-other-tab
-	 ("C-x p b" . consult-project-buffer)      ;; orig. project-switch-to-buffer
+         ;; Buffer commands
+         ("C-x b"   . consult-buffer)              ;; orig. switch-to-buffer
+         ("C-x 4 b" . consult-buffer-other-window) ;; orig. switch-to-buffer-other-window
+         ("C-x 5 b" . consult-buffer-other-frame)  ;; orig. switch-to-buffer-other-frame
+         ("C-x t b" . consult-buffer-other-tab)    ;; orig. switch-to-buffer-other-tab
+         ("C-x p b" . consult-project-buffer)      ;; orig. project-switch-to-buffer
 
-	 ;; Navigation
-	 ("C-x r b" . consult-bookmark)            ;; orig. bookmark-jump
-	 )
+         ;; Navigation
+         ("C-x r b" . consult-bookmark)            ;; orig. bookmark-jump
+         )
   )
 
 ;; ----------------------------------------------------------------------------
@@ -664,7 +664,7 @@ With argument, do this that many times."
   ;; Either bind `marginalia-cycle' globally or only in the minibuffer
   :bind
   (:map minibuffer-local-map
-	("M-A" . marginalia-cycle))
+        ("M-A" . marginalia-cycle))
   :custom
   (marginalia-max-relative-age 0)
   :init
@@ -711,7 +711,7 @@ With argument, do this that many times."
   :custom
   (completion-styles '(orderless basic))
   (completion-category-overrides '((file (styles basic partial-completion))
-				   (eglot (styles orderless basic)))))
+                                   (eglot (styles orderless basic)))))
 
 ;; ----------------------------------------------------------------------------
 ;; Diagnostics such as compiler errors
@@ -738,7 +738,7 @@ With argument, do this that many times."
   :ensure nil
   :config
   (setq-default eglot-workspace-configuration
-		'((:gopls . (:usePlaceholders t))))
+                '((:gopls . (:usePlaceholders t))))
   ;; The pylsp language server discover pytest fixtures.
   ;; The pyright language server has better type checking.
   (add-to-list 'eglot-server-programs
@@ -753,7 +753,13 @@ With argument, do this that many times."
   (add-hook 'zig-mode-hook 'eglot-ensure)
   ;; format on save
   (add-hook 'go-mode-hook #'(lambda() (add-hook 'before-save-hook 'eglot-format-buffer nil t)))
-  (add-hook 'c-mode-common-hook #'(lambda() (add-hook 'before-save-hook 'eglot-format-buffer nil t)))
+  (add-hook 'c-mode-common-hook #'(lambda()
+                                    (progn
+                                      ;; Format buffer on save according to LSP server configuration.
+                                      (add-hook 'before-save-hook 'eglot-format-buffer nil t)
+                                      ;; Don't let the LSP server format each line on return keypress.
+                                      (setq-local eglot-ignored-server-capabilities
+                                                  '(:documentOnTypeFormattingProvider)))))
   (define-key eglot-mode-map (kbd "C-c e a") 'eglot-code-actions)
   (define-key eglot-mode-map (kbd "C-c e f") 'eglot-format)
   (define-key eglot-mode-map (kbd "C-c e r") 'eglot-rename)
@@ -763,16 +769,16 @@ With argument, do this that many times."
 ;; Example: Custom clangd language server configuration
 ;; (with-eval-after-load 'eglot
 ;;   (add-to-list 'eglot-server-programs
-;; 	       '((c-mode c++-mode)
-;; 		. ("clangd-18"
-;; 		   "--query-driver=/cross/compiler/root/**" ;; These compilers are accepted from compile_commands.json
-;; 		   "-j=8"
-;; 		   "--log=error" ;; error|verbose
-;; 		   "--background-index"
-;; 		   "--clang-tidy"
-;; 		   "--completion-style=detailed"
-;; 		   "--header-insertion=never"
-;; 		   "--header-insertion-decorators=0"))))
+;;             '((c-mode c++-mode)
+;;              . ("clangd-18"
+;;                 "--query-driver=/cross/compiler/root/**" ;; These compilers are accepted from compile_commands.json
+;;                 "-j=8"
+;;                 "--log=error" ;; error|verbose
+;;                 "--background-index"
+;;                 "--clang-tidy"
+;;                 "--completion-style=detailed"
+;;                 "--header-insertion=never"
+;;                 "--header-insertion-decorators=0"))))
 
 ;; ----------------------------------------------------------------------------
 ;; Shell scripts
@@ -859,11 +865,11 @@ With argument, do this that many times."
 (let ((opam-share-dir (ignore-errors (car (process-lines "opam" "config" "var" "share")))))
   (when (and opam-share-dir (file-directory-p opam-share-dir))
     (let* ((opam-site-list-dir (concat opam-share-dir "/emacs/site-lisp"))
-	   (opam-tuareg-site-file (format "%s/%s" opam-site-list-dir "tuareg-site-file")))
+           (opam-tuareg-site-file (format "%s/%s" opam-site-list-dir "tuareg-site-file")))
 
       ;; tuareg
       (when (file-exists-p (concat opam-tuareg-site-file ".el"))
-	(load opam-tuareg-site-file))
+        (load opam-tuareg-site-file))
 
       ;; ocp-indent
       (add-to-list 'load-path opam-site-list-dir)
