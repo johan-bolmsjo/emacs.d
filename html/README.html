@@ -35,13 +35,13 @@ Installation instruction:
 </li>
 <li><a href="#orgbb84ef4">2. Quick Guides</a>
 <ul>
-<li><a href="#org8e591c9">2.1. Navigation</a></li>
-<li><a href="#orgcfe8586">2.2. Incremental Search</a></li>
+<li><a href="#org51624a3">2.1. Navigation</a></li>
+<li><a href="#org4464d7b">2.2. Incremental Search</a></li>
 <li><a href="#org40d21d3">2.3. Completion in Buffers</a></li>
 <li><a href="#org61a7e37">2.4. Minibuffer Completion</a></li>
 <li><a href="#org11ac5e8">2.5. Magit</a></li>
-<li><a href="#orge599b37">2.6. Denote</a></li>
-<li><a href="#org96084e4">2.7. Org Mode</a></li>
+<li><a href="#org0b456c6">2.6. Denote</a></li>
+<li><a href="#org21ed872">2.7. Org Mode</a></li>
 <li><a href="#org2d015bf">2.8. Text Templates</a></li>
 <li><a href="#org144e520">2.9. Diagnostics</a></li>
 <li><a href="#org68555a3">2.10. Language Server Protocol Support</a></li>
@@ -192,17 +192,17 @@ Also <a href="http://xahlee.info/emacs/emacs/keyboard_shortcuts.html">http://xah
 <dt><code>C-c t</code></dt><dd>toggle treemacs pane</dd>
 </dl>
 </div>
-<div id="outline-container-org4464d7b" class="outline-5">
-<h5 id="org4464d7b">Incremental Search</h5>
-<div class="outline-text-5" id="text-org4464d7b">
+<div id="outline-container-org240181a" class="outline-5">
+<h5 id="org240181a">Incremental Search</h5>
+<div class="outline-text-5" id="text-org240181a">
 <dl class="org-dl">
 <dt><code>C-c k</code></dt><dd>Set mark at start of current match and exit isearch (user function).</dd>
 </dl>
 </div>
 </div>
-<div id="outline-container-org51624a3" class="outline-5">
-<h5 id="org51624a3">Navigation</h5>
-<div class="outline-text-5" id="text-org51624a3">
+<div id="outline-container-org5a81886" class="outline-5">
+<h5 id="org5a81886">Navigation</h5>
+<div class="outline-text-5" id="text-org5a81886">
 <p>
 Even though these functions are called <code>error</code>, they work in many contexts. E.g. moving through compilation errors, grep results, xref references.
 </p>
@@ -232,9 +232,9 @@ See <a href="https://smythp.com/emacs_buffers/">https://smythp.com/emacs_buffers
 </p>
 </div>
 </div>
-<div id="outline-container-org0b456c6" class="outline-5">
-<h5 id="org0b456c6">Denote</h5>
-<div class="outline-text-5" id="text-org0b456c6">
+<div id="outline-container-orgbc07616" class="outline-5">
+<h5 id="orgbc07616">Denote</h5>
+<div class="outline-text-5" id="text-orgbc07616">
 <dl class="org-dl">
 <dt><code>C-c n</code></dt><dd>Command prefix</dd>
 </dl>
@@ -246,9 +246,9 @@ Discover all commands by entering <code>M-x denote</code>
 </p>
 </div>
 </div>
-<div id="outline-container-org21ed872" class="outline-5">
-<h5 id="org21ed872">Org Mode</h5>
-<div class="outline-text-5" id="text-org21ed872">
+<div id="outline-container-org502519d" class="outline-5">
+<h5 id="org502519d">Org Mode</h5>
+<div class="outline-text-5" id="text-org502519d">
 <dl class="org-dl">
 <dt><code>C-c p</code></dt><dd><code>org-agenda</code> (planning)</dd>
 <dt><code>C-c L</code></dt><dd><code>org-store-link</code> (works in other modes to store links)</dd>
@@ -391,25 +391,27 @@ fi
 <h4 id="org102e3d8"><span class="section-number-4">1.4.2.</span> Shell Environment&#xa0;&#xa0;&#xa0;<span class="tag"><span class="optional">optional</span></span></h4>
 <div class="outline-text-4" id="text-1-4-2">
 <p>
-You may want to source <code>~/.emacs.d/etc/bashrc</code> from your <code>~/.bashrc</code> file.
-Read the small script to find its purpose.
+Suggested Emacs shell integration.
+</p>
+
+<p>
+Set the <code>EDITOR</code> environment variable to emacs in <code>~/.profile</code> or other shell login environment script.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash">if [ -f ~/.emacs.d/etc/bashrc ]; then
-    . ~/.emacs.d/etc/bashrc
-fi
+<pre class="src src-bash"># Set preferred editor invoked by some command line tools.
+export EDITOR="emacs -nw"
 </pre>
 </div>
 
 <p>
-You may also want to source <code>~/.emacs.d/etc/profile</code> from your <code>~/.profile</code> or <code>~/.bash_profile</code> to add <code>~/.emacs.d/bin</code> to the program search path.
+Add a convenience command alias to e.g. <code>~/.bashrc</code> to open a file in Emacs from a terminal.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash">if [ -f ~/.emacs.d/etc/profile ]; then
-    . ~/.emacs.d/etc/profile
-fi
+<pre class="src src-bash"># Open file in already started Emacs running in server mode (M-x server-start).
+# Useful to hide Emacs startup cost when editing config files from the shell.
+alias edit='emacsclient -n'
 </pre>
 </div>
 </div>
@@ -453,8 +455,8 @@ Scattered quick guides for my own memory.
 It could do with more information for Emacs neophytes.
 </p>
 </div>
-<div id="outline-container-org8e591c9" class="outline-3">
-<h3 id="org8e591c9"><span class="section-number-3">2.1.</span> Navigation</h3>
+<div id="outline-container-org51624a3" class="outline-3">
+<h3 id="org51624a3"><span class="section-number-3">2.1.</span> Navigation</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Xref is used by many Emacs modes for navigation, including Eglot for navigating source code.
@@ -475,8 +477,8 @@ Jump to a specific line.
 </dl>
 </div>
 </div>
-<div id="outline-container-orgcfe8586" class="outline-3">
-<h3 id="orgcfe8586"><span class="section-number-3">2.2.</span> Incremental Search</h3>
+<div id="outline-container-org4464d7b" class="outline-3">
+<h3 id="org4464d7b"><span class="section-number-3">2.2.</span> Incremental Search</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 Don't forget about the occur mode when doing incremental search.
@@ -573,8 +575,8 @@ The magit status command is bound to <code>C-x g</code>.
 </p>
 </div>
 </div>
-<div id="outline-container-orge599b37" class="outline-3">
-<h3 id="orge599b37"><span class="section-number-3">2.6.</span> Denote</h3>
+<div id="outline-container-org0b456c6" class="outline-3">
+<h3 id="org0b456c6"><span class="section-number-3">2.6.</span> Denote</h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
 The YouTube presentation <a href="https://www.youtube.com/watch?v=mLzFJcLpDFI">https://www.youtube.com/watch?v=mLzFJcLpDFI</a> by the package author gives a good overview of the note taking workflow.
@@ -582,8 +584,8 @@ I recommend studying the <a href="https://protesilaos.com/emacs/denote">manual</
 </p>
 </div>
 </div>
-<div id="outline-container-org96084e4" class="outline-3">
-<h3 id="org96084e4"><span class="section-number-3">2.7.</span> Org Mode</h3>
+<div id="outline-container-org21ed872" class="outline-3">
+<h3 id="org21ed872"><span class="section-number-3">2.7.</span> Org Mode</h3>
 <div class="outline-text-3" id="text-2-7">
 <p>
 <a href="http://orgmode.org">Org mode</a> is a documentation and planning major mode.

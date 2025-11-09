@@ -213,21 +213,21 @@ My =~/.bashrc= contains the following lines to set it for the suckless terminal:
 
 *** Shell Environment                                            :optional:
 
-You may want to source =~/.emacs.d/etc/bashrc= from your =~/.bashrc= file.
-Read the small script to find its purpose.
+Suggested Emacs shell integration.
+
+Set the ~EDITOR~ environment variable to emacs in =~/.profile= or other shell login environment script.
 
 #+begin_src bash
-  if [ -f ~/.emacs.d/etc/bashrc ]; then
-      . ~/.emacs.d/etc/bashrc
-  fi
+  # Set preferred editor invoked by some command line tools.
+  export EDITOR="emacs -nw"
 #+end_src
 
-You may also want to source =~/.emacs.d/etc/profile= from your =~/.profile= or =~/.bash_profile= to add =~/.emacs.d/bin= to the program search path.
+Add a convenience command alias to e.g. =~/.bashrc= to open a file in Emacs from a terminal.
 
 #+begin_src bash
-  if [ -f ~/.emacs.d/etc/profile ]; then
-      . ~/.emacs.d/etc/profile
-  fi
+  # Open file in already started Emacs running in server mode (M-x server-start).
+  # Useful to hide Emacs startup cost when editing config files from the shell.
+  alias edit='emacsclient -n'
 #+end_src
 
 *** Fonts                                                        :optional:
