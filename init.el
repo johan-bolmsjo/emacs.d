@@ -258,8 +258,6 @@ With argument, do this that many times."
 
 (global-set-key (kbd "M-f") 'forward-symbol)
 (global-set-key (kbd "M-b") 'my/backward-symbol)
-(global-set-key (kbd "M-C-f") 'forward-paragraph)
-(global-set-key (kbd "M-C-b") 'backward-paragraph)
 
 ;; Kill the default buffer without questions.
 (defun my/fast-kill-buffer ()

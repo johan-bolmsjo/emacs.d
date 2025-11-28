@@ -175,8 +175,6 @@ Modifies standard Emacs behavior or use non-user prefix.
 - =M-p= :: =scroll-down-command=
 - =M-f= :: =forward-symbol= (replaces forward-word)
 - =M-b= :: =my/backward-symbol= (replaces backward-word)
-- =M-C-f= :: =forward-paragraph= (replaces forward-sexp)
-- =M-C-b= :: =backward-paragraph= (replaces backward-sexp)
 - =C-x k= :: =my/fast-kill-buffer= (replaces kill-buffer)
 
 ** User Facing Functions
