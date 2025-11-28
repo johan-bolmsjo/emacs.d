@@ -102,8 +102,8 @@ Also http://xahlee.info/emacs/emacs/keyboard_shortcuts.html for practical overri
 
 Even though these functions are called =error=, they work in many contexts. E.g. moving through compilation errors, grep results, xref references.
 
-- =F9= :: =next-error=
-- =F10= :: =prev-error= (overrides global menu popup)
+- =M-]= :: =next-error=
+- =C-M-]= :: =prev-error=
 
 **** Window Management
 
@@ -170,7 +170,6 @@ It extends some of the consult commands by making it possible to export the curr
 
 Modifies standard Emacs behavior or use non-user prefix.
 
-- =F10= :: =prev-error= (overrides global menu popup)
 - =M-n= :: =scroll-up-command=
 - =M-p= :: =scroll-down-command=
 - =M-f= :: =forward-symbol= (replaces forward-word)
