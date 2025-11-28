@@ -451,7 +451,7 @@ With argument, do this that many times."
 ;; Put all task logs into LOGBOOK drawer.
 (setq org-log-into-drawer t)
 
-;; Prevent parent tasks from being marked as DUNE unless all child tasks are DONE.
+;; Prevent parent tasks from being marked as DONE unless all child tasks are DONE.
 (setq org-enforce-todo-dependencies t)
 
 ;; Syntax highlight src blocks.
