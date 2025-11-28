@@ -168,18 +168,6 @@
 ;; Turn on auto fill mode when editing text files.
 ;;(add-hook 'text-mode-hook 'turn-on-auto-fill)
 
-(defun my/split-policy-wide ()
-    "Frame split policy for wide displays."
-    (interactive)
-    (setq split-height-threshold nil))
-
-(defun my/split-policy-tall ()
-    "Frame split policy for tall displays (e.g. LG DualUp monitor)."
-    (interactive)
-    (setq split-height-threshold 60))
-
-(my/split-policy-wide)
-
 ;; Keep some context above cursor when scrolling pages.
 (setq scroll-margin 5)
 

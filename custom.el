@@ -30,6 +30,8 @@
  '(plantuml-default-exec-mode 'jar)
  '(plantuml-jar-path "/usr/share/plantuml/plantuml.jar")
  '(plantuml-server-url "")
+ '(split-height-threshold 72)
+ '(split-width-threshold 180)
  '(xref-search-program 'ripgrep))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
