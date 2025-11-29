@@ -502,7 +502,7 @@ Many packages see heavy development and may require a recent version.
 
 ** Emacs 30.2
 
-Install dependencies (Ubuntu 22.04 specific):
+Install dependencies (Ubuntu 22.04, Debian 13 specific):
 
 #+begin_src bash
   sudo apt install \
