@@ -244,8 +244,8 @@
 (global-set-key (kbd "C-c p") 'org-agenda)
 (global-set-key (kbd "C-c L") 'org-store-link)
 
-(global-set-key (kbd "M-]") 'next-error)
-(global-set-key (kbd "C-M-]") 'previous-error)
+(global-set-key (kbd "M-_") 'previous-error)
+(global-set-key (kbd "M-+") 'next-error)
 
 (global-set-key (kbd "M-n") 'scroll-up-command)
 (global-set-key (kbd "M-p") 'scroll-down-command)
