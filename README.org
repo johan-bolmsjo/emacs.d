@@ -17,7 +17,7 @@ Installation instruction:
 
 Requires GNU Emacs version 30.1 or greater.
 
-The main init file is =init.el=.
+The main init file is ~init.el~.
 This file loads packages that require external programs to function properly.
 See chapter [[Setup of External Tools]] for how to install required programs for specific packages.
 
@@ -33,11 +33,11 @@ This means that the Emacs configuration is reproducible.
 It's also possible to easily change package versions to resolve incompatibilities when the configuration is
 copied between hosts with different Emacs versions.
 
-The version lock file =~/.emacs.d/straight/versions/default.el= is versioned by this Git repository.
+The version lock file ~~/.emacs.d/straight/versions/default.el~ is versioned by this Git repository.
 
 The actual upstream package source code is not managed by this Git repository.
 They are downloaded by Emacs when started.
-For local backup purposes it's possible to just archive the whole =~/.emacs.d= directory.
+For local backup purposes it's possible to just archive the whole ~~/.emacs.d~ directory.
 It's transferable between machines.
 
 *** Documentation Modes
@@ -86,67 +86,72 @@ Keybindings that are specific to this configuration file.
 See https://www.gnu.org/software/emacs/manual/html_node/elisp/Key-Binding-Conventions.html for user keybinding conventions.
 Also http://xahlee.info/emacs/emacs/keyboard_shortcuts.html for practical overrides.
 
-- =C-c a= :: =align-current=
-- =C-c c= :: =compile=
-- =C-c g= :: =find-grep=
-- =C-c i= :: =ispell-region=
-- =C-c o= :: =ff-find-other-file= (in c-mode-common)
-- =C-c s= :: =sort-lines=
-- =C-c t= :: toggle treemacs pane
+- ~C-c a~ :: ~align-current~
+- ~C-c c~ :: ~compile~
+- ~C-c g~ :: ~find-grep~
+- ~C-c i~ :: ~ispell-region~
+- ~C-c o~ :: ~ff-find-other-file~ (in c-mode-common)
+- ~C-c s~ :: ~sort-lines~
+- ~C-c t~ :: toggle treemacs pane
 
 **** Incremental Search
 
-- =C-c k= :: Set mark at start of current match and exit isearch (user function).
+- ~C-c k~ :: Set mark at start of current match and exit isearch (user function).
 
 **** Navigation
 
-Even though these functions are called =error=, they work in many contexts. E.g. moving through compilation errors, grep results, xref references.
+Even though these functions are called ~error~, they work in many contexts. E.g. moving through compilation errors, grep results, xref references.
 
-- =M-_= :: =previous-error=
-- =M-+= :: =next-error=
+- ~M-_~ :: ~previous-error~
+- ~M-+~ :: ~next-error~
+
+Navigate using key prefixes generated on the fly:
+
+- ~C-c k~ :: ~avy-goto-char-2~
+- ~C-c l~ :: ~avy-goto-line~
 
 **** Window Management
 
 Commands useful to prevent Emacs from splitting frames and replacing buffers in windows when doing certain tasks.
 
-- =C-c F= :: Lock current frame for automatic splitting.
-- =C-c f= :: Unlock current frame for automatic splitting.
-- =C-c W= :: Lock current window to its current buffer.
-- =C-c w= :: Unlock current window from its current buffer.
+- ~C-c F~ :: Lock current frame for automatic splitting.
+- ~C-c f~ :: Unlock current frame for automatic splitting.
+- ~C-c W~ :: Lock current window to its current buffer.
+- ~C-c w~ :: Unlock current window from its current buffer.
 
 See https://smythp.com/emacs_buffers/ for an explanation of the frames, windows and buffers terminology.
 
 **** Denote
 
-- =C-c n= :: Command prefix
+- ~C-c n~ :: Command prefix
 
-The main note taking command is =C-c n n=.
+The main note taking command is ~C-c n n~.
 Other keybindings are listed when entering the command prefix.
-Discover all commands by entering =M-x denote=
+Discover all commands by entering ~M-x denote~
 
 **** Org Mode
 
-- =C-c p= :: =org-agenda= (planning)
-- =C-c L= :: =org-store-link= (works in other modes to store links)
+- ~C-c p~ :: ~org-agenda~ (planning)
+- ~C-c L~ :: ~org-store-link~ (works in other modes to store links)
 
 **** Eglot Mode
 
 Note that eglot relies on the keybindings of other packages for most functions.
 E.g. xref for navigation and eldoc for documentation.
 
-- =C-c e a= :: =eglot-code-actions=
-- =C-c e f= :: =eglot-format= (ask server to format buffer or the active region)
-- =C-c e r= :: =eglot-rename= (rename symbol at point)
-- =C-c e i= :: =eglot-find-implementation=
-- =C-c e t= :: =eglot-find-typeDefinition=
+- ~C-c e a~ :: ~eglot-code-actions~
+- ~C-c e f~ :: ~eglot-format~ (ask server to format buffer or the active region)
+- ~C-c e r~ :: ~eglot-rename~ (rename symbol at point)
+- ~C-c e i~ :: ~eglot-find-implementation~
+- ~C-c e t~ :: ~eglot-find-typeDefinition~
 
 **** Flymake Mode
 
 Aligned with flycheck counterparts.
 
-- =C-c ! l= :: =flymake-show-buffer-diagnostics=
-- =C-c ! n= :: =flymake-goto-next-error=
-- =C-c ! p= :: =flymake-goto-prev-error=
+- ~C-c ! l~ :: ~flymake-show-buffer-diagnostics~
+- ~C-c ! n~ :: ~flymake-goto-next-error~
+- ~C-c ! p~ :: ~flymake-goto-prev-error~
 
 **** Embark
 
@@ -154,33 +159,33 @@ Aligned with flycheck counterparts.
 For example opening the URL that the cursor is placed on in a buffer.
 It extends some of the consult commands by making it possible to export the current selection to regular buffers for easier manipulation.
 
-- =C-c v= :: Execute action on current context
-- =C-c d= :: "Do what I mean" on current context
-- =C-h B= :: =embark-bindings=; alternative for `describe-bindings'
+- ~C-c v~ :: Execute action on current context
+- ~C-c d~ :: "Do what I mean" on current context
+- ~C-h B~ :: ~embark-bindings~; alternative for `describe-bindings'
 
 **** GDB (debugger)
 
-- =F5= :: Continue program being debugged.
-- =F6= :: Step till next source line, do not enter subroutine (next).
-- =F7= :: Step till next source line, enter subroutine (step).
-- =F8= :: Execute until current stack frame returns.
-- =S-F8= :: Stop debugging
+- ~F5~ :: Continue program being debugged.
+- ~F6~ :: Step till next source line, do not enter subroutine (next).
+- ~F7~ :: Step till next source line, enter subroutine (step).
+- ~F8~ :: Execute until current stack frame returns.
+- ~S-F8~ :: Stop debugging
 
 *** Overridden Keybindings
 
 Modifies standard Emacs behavior or use non-user prefix.
 
-- =M-n= :: =scroll-up-command=
-- =M-p= :: =scroll-down-command=
-- =M-f= :: =forward-symbol= (replaces forward-word)
-- =M-b= :: =my/backward-symbol= (replaces backward-word)
-- =C-x k= :: =my/fast-kill-buffer= (replaces kill-buffer)
+- ~M-n~ :: ~scroll-up-command~
+- ~M-p~ :: ~scroll-down-command~
+- ~M-f~ :: ~forward-symbol~ (replaces forward-word)
+- ~M-b~ :: ~my/backward-symbol~ (replaces backward-word)
+- ~C-x k~ :: ~my/fast-kill-buffer~ (replaces kill-buffer)
 
 ** User Facing Functions
 
 Convenience functions defined by the configuration.
 
-- =reload-file= :: Calls =revert-buffer= without asking for confirmation
+- ~reload-file~ :: Calls ~revert-buffer~ without asking for confirmation
 
 ** Configuration Adaptations
 
@@ -192,11 +197,11 @@ The solarized theme that is used by this Emacs configuration only works properly
 
 The website https://github.com/termstandard/colors describes how to configure terminals and associated tools to support true color.
 
-In essence, the environment variable =COLORTERM= must be set to =truecolor=.
-=COLORTERM= is distinct from the usual =TERM= environment variable that communicate terminal capabilities.
+In essence, the environment variable ~COLORTERM~ must be set to ~truecolor~.
+~COLORTERM~ is distinct from the usual ~TERM~ environment variable that communicate terminal capabilities.
 Obviously the underlying terminal must also support the true color escape codes.
 
-My =~/.bashrc= contains the following lines to set it for the suckless terminal:
+My ~~/.bashrc~ contains the following lines to set it for the suckless terminal:
 
 #+begin_src bash
   # Set the COLORTERM variable to "truecolor" if the terminal supports it.
@@ -212,14 +217,14 @@ My =~/.bashrc= contains the following lines to set it for the suckless terminal:
 
 Suggested Emacs shell integration.
 
-Set the ~EDITOR~ environment variable to emacs in =~/.profile= or other shell login environment script.
+Set the ~EDITOR~ environment variable to emacs in ~~/.profile~ or other shell login environment script.
 
 #+begin_src bash
   # Set preferred editor invoked by some command line tools.
   export EDITOR="emacs -nw"
 #+end_src
 
-Add a convenience command alias to e.g. =~/.bashrc= to open a file in Emacs from a terminal.
+Add a convenience command alias to e.g. ~~/.bashrc~ to open a file in Emacs from a terminal.
 
 #+begin_src bash
   # Open file in already started Emacs running in server mode (M-x server-start).
@@ -229,7 +234,7 @@ Add a convenience command alias to e.g. =~/.bashrc= to open a file in Emacs from
 
 *** Fonts                                                        :optional:
 
-A personal choice, my current favorite monospaced fonts can be found in the =~/.emacs.d/fonts/gofont= directory.
+A personal choice, my current favorite monospaced fonts can be found in the ~~/.emacs.d/fonts/gofont~ directory.
 
 Installation (Linux):
 #+begin_src bash
@@ -237,11 +242,11 @@ Installation (Linux):
   cp ~/.emacs.d/fonts/gofont/*.ttf ~/.fonts
 #+end_src
 
-Update =~/.emacs.d/fonts.el= with your preferred fonts and default size.
+Update ~~/.emacs.d/fonts.el~ with your preferred fonts and default size.
 
 *** Custom Variables
 
-Variables that may need customization (such as file paths) are stored in =~/.emacs.d/custom.el=.
+Variables that may need customization (such as file paths) are stored in ~~/.emacs.d/custom.el~.
 
 
 * Quick Guides
@@ -253,75 +258,75 @@ It could do with more information for Emacs neophytes.
 
 Xref is used by many Emacs modes for navigation, including Eglot for navigating source code.
 
-- =M-,= :: Go back
-- =M-.= :: Find thing
-- =M-?= :: Find references
+- ~M-,~ :: Go back
+- ~M-.~ :: Find thing
+- ~M-?~ :: Find references
 
 Jump to a specific line.
 
-- =M-g g= :: goto-line
+- ~M-g g~ :: goto-line
 
 ** Incremental Search
 
 Don't forget about the occur mode when doing incremental search.
 It's very useful to get a navigable outline of all current matches.
 
-All keybindings can be listed by invoking =C-h b= when in search mode.
+All keybindings can be listed by invoking ~C-h b~ when in search mode.
 
 Starting search:
 
-- =C-s= :: Search forward for a literal string
-- =C-r= :: Search backward for a literal string
-- =C-M-s= :: Search forward for a regexp
-- =C-M-r= :: Search backward for a regexp
-- =M-s _= :: Search forward for a symbol
-- =M-s .= :: Search forward for the symbol at point
+- ~C-s~ :: Search forward for a literal string
+- ~C-r~ :: Search backward for a literal string
+- ~C-M-s~ :: Search forward for a regexp
+- ~C-M-r~ :: Search backward for a regexp
+- ~M-s _~ :: Search forward for a symbol
+- ~M-s .~ :: Search forward for the symbol at point
 
 During search:
 
-- =C-s= :: Move to next match (=C-s C-s= to resume search)
-- =C-r= :: Move to previous match (=C-r C-r= to resume search)
-- =C-g= :: Abort search
-- =M-c= :: Toggle case sensitive search
-- =M-e= :: Edit search term
-- =M-s o= :: Outline of current matches (occur)
-- =M-s SPC= :: Toggle lax whitespace
-- =RET= :: Terminate search, leaving cursor at the current match
+- ~C-s~ :: Move to next match (~C-s C-s~ to resume search)
+- ~C-r~ :: Move to previous match (~C-r C-r~ to resume search)
+- ~C-g~ :: Abort search
+- ~M-c~ :: Toggle case sensitive search
+- ~M-e~ :: Edit search term
+- ~M-s o~ :: Outline of current matches (occur)
+- ~M-s SPC~ :: Toggle lax whitespace
+- ~RET~ :: Terminate search, leaving cursor at the current match
 
 ** Completion in Buffers
 
 Completion is provided by [[https://github.com/minad/corfu][Corfu]] together with [[https://github.com/oantolin/orderless][Orderless]].
-Completion is triggered by =C-M-i= which is bound to =complete-symbol=.
+Completion is triggered by ~C-M-i~ which is bound to ~complete-symbol~.
 The TAB key is also configured to either indent (if it can), else complete.
 This does not work in the C/C++ mode.
 
 The completion mechanism provided by orderless is a bit different and can take some time to get used to.
 Multiple patterns (space separated words) can be entered.
 Completions candidates that match all patterns regardless of order are kept.
-Patterns can be regexps as well as regular words, e.g. =^desc= match candidates starting with =desc=.
+Patterns can be regexps as well as regular words, e.g. ~^desc~ match candidates starting with ~desc~.
 
 The built-in [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Dynamic-Abbrevs.html][dabbrev]] mode can also be useful.
 
-- =M-/= :: dabbrev-expand
-- =C-M-/= :: dabbrev-completion
+- ~M-/~ :: dabbrev-expand
+- ~C-M-/~ :: dabbrev-completion
 
 ** Minibuffer Completion
 
 [[https://github.com/minad/vertico][Vertico]] together with [[https://github.com/minad/marginalia][Marginalia]] and [[https://github.com/oantolin/orderless][Orderless]] is used to enhance minibuffer completions.
-For example selecting buffers, files or the function to invoke via =M-x=.
+For example selecting buffers, files or the function to invoke via ~M-x~.
 
-- =TAB=   :: Navigate to selected candidate
-- =RET=   :: Accept selected candidate
-- =M-RET= :: Submit exactly what is typed (ignore candidate completion)
-- =C-g=   :: Abort (as always)
+- ~TAB~   :: Navigate to selected candidate
+- ~RET~   :: Accept selected candidate
+- ~M-RET~ :: Submit exactly what is typed (ignore candidate completion)
+- ~C-g~   :: Abort (as always)
 
-Searching for previous selections is done using =C-s= and =C-r=.
+Searching for previous selections is done using ~C-s~ and ~C-r~.
 Navigation is performed using the usual keybindings.
 
 ** Magit
 
 [[https://magit.vc][Magit]] is a complete text-based user interface to Git.
-The magit status command is bound to =C-x g=.
+The magit status command is bound to ~C-x g~.
 
 ** Denote
 
@@ -333,14 +338,14 @@ I recommend studying the [[https://protesilaos.com/emacs/denote][manual]] for fu
 [[http://orgmode.org][Org mode]] is a documentation and planning major mode.
 Some HOWTO notes are kept in file:docs/howto-org-mode.org.
 
-The =org-tempo= package is enabled which provides some template instantiation shortcuts.
-Invoke =M-x describe-variable= and enter =org-tempo-tags= to see all shortcuts.
-Useful shortcuts include =<s= /TAB/ for source blocks and =<q= /TAB/ for quote blocks.
+The ~org-tempo~ package is enabled which provides some template instantiation shortcuts.
+Invoke ~M-x describe-variable~ and enter ~org-tempo-tags~ to see all shortcuts.
+Useful shortcuts include ~<s~ /TAB/ for source blocks and ~<q~ /TAB/ for quote blocks.
 
 ** Text Templates
 
 Text template support is provided by the [[https://github.com/joaotavora/yasnippet][yasnippet]] package. Sippets are kept under\\
-=~/.emacs.d/<MODE>/<FILE>= and they are are expanded by typing their name and pressing
+~~/.emacs.d/<MODE>/<FILE>~ and they are are expanded by typing their name and pressing
 /TAB/.
 
 ** Diagnostics
@@ -353,28 +358,28 @@ Diagnostics such as compiler errors are provied by either the flycheck or flymak
 Only version controlled directories can become projects.
 Eglot can only analyze files that belongs to a project.
 
-Invoke =M-x p p= to add a project, select the /... (choose a dir)/ option.
-Tracked projects are stored in =~/.emacs.d/projects=.
+Invoke ~M-x p p~ to add a project, select the /... (choose a dir)/ option.
+Tracked projects are stored in ~~/.emacs.d/projects~.
 
 Eglot must be started manually from an opened file that belongs to a project.
-This is done by invoking =M-x eglot=.
+This is done by invoking ~M-x eglot~.
 Eglot may ask for the language server to use if it can't find one or there are multiple choices.
 After having done this once, eglot does not prompt for other files in the same project.
 
 Eglot is well integrated with core Emacs packages.
 Apart from the mentioned xref it use the eldoc package to display documentation and type information.
-Invoke =C-h .= to show documentation at point.
+Invoke ~C-h .~ to show documentation at point.
 
 ** Keyboard Macros
 
 Keyboard macros are incredibly useful to apply repetitive changes in close proximity.
-Press =F3= to start recording key presses.
-Press =F4= to end the recording and bind it to the same key.
+Press ~F3~ to start recording key presses.
+Press ~F4~ to end the recording and bind it to the same key.
 
 ** Debugging Using GDB
 
-Activate by =M-x gdb= followed by =M-x gdb-many-windows=.
-The toolbar contain debugger navigation icons so you may want to enable it using =M-x tool-bar-mode=.
+Activate by ~M-x gdb~ followed by ~M-x gdb-many-windows~.
+The toolbar contain debugger navigation icons so you may want to enable it using ~M-x tool-bar-mode~.
 Keybindings are listed in section [[*GDB (debugger)][GDB (debugger)]].
 
 
@@ -411,14 +416,26 @@ Ubuntu/Debian specific instruction:
 
 ** Go Programming Language Mode
 
-Install the Go programming language toolchain as instructed on https://go.dev/dl/
+Install the Go programming language toolchain as instructed on https://go.dev/dl/ or upgrade with the following commands:
+#+begin_src bash
+  # Select toolchain version as appropriate.
+  # You also need to update the GOROOT and PATH environment variables for your shell.
+  go install golang.org/dl/go1.26.0@latest
+  go1.26.0 download
+#+end_src
 
-Install required tools:
+Install tools for Emacs integration:
 #+begin_src bash
   go install golang.org/x/tools/gopls@latest
   go install golang.org/x/tools/cmd/goimports@latest
   go install golang.org/x/tools/cmd/gorename@latest
   go install github.com/rogpeppe/godef@latest
+#+end_src
+
+Install support tools (not Emacs environment related):
+#+begin_src bash
+  # Debugger for Go (versioned as the Go toolchain, e.g. v1.26).
+  go install github.com/go-delve/delve/cmd/dlv@latest
 #+end_src
 
 ** OCaml Programming Language Mode
@@ -448,7 +465,7 @@ Clone the pyenv repo:
   cd ~/.pyenv && src/configure && make -C src
 #+end_src
 
-Put the following in =~/.bashrc=:
+Put the following in ~~/.bashrc~:
 #+begin_src bash
   export PYENV_ROOT="$HOME/.pyenv"
   if [ -d "$PYENV_ROOT" ]; then
@@ -477,10 +494,10 @@ Install a Python version using pyenv:
 
 Switching between Python versions:
 
-- =pyenv shell VERSION= :: Select just for current shell session.
-- =pyenv local VERSION= :: Automatically select whenever you are in the
+- ~pyenv shell VERSION~ :: Select just for current shell session.
+- ~pyenv local VERSION~ :: Automatically select whenever you are in the
   current directory (or its subdirectories).
-- =pyenv global VERSION= :: Select globally for your user account.
+- ~pyenv global VERSION~ :: Select globally for your user account.
 
 *** Language Server
 
@@ -549,7 +566,7 @@ Download, configure, build and install GNU Emacs on Linux:
 
 Make sure that Cairo is used for the GUI in the configure stage or some library dependency is missing.
 
-Install tree-sitter language grammar files using =M-x treesit-install-language-grammar=;
+Install tree-sitter language grammar files using ~M-x treesit-install-language-grammar~;
 example language names: python, c, cpp.
 
 See https://www.masteringemacs.org/article/how-to-get-started-tree-sitter for an introduction to Emacs tree-sitter support and how to use it.

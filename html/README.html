@@ -35,13 +35,13 @@ Installation instruction:
 </li>
 <li><a href="#orgbb84ef4">2. Quick Guides</a>
 <ul>
-<li><a href="#org945fc4f">2.1. Navigation</a></li>
-<li><a href="#orga8826e5">2.2. Incremental Search</a></li>
+<li><a href="#orgc16b2b6">2.1. Navigation</a></li>
+<li><a href="#org29d3fa5">2.2. Incremental Search</a></li>
 <li><a href="#org40d21d3">2.3. Completion in Buffers</a></li>
 <li><a href="#org61a7e37">2.4. Minibuffer Completion</a></li>
 <li><a href="#org11ac5e8">2.5. Magit</a></li>
-<li><a href="#org800a729">2.6. Denote</a></li>
-<li><a href="#org8e6327b">2.7. Org Mode</a></li>
+<li><a href="#org87f0710">2.6. Denote</a></li>
+<li><a href="#org84f4bd8">2.7. Org Mode</a></li>
 <li><a href="#org2d015bf">2.8. Text Templates</a></li>
 <li><a href="#org144e520">2.9. Diagnostics</a></li>
 <li><a href="#org68555a3">2.10. Language Server Protocol Support</a></li>
@@ -192,17 +192,17 @@ Also <a href="http://xahlee.info/emacs/emacs/keyboard_shortcuts.html">http://xah
 <dt><code>C-c t</code></dt><dd>toggle treemacs pane</dd>
 </dl>
 </div>
-<div id="outline-container-org29d3fa5" class="outline-5">
-<h5 id="org29d3fa5">Incremental Search</h5>
-<div class="outline-text-5" id="text-org29d3fa5">
+<div id="outline-container-org978bfd1" class="outline-5">
+<h5 id="org978bfd1">Incremental Search</h5>
+<div class="outline-text-5" id="text-org978bfd1">
 <dl class="org-dl">
 <dt><code>C-c k</code></dt><dd>Set mark at start of current match and exit isearch (user function).</dd>
 </dl>
 </div>
 </div>
-<div id="outline-container-orgc16b2b6" class="outline-5">
-<h5 id="orgc16b2b6">Navigation</h5>
-<div class="outline-text-5" id="text-orgc16b2b6">
+<div id="outline-container-orgf785904" class="outline-5">
+<h5 id="orgf785904">Navigation</h5>
+<div class="outline-text-5" id="text-orgf785904">
 <p>
 Even though these functions are called <code>error</code>, they work in many contexts. E.g. moving through compilation errors, grep results, xref references.
 </p>
@@ -210,6 +210,15 @@ Even though these functions are called <code>error</code>, they work in many con
 <dl class="org-dl">
 <dt><code>M-_</code></dt><dd><code>previous-error</code></dd>
 <dt><code>M-+</code></dt><dd><code>next-error</code></dd>
+</dl>
+
+<p>
+Navigate using key prefixes generated on the fly:
+</p>
+
+<dl class="org-dl">
+<dt><code>C-c k</code></dt><dd><code>avy-goto-char-2</code></dd>
+<dt><code>C-c l</code></dt><dd><code>avy-goto-line</code></dd>
 </dl>
 </div>
 </div>
@@ -232,9 +241,9 @@ See <a href="https://smythp.com/emacs_buffers/">https://smythp.com/emacs_buffers
 </p>
 </div>
 </div>
-<div id="outline-container-org87f0710" class="outline-5">
-<h5 id="org87f0710">Denote</h5>
-<div class="outline-text-5" id="text-org87f0710">
+<div id="outline-container-orgad518bf" class="outline-5">
+<h5 id="orgad518bf">Denote</h5>
+<div class="outline-text-5" id="text-orgad518bf">
 <dl class="org-dl">
 <dt><code>C-c n</code></dt><dd>Command prefix</dd>
 </dl>
@@ -246,9 +255,9 @@ Discover all commands by entering <code>M-x denote</code>
 </p>
 </div>
 </div>
-<div id="outline-container-org84f4bd8" class="outline-5">
-<h5 id="org84f4bd8">Org Mode</h5>
-<div class="outline-text-5" id="text-org84f4bd8">
+<div id="outline-container-org6286d46" class="outline-5">
+<h5 id="org6286d46">Org Mode</h5>
+<div class="outline-text-5" id="text-org6286d46">
 <dl class="org-dl">
 <dt><code>C-c p</code></dt><dd><code>org-agenda</code> (planning)</dd>
 <dt><code>C-c L</code></dt><dd><code>org-store-link</code> (works in other modes to store links)</dd>
@@ -452,8 +461,8 @@ Scattered quick guides for my own memory.
 It could do with more information for Emacs neophytes.
 </p>
 </div>
-<div id="outline-container-org945fc4f" class="outline-3">
-<h3 id="org945fc4f"><span class="section-number-3">2.1.</span> Navigation</h3>
+<div id="outline-container-orgc16b2b6" class="outline-3">
+<h3 id="orgc16b2b6"><span class="section-number-3">2.1.</span> Navigation</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Xref is used by many Emacs modes for navigation, including Eglot for navigating source code.
@@ -474,8 +483,8 @@ Jump to a specific line.
 </dl>
 </div>
 </div>
-<div id="outline-container-orga8826e5" class="outline-3">
-<h3 id="orga8826e5"><span class="section-number-3">2.2.</span> Incremental Search</h3>
+<div id="outline-container-org29d3fa5" class="outline-3">
+<h3 id="org29d3fa5"><span class="section-number-3">2.2.</span> Incremental Search</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 Don't forget about the occur mode when doing incremental search.
@@ -572,8 +581,8 @@ The magit status command is bound to <code>C-x g</code>.
 </p>
 </div>
 </div>
-<div id="outline-container-org800a729" class="outline-3">
-<h3 id="org800a729"><span class="section-number-3">2.6.</span> Denote</h3>
+<div id="outline-container-org87f0710" class="outline-3">
+<h3 id="org87f0710"><span class="section-number-3">2.6.</span> Denote</h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
 The YouTube presentation <a href="https://www.youtube.com/watch?v=mLzFJcLpDFI">https://www.youtube.com/watch?v=mLzFJcLpDFI</a> by the package author gives a good overview of the note taking workflow.
@@ -581,8 +590,8 @@ I recommend studying the <a href="https://protesilaos.com/emacs/denote">manual</
 </p>
 </div>
 </div>
-<div id="outline-container-org8e6327b" class="outline-3">
-<h3 id="org8e6327b"><span class="section-number-3">2.7.</span> Org Mode</h3>
+<div id="outline-container-org84f4bd8" class="outline-3">
+<h3 id="org84f4bd8"><span class="section-number-3">2.7.</span> Org Mode</h3>
 <div class="outline-text-3" id="text-2-7">
 <p>
 <a href="http://orgmode.org">Org mode</a> is a documentation and planning major mode.
@@ -720,17 +729,33 @@ Ubuntu/Debian specific instruction:
 <h3 id="org546bc4c"><span class="section-number-3">3.4.</span> Go Programming Language Mode</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
-Install the Go programming language toolchain as instructed on <a href="https://go.dev/dl/">https://go.dev/dl/</a>
+Install the Go programming language toolchain as instructed on <a href="https://go.dev/dl/">https://go.dev/dl/</a> or upgrade with the following commands:
 </p>
+<div class="org-src-container">
+<pre class="src src-bash"># Select toolchain version as appropriate.
+# You also need to update the GOROOT and PATH environment variables for your shell.
+go install golang.org/dl/go1.26.0@latest
+go1.26.0 download
+</pre>
+</div>
 
 <p>
-Install required tools:
+Install tools for Emacs integration:
 </p>
 <div class="org-src-container">
 <pre class="src src-bash">go install golang.org/x/tools/gopls@latest
 go install golang.org/x/tools/cmd/goimports@latest
 go install golang.org/x/tools/cmd/gorename@latest
 go install github.com/rogpeppe/godef@latest
+</pre>
+</div>
+
+<p>
+Install support tools (not Emacs environment related):
+</p>
+<div class="org-src-container">
+<pre class="src src-bash"># Debugger for Go (versioned as the Go toolchain, e.g. v1.26).
+go install github.com/go-delve/delve/cmd/dlv@latest
 </pre>
 </div>
 </div>
