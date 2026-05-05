@@ -107,7 +107,8 @@ Even though these functions are called ~error~, they work in many contexts. E.g.
 
 Navigate using key prefixes generated on the fly:
 
-- ~C-c k~ :: ~avy-goto-char-2~
+- ~C-c j~ :: ~avy-goto-symbol-1-above~
+- ~C-c k~ :: ~avy-goto-symbol-1-below~
 - ~C-c l~ :: ~avy-goto-line~
 
 **** Window Management
