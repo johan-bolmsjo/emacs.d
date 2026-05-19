@@ -32,7 +32,7 @@
  '(plantuml-server-url "")
  '(split-height-threshold 80)
  '(split-width-threshold nil)
- '(xref-search-program 'ripgrep)
+ '(xref-search-program 'ripgrep))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
