@@ -86,12 +86,12 @@ Keybindings that are specific to this configuration file.
 See https://www.gnu.org/software/emacs/manual/html_node/elisp/Key-Binding-Conventions.html for user keybinding conventions.
 Also http://xahlee.info/emacs/emacs/keyboard_shortcuts.html for practical overrides.
 
-- ~C-c a~ :: ~align-current~
-- ~C-c c~ :: ~compile~
-- ~C-c g~ :: ~find-grep~
-- ~C-c i~ :: ~ispell-region~
-- ~C-c o~ :: ~ff-find-other-file~ (in c-mode-common)
-- ~C-c s~ :: ~sort-lines~
+- ~C-c a~ :: =align-current=
+- ~C-c c~ :: =compile=
+- ~C-c g~ :: =find-grep=
+- ~C-c i~ :: =ispell-region=
+- ~C-c o~ :: =ff-find-other-file= (in c-mode-common)
+- ~C-c s~ :: =sort-lines=
 - ~C-c t~ :: toggle treemacs pane
 
 **** Incremental Search
@@ -102,25 +102,20 @@ Also http://xahlee.info/emacs/emacs/keyboard_shortcuts.html for practical overri
 
 Even though these functions are called ~error~, they work in many contexts. E.g. moving through compilation errors, grep results, xref references.
 
-- ~M-_~ :: ~previous-error~
-- ~M-+~ :: ~next-error~
+- ~M-_~ :: =previous-error=
+- ~M-+~ :: =next-error=
 
 Navigate using key prefixes generated on the fly:
 
-- ~C-c j~ :: ~avy-goto-symbol-1-above~
-- ~C-c k~ :: ~avy-goto-symbol-1-below~
-- ~C-c l~ :: ~avy-goto-line~
+- ~C-c j~ :: =avy-goto-symbol-1-above=
+- ~C-c k~ :: =avy-goto-symbol-1-below=
+- ~C-c l~ :: =avy-goto-line=
 
 **** Window Management
 
-Commands useful to prevent Emacs from splitting frames and replacing buffers in windows when doing certain tasks.
-
-- ~C-c F~ :: Lock current frame for automatic splitting.
-- ~C-c f~ :: Unlock current frame for automatic splitting.
-- ~C-c W~ :: Lock current window to its current buffer.
-- ~C-c w~ :: Unlock current window from its current buffer.
-
-See https://smythp.com/emacs_buffers/ for an explanation of the frames, windows and buffers terminology.
+The /winner-mode/ is enabled by default. Restore the window layout with
+~C-c <left>~ or redo with ~C-c <right>~. Useful for peeking into buffers
+with e.g. ~C-x 1~ and then restoring the window layout.
 
 **** Denote
 
@@ -130,29 +125,35 @@ The main note taking command is ~C-c n n~.
 Other keybindings are listed when entering the command prefix.
 Discover all commands by entering ~M-x denote~
 
+Custom commands:
+
+- ~C-c n j~ :: =my/denote-journal=
+- ~C-c n J~ :: =my/denote-journal-type=
+- ~C-c n x~ :: =my/denote-daily-log=
+
 **** Org Mode
 
-- ~C-c p~ :: ~org-agenda~ (planning)
-- ~C-c L~ :: ~org-store-link~ (works in other modes to store links)
+- ~C-c p~ :: =org-agenda= (planning)
+- ~C-c L~ :: =org-store-link= (works in other modes to store links)
 
 **** Eglot Mode
 
 Note that eglot relies on the keybindings of other packages for most functions.
 E.g. xref for navigation and eldoc for documentation.
 
-- ~C-c e a~ :: ~eglot-code-actions~
-- ~C-c e f~ :: ~eglot-format~ (ask server to format buffer or the active region)
-- ~C-c e r~ :: ~eglot-rename~ (rename symbol at point)
-- ~C-c e i~ :: ~eglot-find-implementation~
-- ~C-c e t~ :: ~eglot-find-typeDefinition~
+- ~C-c e a~ :: =eglot-code-actions=
+- ~C-c e f~ :: =eglot-format= (ask server to format buffer or the active region)
+- ~C-c e r~ :: =eglot-rename= (rename symbol at point)
+- ~C-c e i~ :: =eglot-find-implementation=
+- ~C-c e t~ :: =eglot-find-typeDefinition=
 
 **** Flymake Mode
 
 Aligned with flycheck counterparts.
 
-- ~C-c ! l~ :: ~flymake-show-buffer-diagnostics~
-- ~C-c ! n~ :: ~flymake-goto-next-error~
-- ~C-c ! p~ :: ~flymake-goto-prev-error~
+- ~C-c ! l~ :: =flymake-show-buffer-diagnostics=
+- ~C-c ! n~ :: =flymake-goto-next-error=
+- ~C-c ! p~ :: =flymake-goto-prev-error=
 
 **** Embark
 
@@ -162,7 +163,7 @@ It extends some of the consult commands by making it possible to export the curr
 
 - ~C-c v~ :: Execute action on current context
 - ~C-c d~ :: "Do what I mean" on current context
-- ~C-h B~ :: ~embark-bindings~; alternative for `describe-bindings'
+- ~C-h B~ :: =embark-bindings=; alternative for `describe-bindings'
 
 **** GDB (debugger)
 
@@ -176,17 +177,17 @@ It extends some of the consult commands by making it possible to export the curr
 
 Modifies standard Emacs behavior or use non-user prefix.
 
-- ~M-n~ :: ~scroll-up-command~
-- ~M-p~ :: ~scroll-down-command~
-- ~M-f~ :: ~forward-symbol~ (replaces forward-word)
-- ~M-b~ :: ~my/backward-symbol~ (replaces backward-word)
-- ~C-x k~ :: ~my/fast-kill-buffer~ (replaces kill-buffer)
+- ~M-n~ :: =scroll-up-command=
+- ~M-p~ :: =scroll-down-command=
+- ~M-f~ :: =forward-symbol= (replaces forward-word)
+- ~M-b~ :: =my/backward-symbol= (replaces backward-word)
+- ~C-x k~ :: =my/fast-kill-buffer= (replaces kill-buffer)
 
 ** User Facing Functions
 
 Convenience functions defined by the configuration.
 
-- ~reload-file~ :: Calls ~revert-buffer~ without asking for confirmation
+- ~reload-file~ :: Calls =revert-buffer= without asking for confirmation
 
 ** Configuration Adaptations
 
@@ -297,7 +298,7 @@ During search:
 ** Completion in Buffers
 
 Completion is provided by [[https://github.com/minad/corfu][Corfu]] together with [[https://github.com/oantolin/orderless][Orderless]].
-Completion is triggered by ~C-M-i~ which is bound to ~complete-symbol~.
+Completion is triggered by ~C-M-i~ which is bound to =complete-symbol=.
 The TAB key is also configured to either indent (if it can), else complete.
 This does not work in the C/C++ mode.
 
@@ -339,8 +340,8 @@ I recommend studying the [[https://protesilaos.com/emacs/denote][manual]] for fu
 [[http://orgmode.org][Org mode]] is a documentation and planning major mode.
 Some HOWTO notes are kept in file:docs/howto-org-mode.org.
 
-The ~org-tempo~ package is enabled which provides some template instantiation shortcuts.
-Invoke ~M-x describe-variable~ and enter ~org-tempo-tags~ to see all shortcuts.
+The =org-tempo= package is enabled which provides some template instantiation shortcuts.
+Invoke ~M-x describe-variable~ and enter =org-tempo-tags= to see all shortcuts.
 Useful shortcuts include ~<s~ /TAB/ for source blocks and ~<q~ /TAB/ for quote blocks.
 
 ** Text Templates

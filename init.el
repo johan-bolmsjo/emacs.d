@@ -49,6 +49,7 @@
 (straight-use-package 'vertico)
 (straight-use-package 'yasnippet)
 (straight-use-package 'visual-fill-column)
+;; BUG: xclip does not work with Windows
 (straight-use-package 'xclip)
 
 ;; Documentation formats
@@ -93,6 +94,9 @@
 ;; Persist minibuffer history over Emacs restarts.
 ;; This can help completion modes to remember often used commands.
 (savehist-mode)
+
+;; Undo or restore window layout with "C-c <left>" or "C-c <right>".
+(winner-mode)
 
 ;; Disable startup message
 (setq inhibit-startup-message t)
@@ -144,7 +148,7 @@
 (global-hl-line-mode)
 
 ;; Display line numbers for each line
-(global-display-line-numbers-mode)
+;;(global-display-line-numbers-mode)
 
 ;; Show matching parenthesis
 (show-paren-mode 1)
@@ -210,41 +214,6 @@
 
 (define-key isearch-mode-map (kbd "C-c k") 'my/isearch-mark-and-exit)
 
-(defun my/lock-frame ()
-  "Lock current frame for automatic splitting"
-  (interactive)
-  (set-frame-parameter nil 'unsplittable t)
-  (message "Frame is locked for automatic splitting"))
-
-(defun my/unlock-frame ()
-  "Unlock current frame for automatic splitting"
-  (interactive)
-  (set-frame-parameter nil 'unsplittable nil)
-  (message "Frame is unlocked for automatic splitting"))
-
-(defun my/lock-window ()
-  "Lock window to its current buffer"
-  (interactive)
-  (message
-   (let (window (get-buffer-window (current-buffer)))
-     (set-window-dedicated-p window t)
-     "Window '%s' is locked")
-   (current-buffer)))
-
-(defun my/unlock-window ()
-  "Unlock window from its current buffer"
-  (interactive)
-  (message
-   (let (window (get-buffer-window (current-buffer)))
-     (set-window-dedicated-p window nil)
-     "Window '%s' is unlocked")
-   (current-buffer)))
-
-(global-set-key (kbd "C-c F") 'my/lock-frame)
-(global-set-key (kbd "C-c f") 'my/unlock-frame)
-(global-set-key (kbd "C-c W") 'my/lock-window)
-(global-set-key (kbd "C-c w") 'my/unlock-window)
-
 (global-set-key (kbd "C-c p") 'org-agenda)
 (global-set-key (kbd "C-c L") 'org-store-link)
 
@@ -281,6 +250,7 @@ With argument, do this that many times."
 (global-set-key (kbd "<f12>") 'tmux-copy-kill-ring)
 (global-set-key (kbd "<S-f12>") 'wsl-copy-kill-ring)
 
+;; BUG: xclip does not work with Windows
 (xclip-mode)
 
 ;; ----------------------------------------------------------------------------
@@ -299,7 +269,7 @@ With argument, do this that many times."
 ;; Color theme
 ;; ----------------------------------------------------------------------------
 
-(load-theme 'modus-operandi t)
+(load-theme 'modus-operandi-tinted t)
 
 ;; ----------------------------------------------------------------------------
 ;; Whitespace config
@@ -364,6 +334,7 @@ With argument, do this that many times."
     ("C-c n N" . denote-type)
     ("C-c n j" . my/denote-journal)
     ("C-c n J" . my/denote-journal-type)
+    ("C-c n x" . my/denote-daily-log)
     ("C-c n d" . denote-sort-dired)
     ;; If you intend to use Denote with a variety of file types, it is
     ;; easier to bind the link-related commands to the `global-map', as
@@ -406,29 +377,51 @@ With argument, do this that many times."
   ;; Automatically rename Denote buffers using the `denote-rename-buffer-format'.
   (denote-rename-buffer-mode 1))
 
-
-;; Custom command to create a journal entry with a predefined "journal"
-;; keyword in a dedicated sub directory.
 (defun my/denote-journal ()
-  "Create an entry tagged 'journal', while prompting for a title and additional keywords."
+  "Create a denote journal entry and prompt for title and additional keywords."
   (interactive)
   (denote
    (denote-title-prompt)
    (denote-keywords-sort (cons "journal" (denote-keywords-prompt)))
    nil
-   (concat denote-directory "/journal")))
+   (denote-directory)))
 
-;; Custom command to create a journal entry with a predefined "journal"
-;; keyword in a dedicated sub directory, asking for the file type.
 (defun my/denote-journal-type ()
-  "Create an entry tagged 'journal', while prompting for the file type, a title and additional keywords."
+  "Create a denote journal entry and prompt for the file type, title and additional keywords."
   (interactive)
   (let ((file-type (denote-file-type-prompt)))
     (denote
      (denote-title-prompt)
      (denote-keywords-sort (cons "journal" (denote-keywords-prompt)))
      file-type
-     (concat denote-directory "/journal"))))
+     (denote-directory))))
+
+(defun my/denote-daily-log ()
+  "Create a denote daily log or open an existing log for the day."
+  (interactive)
+  (require 'denote)
+  (let* ((title (format "Daily log %s" (format-time-string "%y%m%d")))
+         (filename-title (denote-sluggify-title title))
+         (directory (denote-directory))
+         (matches
+          (seq-filter
+           #'file-regular-p
+           (mapcar (lambda (name) (expand-file-name name directory))
+                   (seq-filter
+                    (lambda (name)
+                      (and (not (backup-file-name-p name))
+                           (not (auto-save-file-name-p name))
+                           (string-match-p (regexp-quote filename-title) name)))
+                    (directory-files directory))))))
+    (if (null matches)
+        (denote
+         title
+         (denote-keywords-sort '("journal"))
+         nil
+         directory)
+      (let ((file (car matches)))
+        (find-file file)
+        (message "Opened %s" file)))))
 
 ;; ----------------------------------------------------------------------------
 ;; PlantUML: Diagrams etc
@@ -588,6 +581,8 @@ With argument, do this that many times."
 
 (use-package vertico
   :ensure nil
+  :custom
+  (vertico-count 15)
   :init
   (vertico-mode))
 
