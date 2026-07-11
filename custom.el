@@ -18,7 +18,7 @@
  '(denote-excluded-files-regexp "/attachments/")
  '(marginalia-field-width 160)
  '(org-agenda-files '("~/Documents/notes/plan.org"))
- '(org-default-notes-file "~/Documents/inbox.org")
+ '(org-default-notes-file "~/Documents/notes/inbox.org")
  '(org-id-link-to-org-use-id 'use-existing)
  '(org-link-frame-setup
    '((vm . vm-visit-folder-other-frame)
