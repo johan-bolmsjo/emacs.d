@@ -14,11 +14,11 @@
  ;; If there is more than one, they won't work right.
  '(bookmark-bmenu-file-column 60)
  '(cmake-tab-width 4)
- '(denote-directory "~/notes/")
+ '(denote-directory "~/Documents/notes/")
  '(denote-excluded-files-regexp "/attachments/")
  '(marginalia-field-width 160)
- '(org-agenda-files '("~/notes/plan.org"))
- '(org-default-notes-file "~/org/notes.org")
+ '(org-agenda-files '("~/Documents/notes/plan.org"))
+ '(org-default-notes-file "~/Documents/inbox.org")
  '(org-id-link-to-org-use-id 'use-existing)
  '(org-link-frame-setup
    '((vm . vm-visit-folder-other-frame)

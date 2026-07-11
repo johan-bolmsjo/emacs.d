@@ -356,8 +356,7 @@ With argument, do this that many times."
     ("C-c C-d C-R" . denote-dired-rename-marked-files-using-front-matter))
 
   :config
-  ;; Remember to check the doc string of each of those variables.
-  ;;(setq denote-directory (expand-file-name "~/notes"))  ; Configured in custom.el
+  ;; denote-directory is configured in custom.el
   (setq denote-save-buffers nil)
   (setq denote-known-keywords '("metanote"))
   (setq denote-infer-keywords t)
