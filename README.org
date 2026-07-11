@@ -505,7 +505,7 @@ Switching between Python versions:
 
 Install the language server:
 #+begin_src bash
-  pip install 'python-language-server[all]' scrapy
+  pip install --upgrade 'python-lsp-server[all]'
 #+end_src
 
 ** Zig Programming Language Mode
