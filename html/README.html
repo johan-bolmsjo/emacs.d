@@ -35,18 +35,19 @@ Installation instruction:
 </li>
 <li><a href="#orgbb84ef4">2. Quick Guides</a>
 <ul>
-<li><a href="#orgf24333d">2.1. Navigation</a></li>
-<li><a href="#org9260fb2">2.2. Incremental Search</a></li>
+<li><a href="#orgdad9798">2.1. Navigation</a></li>
+<li><a href="#org452f3ae">2.2. Incremental Search</a></li>
 <li><a href="#org40d21d3">2.3. Completion in Buffers</a></li>
 <li><a href="#org61a7e37">2.4. Minibuffer Completion</a></li>
 <li><a href="#org11ac5e8">2.5. Magit</a></li>
-<li><a href="#orga3823dc">2.6. Denote</a></li>
-<li><a href="#org5b84ea3">2.7. Org Mode</a></li>
+<li><a href="#org01b3851">2.6. Denote</a></li>
+<li><a href="#org68b1b38">2.7. Org Mode</a></li>
 <li><a href="#org2d015bf">2.8. Text Templates</a></li>
 <li><a href="#org144e520">2.9. Diagnostics</a></li>
-<li><a href="#org68555a3">2.10. Language Server Protocol Support</a></li>
-<li><a href="#org70aaa5a">2.11. Keyboard Macros</a></li>
-<li><a href="#org54b58fb">2.12. Debugging Using GDB</a></li>
+<li><a href="#org5053e3f">2.10. Spell checking</a></li>
+<li><a href="#org68555a3">2.11. Language Server Protocol Support</a></li>
+<li><a href="#org70aaa5a">2.12. Keyboard Macros</a></li>
+<li><a href="#org54b58fb">2.13. Debugging Using GDB</a></li>
 </ul>
 </li>
 <li><a href="#org2fe1157">3. Setup of External Tools</a>
@@ -160,6 +161,7 @@ Some configuration may be missing for SLIME as I've barely used it.
 <li>Templated auto complete assisted snippets through <a href="https://github.com/joaotavora/yasnippet">Yasnippet</a>.</li>
 <li>Project like IDE support using <a href="https://github.com/Alexander-Miller/treemacs">Treemacs</a>, <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Projects.html">project.el</a> and <a href="https://github.com/joaotavora/eglot">Eglot</a>.</li>
 <li>Compiler diagnostics through <a href="https://www.flycheck.org/en/latest/">Flycheck</a> or <a href="https://www.gnu.org/software/emacs/manual/html_mono/flymake.html">Flymake</a>.</li>
+<li>Spell checking with flyspell</li>
 <li>Git interface through <a href="https://magit.vc/">Magit</a>.</li>
 <li>GDB support through <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Debuggers.html">GUD</a>.</li>
 <li>Extraneous whitespace indications.</li>
@@ -192,17 +194,17 @@ Also <a href="http://xahlee.info/emacs/emacs/keyboard_shortcuts.html">http://xah
 <dt><code>C-c t</code></dt><dd>toggle treemacs pane</dd>
 </dl>
 </div>
-<div id="outline-container-org452f3ae" class="outline-5">
-<h5 id="org452f3ae">Incremental Search</h5>
-<div class="outline-text-5" id="text-org452f3ae">
+<div id="outline-container-org82ac1e3" class="outline-5">
+<h5 id="org82ac1e3">Incremental Search</h5>
+<div class="outline-text-5" id="text-org82ac1e3">
 <dl class="org-dl">
 <dt><code>C-c k</code></dt><dd>Set mark at start of current match and exit isearch (user function).</dd>
 </dl>
 </div>
 </div>
-<div id="outline-container-orgdad9798" class="outline-5">
-<h5 id="orgdad9798">Navigation</h5>
-<div class="outline-text-5" id="text-orgdad9798">
+<div id="outline-container-org697e144" class="outline-5">
+<h5 id="org697e144">Navigation</h5>
+<div class="outline-text-5" id="text-org697e144">
 <p>
 Even though these functions are called <code>error</code>, they work in many contexts. E.g. moving through compilation errors, grep results, xref references.
 </p>
@@ -233,9 +235,9 @@ with e.g. <code>C-x 1</code> and then restoring the window layout.
 </p>
 </div>
 </div>
-<div id="outline-container-org01b3851" class="outline-5">
-<h5 id="org01b3851">Denote</h5>
-<div class="outline-text-5" id="text-org01b3851">
+<div id="outline-container-org41c48a3" class="outline-5">
+<h5 id="org41c48a3">Denote</h5>
+<div class="outline-text-5" id="text-org41c48a3">
 <dl class="org-dl">
 <dt><code>C-c n</code></dt><dd>Command prefix</dd>
 </dl>
@@ -257,9 +259,9 @@ Custom commands:
 </dl>
 </div>
 </div>
-<div id="outline-container-org68b1b38" class="outline-5">
-<h5 id="org68b1b38">Org Mode</h5>
-<div class="outline-text-5" id="text-org68b1b38">
+<div id="outline-container-org3c3671d" class="outline-5">
+<h5 id="org3c3671d">Org Mode</h5>
+<div class="outline-text-5" id="text-org3c3671d">
 <dl class="org-dl">
 <dt><code>C-c p</code></dt><dd><code>org-agenda</code> (planning)</dd>
 <dt><code>C-c L</code></dt><dd><code>org-store-link</code> (works in other modes to store links)</dd>
@@ -430,8 +432,8 @@ Scattered quick guides for my own memory.
 It could do with more information for Emacs neophytes.
 </p>
 </div>
-<div id="outline-container-orgf24333d" class="outline-3">
-<h3 id="orgf24333d"><span class="section-number-3">2.1.</span> Navigation</h3>
+<div id="outline-container-orgdad9798" class="outline-3">
+<h3 id="orgdad9798"><span class="section-number-3">2.1.</span> Navigation</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Xref is used by many Emacs modes for navigation, including Eglot for navigating source code.
@@ -452,8 +454,8 @@ Jump to a specific line.
 </dl>
 </div>
 </div>
-<div id="outline-container-org9260fb2" class="outline-3">
-<h3 id="org9260fb2"><span class="section-number-3">2.2.</span> Incremental Search</h3>
+<div id="outline-container-org452f3ae" class="outline-3">
+<h3 id="org452f3ae"><span class="section-number-3">2.2.</span> Incremental Search</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 Don't forget about the occur mode when doing incremental search.
@@ -550,8 +552,8 @@ The magit status command is bound to <code>C-x g</code>.
 </p>
 </div>
 </div>
-<div id="outline-container-orga3823dc" class="outline-3">
-<h3 id="orga3823dc"><span class="section-number-3">2.6.</span> Denote</h3>
+<div id="outline-container-org01b3851" class="outline-3">
+<h3 id="org01b3851"><span class="section-number-3">2.6.</span> Denote</h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
 The YouTube presentation <a href="https://www.youtube.com/watch?v=mLzFJcLpDFI">https://www.youtube.com/watch?v=mLzFJcLpDFI</a> by the package author gives a good overview of the note taking workflow.
@@ -559,8 +561,8 @@ I recommend studying the <a href="https://protesilaos.com/emacs/denote">manual</
 </p>
 </div>
 </div>
-<div id="outline-container-org5b84ea3" class="outline-3">
-<h3 id="org5b84ea3"><span class="section-number-3">2.7.</span> Org Mode</h3>
+<div id="outline-container-org68b1b38" class="outline-3">
+<h3 id="org68b1b38"><span class="section-number-3">2.7.</span> Org Mode</h3>
 <div class="outline-text-3" id="text-2-7">
 <p>
 <a href="http://orgmode.org">Org mode</a> is a documentation and planning major mode.
@@ -592,9 +594,19 @@ Diagnostics such as compiler errors are provied by either the flycheck or flymak
 </p>
 </div>
 </div>
-<div id="outline-container-org68555a3" class="outline-3">
-<h3 id="org68555a3"><span class="section-number-3">2.10.</span> Language Server Protocol Support</h3>
+<div id="outline-container-org5053e3f" class="outline-3">
+<h3 id="org5053e3f"><span class="section-number-3">2.10.</span> Spell checking</h3>
 <div class="outline-text-3" id="text-2-10">
+<p>
+Spell checking is configured to use hunpell with English and Swedish dictionaries.
+These must be installed through the host operating system.
+The default dictionary is English, switch with <code>M-x ispell-change-dictionary</code>.
+</p>
+</div>
+</div>
+<div id="outline-container-org68555a3" class="outline-3">
+<h3 id="org68555a3"><span class="section-number-3">2.11.</span> Language Server Protocol Support</h3>
+<div class="outline-text-3" id="text-2-11">
 <p>
 <a href="https://github.com/joaotavora/eglot/blob/master/MANUAL.md">Eglot</a> works in concert with project.el to identify <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Projects.html">projects</a>.
 Only version controlled directories can become projects.
@@ -621,8 +633,8 @@ Invoke <code>C-h .</code> to show documentation at point.
 </div>
 </div>
 <div id="outline-container-org70aaa5a" class="outline-3">
-<h3 id="org70aaa5a"><span class="section-number-3">2.11.</span> Keyboard Macros</h3>
-<div class="outline-text-3" id="text-2-11">
+<h3 id="org70aaa5a"><span class="section-number-3">2.12.</span> Keyboard Macros</h3>
+<div class="outline-text-3" id="text-2-12">
 <p>
 Keyboard macros are incredibly useful to apply repetitive changes in close proximity.
 Press <code>F3</code> to start recording key presses.
@@ -631,8 +643,8 @@ Press <code>F4</code> to end the recording and bind it to the same key.
 </div>
 </div>
 <div id="outline-container-org54b58fb" class="outline-3">
-<h3 id="org54b58fb"><span class="section-number-3">2.12.</span> Debugging Using GDB</h3>
-<div class="outline-text-3" id="text-2-12">
+<h3 id="org54b58fb"><span class="section-number-3">2.13.</span> Debugging Using GDB</h3>
+<div class="outline-text-3" id="text-2-13">
 <p>
 Activate by <code>M-x gdb</code> followed by <code>M-x gdb-many-windows</code>.
 The toolbar contain debugger navigation icons so you may want to enable it using <code>M-x tool-bar-mode</code>.

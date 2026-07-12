@@ -289,10 +289,31 @@ With argument, do this that many times."
 
 (use-package yasnippet
   :ensure nil
-  :hook
-  ((prog-mode org-mode) . yas-minor-mode)
+  :hook ((prog-mode org-mode) . yas-minor-mode)
+  :config (yas-reload-all))
+
+;; ----------------------------------------------------------------------------
+;; Spell checking
+;; ----------------------------------------------------------------------------
+
+(use-package ispell
+  :ensure nil
   :config
-  (yas-reload-all))
+  (setq ispell-program-name "hunspell")
+  (setq ispell-really-hunspell t)
+  (setq ispell-hunspell-dictionary-alist
+        '(("en_US" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil ("-d" "en_US") nil utf-8)
+          ("sv_SE" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil ("-d" "sv_SE") nil utf-8)))
+   ;; Remove the classic ispell/aspell base dictionaries:
+   (setq ispell-dictionary-base-alist nil)
+   (setq ispell-base-dicts-override-alist nil)
+   (setq ispell-dictionary "en_US"))
+
+(use-package flyspell
+  :ensure nil
+  :hook
+  (text-mode . flyspell-mode)
+  ((prog-mode makefile-mode-hook sh-mode-hook) . flyspell-prog-mode))
 
 ;; ----------------------------------------------------------------------------
 ;; Markdown: Documentation format
@@ -810,12 +831,11 @@ With argument, do this that many times."
 
 (use-package paredit
   :hook
-  (emacs-lisp-mode                  . paredit-mode) ; Elisp buffers.
-  (lisp-mode                        . paredit-mode) ; Common Lisp buffers.
-  (lisp-interaction-mode            . paredit-mode) ; Scratch buffers.
-  (ielm-mode-hook                   . paredit-mode) ; ELM buffers.
-  (eval-expression-minibuffer-setup . paredit-mode) ; Eval minibuffers.
-  )
+  (emacs-lisp-mode                  . paredit-mode)  ; Elisp buffers.
+  (lisp-mode                        . paredit-mode)  ; Common Lisp buffers.
+  (lisp-interaction-mode            . paredit-mode)  ; Scratch buffers.
+  (ielm-mode-hook                   . paredit-mode)  ; ELM buffers.
+  (eval-expression-minibuffer-setup . paredit-mode)) ; Eval minibuffers.
 
 (eldoc-add-command
  'paredit-backward-delete

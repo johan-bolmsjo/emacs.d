@@ -73,6 +73,7 @@ Some configuration may be missing for SLIME as I've barely used it.
 - Templated auto complete assisted snippets through [[https://github.com/joaotavora/yasnippet][Yasnippet]].
 - Project like IDE support using [[https://github.com/Alexander-Miller/treemacs][Treemacs]], [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Projects.html][project.el]] and [[https://github.com/joaotavora/eglot][Eglot]].
 - Compiler diagnostics through [[https://www.flycheck.org/en/latest/][Flycheck]] or [[https://www.gnu.org/software/emacs/manual/html_mono/flymake.html][Flymake]].
+- Spell checking with flyspell
 - Git interface through [[https://magit.vc/][Magit]].
 - GDB support through [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Debuggers.html][GUD]].
 - Extraneous whitespace indications.
@@ -331,6 +332,12 @@ Text template support is provided by the [[https://github.com/joaotavora/yasnipp
 ** Diagnostics
 
 Diagnostics such as compiler errors are provied by either the flycheck or flymake package.
+
+** Spell checking
+
+Spell checking is configured to use hunpell with English and Swedish dictionaries.
+These must be installed through the host operating system.
+The default dictionary is English, switch with ~M-x ispell-change-dictionary~.
 
 ** Language Server Protocol Support
 
