@@ -125,7 +125,7 @@
 (put 'downcase-region 'disabled nil)
 
 ;; Set fill column used by fill-paragraph ("M-q").
-;; Value choosed for Git commit messages, change with "M-x f".
+;; Value chosen for Git commit messages, override with "M-x f".
 (setq-default fill-column 72)
 
 ;; Turn off stupid double space rules!
@@ -954,3 +954,13 @@ With argument, do this that many times."
 
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file)
+
+;; ----------------------------------------------------------------------------
+;; Allow confusing edit state changing commands
+;; ----------------------------------------------------------------------------
+
+;; Narrow: "C-x n n", Widen: "C-x n w"
+(put 'narrow-to-region 'disabled nil)
+
+;; Goal column: "C-x C-n", Disable goal column: "C-u C-x C-n"
+(put 'set-goal-column 'disabled nil)
