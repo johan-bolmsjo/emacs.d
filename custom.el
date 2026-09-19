@@ -30,6 +30,7 @@
  '(plantuml-default-exec-mode 'jar)
  '(plantuml-jar-path "/usr/share/plantuml/plantuml.jar")
  '(plantuml-server-url "")
+ '(project-vc-extra-root-markers '(".project.el" ".venv"))
  '(split-height-threshold 80)
  '(split-width-threshold nil)
  '(xref-search-program 'ripgrep))
