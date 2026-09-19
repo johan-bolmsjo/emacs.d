@@ -15,7 +15,7 @@ Installation instruction:
 :CUSTOM_ID: init-file
 :END:
 
-Requires GNU Emacs version 30.1 or greater.
+Requires GNU Emacs version 31.1 or greater.
 
 The main init file is ~init.el~.
 This file loads packages that require external programs to function properly.
@@ -71,7 +71,7 @@ Some configuration may be missing for SLIME as I've barely used it.
 - Context aware minibuffer actions through [[https://github.com/oantolin/embark][Embark]].
 - Code completion through [[https://github.com/minad/corfu][Corfu]] and [[https://github.com/oantolin/orderless][Orderless]].
 - Templated auto complete assisted snippets through [[https://github.com/joaotavora/yasnippet][Yasnippet]].
-- Project like IDE support using [[https://github.com/Alexander-Miller/treemacs][Treemacs]], [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Projects.html][project.el]] and [[https://github.com/joaotavora/eglot][Eglot]].
+- Project like IDE support using speedbar-window, [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Projects.html][project.el]] and [[https://github.com/joaotavora/eglot][Eglot]].
 - Compiler diagnostics through [[https://www.flycheck.org/en/latest/][Flycheck]] or [[https://www.gnu.org/software/emacs/manual/html_mono/flymake.html][Flymake]].
 - Spell checking with flyspell
 - Git interface through [[https://magit.vc/][Magit]].
@@ -93,7 +93,7 @@ Also http://xahlee.info/emacs/emacs/keyboard_shortcuts.html for practical overri
 - ~C-c i~ :: =ispell-region=
 - ~C-c o~ :: =ff-find-other-file= (in c-mode-common)
 - ~C-c s~ :: =sort-lines=
-- ~C-c t~ :: toggle treemacs pane
+- ~C-c t~ :: toggle =speedbar-window=
 
 **** Incremental Search
 
@@ -504,7 +504,7 @@ Install the language server:
 Compiling [[https://www.gnu.org/software/emacs/][GNU Emacs]] from source is quite easy.
 Many packages see heavy development and may require a recent version.
 
-** Emacs 30.2
+** Emacs 31.1
 
 Install dependencies (Ubuntu 22.04, Debian 13 specific):
 
@@ -538,9 +538,9 @@ Example: Install libgccjit corresponding to GCC version
 Download, configure, build and install GNU Emacs on Linux:
 
 #+begin_src bash
-  wget https://ftp.acc.umu.se/mirror/gnu.org/gnu/emacs/emacs-30.2.tar.xz
-  tar xf emacs-30.2.tar.xz
-  cd emacs-30.2
+  wget https://ftp.acc.umu.se/mirror/gnu.org/gnu/emacs/emacs-31.1.tar.xz
+  tar xf emacs-31.1.tar.xz
+  cd emacs-31.1
   ./configure \
       --with-native-compilation \
       --with-mailutils \

@@ -17,19 +17,19 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org59dea06">1. Per document TODO states</a></li>
-<li><a href="#org268494e">2. Exporting to Other Formats</a>
+<li><a href="#orga0ef981">1. Per document TODO states</a></li>
+<li><a href="#orgf8c9b0a">2. Exporting to Other Formats</a>
 <ul>
-<li><a href="#orga143e26">2.1. Document Options</a></li>
-<li><a href="#orgac7dce7">2.2. Explicit TOC</a></li>
-<li><a href="#org36cbf36">2.3. HTML custom CSS file</a></li>
+<li><a href="#org68d85c2">2.1. Document Options</a></li>
+<li><a href="#org79db501">2.2. Explicit TOC</a></li>
+<li><a href="#org1cf488b">2.3. HTML custom CSS file</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org59dea06" class="outline-2">
-<h2 id="org59dea06"><span class="section-number-2">1.</span> Per document TODO states</h2>
+<div id="outline-container-orga0ef981" class="outline-2">
+<h2 id="orga0ef981"><span class="section-number-2">1.</span> Per document TODO states</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Execute <code>C-c C-c</code> on a changed <code>#+todo</code> line to re-evaluate it.
@@ -39,8 +39,8 @@ Execute <code>C-c C-c</code> on a changed <code>#+todo</code> line to re-evaluat
 Adds BLOCKED as a TODO state and CANCELED as a DONE state:
 </p>
 <div class="org-src-container">
-<pre class="src src-org">#+todo: TODO BLOCKED | DONE CANCELED
-</pre>
+<pre class="src src-org"><code>#+todo: TODO BLOCKED | DONE CANCELED
+</code></pre>
 </div>
 
 <p>
@@ -48,16 +48,16 @@ Defines keybindings for each state that are prompted for when <code>C-c C-t</cod
 invoked:
 </p>
 <div class="org-src-container">
-<pre class="src src-org">#+todo: TODO(t) BLOCKED(b) | DONE(d) CANCELED(c)
-</pre>
+<pre class="src src-org"><code>#+todo: TODO(t) BLOCKED(b) | DONE(d) CANCELED(c)
+</code></pre>
 </div>
 
 <p>
 Asks for a logbook entry when entering the BLOCKED, DONE and CANCELED states.
 </p>
 <div class="org-src-container">
-<pre class="src src-org">#+todo: TODO(t) BLOCKED(b@) | DONE(d@) CANCELED(c@)
-</pre>
+<pre class="src src-org"><code>#+todo: TODO(t) BLOCKED(b@) | DONE(d@) CANCELED(c@)
+</code></pre>
 </div>
 
 <p>
@@ -66,19 +66,19 @@ information about TODO state changes.
 </p>
 </div>
 </div>
-<div id="outline-container-org268494e" class="outline-2">
-<h2 id="org268494e"><span class="section-number-2">2.</span> Exporting to Other Formats</h2>
+<div id="outline-container-orgf8c9b0a" class="outline-2">
+<h2 id="orgf8c9b0a"><span class="section-number-2">2.</span> Exporting to Other Formats</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orga143e26" class="outline-3">
-<h3 id="orga143e26"><span class="section-number-3">2.1.</span> Document Options</h3>
+<div id="outline-container-org68d85c2" class="outline-3">
+<h3 id="org68d85c2"><span class="section-number-3">2.1.</span> Document Options</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 The following line:
 </p>
 <div class="org-src-container">
-<pre class="src src-org">#+options: toc:nil num:0 H:4 author:nil timestamp:nil ^:nil
-</pre>
+<pre class="src src-org"><code>#+options: toc:nil num:0 H:4 author:nil timestamp:nil ^:nil
+</code></pre>
 </div>
 
 <p>
@@ -94,8 +94,8 @@ Breaks down to:
 </ul>
 </div>
 </div>
-<div id="outline-container-orgac7dce7" class="outline-3">
-<h3 id="orgac7dce7"><span class="section-number-3">2.2.</span> Explicit TOC</h3>
+<div id="outline-container-org79db501" class="outline-3">
+<h3 id="org79db501"><span class="section-number-3">2.2.</span> Explicit TOC</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 Disable the TOC using the <code>toc:nil</code> option and include an explicit TOC tag.
@@ -105,8 +105,8 @@ Disable the TOC using the <code>toc:nil</code> option and include an explicit TO
 Example:
 </p>
 <div class="org-src-container">
-<pre class="src src-org">#+toc: headlines 2
-</pre>
+<pre class="src src-org"><code>#+toc: headlines 2
+</code></pre>
 </div>
 
 <p>
@@ -115,26 +115,26 @@ Otherwise the TOC is always generated first in the exported document.
 </p>
 </div>
 </div>
-<div id="outline-container-org36cbf36" class="outline-3">
-<h3 id="org36cbf36"><span class="section-number-3">2.3.</span> HTML custom CSS file</h3>
+<div id="outline-container-org1cf488b" class="outline-3">
+<h3 id="org1cf488b"><span class="section-number-3">2.3.</span> HTML custom CSS file</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 Specify a CSS file to embed for HTML exports:
 </p>
 <div class="org-src-container">
-<pre class="src src-org">#+setupfile: style.css.org
-</pre>
+<pre class="src src-org"><code>#+setupfile: style.css.org
+</code></pre>
 </div>
 
 <p>
 Contents of file <code>style.css.org</code>:
 </p>
 <div class="org-src-container">
-<pre class="src src-org">#+OPTIONS: org-html-head-include-default-style:nil
+<pre class="src src-org"><code>#+OPTIONS: org-html-head-include-default-style:nil
 #+HTML_HEAD: &lt;style type="text/css"&gt;
 #+HTML_HEAD: EMBEDDED_CSS_GOES_HERE
 #+HTML_HEAD: &lt;/style&gt;
-</pre>
+</code></pre>
 </div>
 
 <p>

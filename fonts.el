@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (defun my/set-font (height)
   "Set default fonts with the specified height"
   (set-face-attribute 'default nil :family "Go Mono" :height height)

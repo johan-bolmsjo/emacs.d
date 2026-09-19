@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 ;; ----------------------------------------------------------------------------
 ;; ~/.emacs.d/init.el -- Snippets from from many emacsen files.
 ;; ----------------------------------------------------------------------------
@@ -39,13 +41,11 @@
 (straight-use-package 'avy)
 (straight-use-package 'consult)
 (straight-use-package 'corfu)
-(straight-use-package 'corfu-terminal)
 (straight-use-package 'embark)
 (straight-use-package 'embark-consult)
 (straight-use-package 'flycheck)
 (straight-use-package 'marginalia)
 (straight-use-package 'orderless)
-(straight-use-package 'treemacs)
 (straight-use-package 'vertico)
 (straight-use-package 'yasnippet)
 (straight-use-package 'visual-fill-column)
@@ -150,10 +150,7 @@
 ;; Show matching parenthesis
 (show-paren-mode 1)
 
-;; Show the function we are in when editing source code
-;;
-;; TODO: This triggers an error message when treemacs is enabled:
-;;       which-func-ff-hook error: (wrong-type-argument arrayp nil)
+;; Show the currently visited function in programming modes
 (which-function-mode 1)
 
 ;; Compilation output
@@ -202,7 +199,7 @@
 (global-set-key (kbd "C-c k") 'avy-goto-symbol-1-below)
 (global-set-key (kbd "C-c l") 'avy-goto-line)
 (global-set-key (kbd "C-c s") 'sort-lines)
-(global-set-key (kbd "C-c t") 'treemacs)
+(global-set-key (kbd "C-c t") 'speedbar-window)
 
 (defun my/isearch-mark-and-exit ()
   (interactive)
@@ -707,10 +704,6 @@ With argument, do this that many times."
 ;; Unfortunately this does not work for the C/C++ mode.
 (setq tab-always-indent 'complete)
 
-;; Enable alternative completion frame rendering in terminals.
-(unless (display-graphic-p)
-  (corfu-terminal-mode +1))
-
 ;; ----------------------------------------------------------------------------
 ;; Orderless: Completion style
 ;; - https://github.com/oantolin/orderless
@@ -947,6 +940,21 @@ With argument, do this that many times."
 ;; Start Emacs server unless already running.
 (load "server")
 (unless (server-running-p) (server-start))
+
+;; ----------------------------------------------------------------------------
+;; Workarounds for bugs
+;; ----------------------------------------------------------------------------
+
+;; https://www.reddit.com/r/emacs/comments/1vy7w8r/bug_speedbarwindowmode_mouse_clicks_dont/
+(when (version= emacs-version "31.1")
+  (defun my/speedbar-window-mode-ensure-major-mode (&rest _)
+    (unless (buffer-live-p speedbar-buffer)
+      (setq speedbar-buffer (get-buffer-create speedbar--buffer-name)))
+    (with-current-buffer speedbar-buffer
+      (unless (derived-mode-p 'speedbar-mode)
+	(speedbar-mode))))
+
+  (advice-add 'speedbar-window-mode :before #'my/speedbar-window-mode-ensure-major-mode))
 
 ;; ----------------------------------------------------------------------------
 ;; Customized Variables

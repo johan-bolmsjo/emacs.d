@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 ;; Example customization of org-mode file open actions:
 ;;
 ;; '(org-file-apps
@@ -31,6 +33,7 @@
  '(plantuml-jar-path "/usr/share/plantuml/plantuml.jar")
  '(plantuml-server-url "")
  '(project-vc-extra-root-markers '(".project.el" ".venv"))
+ '(speedbar-window-default-width 30)
  '(split-height-threshold 80)
  '(split-width-threshold nil)
  '(xref-search-program 'ripgrep))
