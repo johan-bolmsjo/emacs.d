@@ -355,7 +355,7 @@ With argument, do this that many times."
     ("C-c n N" . denote-type)
     ("C-c n j" . my/denote-journal)
     ("C-c n J" . my/denote-journal-type)
-    ("C-c n x" . my/denote-daily-log)
+    ("C-c n x" . my/denote-daily-journal)
     ("C-c n d" . denote-sort-dired)
     ;; If you intend to use Denote with a variety of file types, it is
     ;; easier to bind the link-related commands to the `global-map', as
@@ -416,11 +416,11 @@ With argument, do this that many times."
      file-type
      (denote-directory))))
 
-(defun my/denote-daily-log ()
-  "Create a denote daily log or open an existing log for the day."
-  (interactive)
+(defun my/denote-daily-journal ()
+  "Create a denote daily journal or open the existing entry.
+  (interactive)"
   (require 'denote)
-  (let* ((title (format "Daily log %s" (format-time-string "%y%m%d")))
+  (let* ((title (format "Daily %s" (format-time-string "%y%m%d")))
          (filename-title (denote-sluggify-title title))
          (directory (denote-directory))
          (matches
