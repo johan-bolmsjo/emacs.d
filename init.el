@@ -147,9 +147,6 @@
 ;; Highlight the current line
 (global-hl-line-mode)
 
-;; Display line numbers for each line
-;;(global-display-line-numbers-mode)
-
 ;; Show matching parenthesis
 (show-paren-mode 1)
 
@@ -282,6 +279,15 @@ With argument, do this that many times."
  '(face empty trailing))
 
 (add-hook 'prog-mode-hook 'whitespace-mode)
+
+;; ----------------------------------------------------------------------------
+;; Line numbers
+;; ----------------------------------------------------------------------------
+
+;; Display line numbers for each line
+;;(global-display-line-numbers-mode)
+
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
 ;; ----------------------------------------------------------------------------
 ;; Text templates
